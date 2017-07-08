@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="Christopher Diggins">
+<!-- <link rel="icon" href="../../favicon.ico"> -->
+
+<!-- Google fonts -->
+<link rel="stylesheet"href="https://fonts.googleapis.com/css?family=Cabin">
+
+<title>An Unreasonable Man: Another Software Development Blog by Christopher Diggins</title>
+
+<!-- Bootstrap core CSS -->
+<link rel="stylesheet" href="bootstrap.css">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+<style>
+	/*
+	.hero {
+		
+		background-image: url('glacier.jpg');
+		background-size: cover;
+		background-position-y: center;
+		color: white;
+		outline-width: 1;
+		font-weight: bold;
+		text-shadow: 3px 3px 1px black; 
+	}*/
+	.container {
+		background-color: rgba(0,0,0,0.3);
+	}
+	/*
+	body {
+	/* background-color:#14293D; 
+		background-color:#1D2D44; 		
+		background-color:#354255;
+	}*/
+	.content {
+		color: whitesmoke;
+	}
+</style>
+		
+</head>
+
+<body>
+<div class="jumbotron hero">
+    <div class="container">
+			<h1>Another Software Development Blog by Christopher Diggins</h1>		
+      <h3><span id='slogan'>out of the box thinking</span> since 1974</h3>
+    </div>
+	</div>
+
+	
+<div class="container">
+<h1>About Christopher Diggins</h1>
+<p>
+I love computer programming. I have been doing this for over 30 years. I currently work at Autodesk as a Principal Software Developer. I also am apparently addicted to blogging and writing open-source code. 
+Perhaps I have Luc Devroye to blame for this. A brilliant lunatic of a computer scientist at McGill who was the first person to pay me to write code. When I asked him about the ownership and licensing of the code I was writing for him he terminated the contract immediately. 
+I'm always trying to get better at programming, but I have a strange way of doing it. I either look for languages that make it easier for me, or I dream up new languages that would be easier to use. 
+I think this is because I understand algorithms, data-structures, and software architecture, but I am quickly bored with low-level details of how to use particular languages or frameworks correctly. It's not that I don't know anything about this stuff (you have to learn a few things), it's just that I find it a wasteof time. I believe that as software developers we should be able to focus on the details of how to make our software components work together, or how to create algorithms that have good complexity rather than worrying about whether or not my C++ class is exception-safe and that I have deallocate objects in the correct order. 
+This search for purity and simplicity has lead me down the path of using functional programming, immutable data-structures, task-based parallelism,dataflow programming models, and fancy stuff like that. Fun thing is that it still applies no matter what language you use. 
+</p>
+<h2>How I got started</h2>
+<p>
+My dad bought the family an Atari 400 in 1984. Once I got sufficiently bored playing Pac-Man and Centipede I decided to give this "Basic" game a try.It turned out to be something where you could code any game you could imagine. 
+
+</p>
+
+</div>
+
+</body>
+
+<script>
+		let slogans = `a troubled mind
+		raging against the machine
+		being unreasonable
+		paddling upstream
+		out of the box thinking
+		difficulty interfacing with normals
+		adapting his surroundings to himself
+		not playing well with others 
+		programming computers 
+		being confused by people
+		screaming in his head
+		imagining data structures		
+		half-heartedly trying to fit in
+		pretending he gets it
+		excited about computer programming 
+		doing things the hard-way 
+		successfully reinventing things 
+		playing with legos 
+		try to grok technology
+		lacking focus
+		looking for patterns 
+		horriby misunderstood 
+		filled with angst 
+		trying to be better 
+		taking things to the extreme
+		struggling with work-life balance
+		rehashing old material
+		making grammatical mistakes
+		procrastinating
+		trying to figure it out
+		getting high on coffee
+		making 1-off mistakes in his code
+		debugging floating point errors
+		designing odd programming languages 
+		plugging into the matrix
+		trying to decide which pill to take
+		unstable
+		acting 12
+		not being funny
+		running with scissors
+		geeking out
+		acting inappropriately
+		avoiding adulthood
+		talking with his mouth full
+		setting a bad example
+		not reading between the lines
+		being impulsive
+		raised by wolves
+		worrying his parents
+		paddling upstream
+		coloring outside the lines
+		poking it with a stick
+		causing trouble
+		not doing what he is told
+		avoiding normalcy
+		seeking a dopamine rush
+		challenging authority
+		doing things the hard way
+		forgetting to take his meds	
+		either manic or depressed
+		acting inappropriately
+		lacking filters
+		autodidacting
+		going with his gut
+		shooting from the hip
+		keeping it real
+		barely holding it together
+		faking it
+		stacking things
+		being too literal
+		asking why
+		iconoclasting
+		obsessing over details
+		keeping the demons out
+		shaking a stick at you
+		chasing squirrels
+		simplifying hard problems
+		seeking clarity		
+		not sticking to the script`.split(/\r?\n/);
+
+	 let slogan = slogans[Math.floor(Math.random()*slogans.length)];	
+	 document.getElementById('slogan').innerHTML=slogan;
+
+</script>
+</html>

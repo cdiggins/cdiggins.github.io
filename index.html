@@ -1,96 +1,144 @@
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="author" content="Christopher Diggins">
-<!-- <link rel="icon" href="../../favicon.ico"> -->
+  <head>
+   <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="Christopher Diggins">    
+	<link rel="icon" href="../../favicon.ico">
 
-<!-- Google fonts -->
-<link rel="stylesheet"href="https://fonts.googleapis.com/css?family=Cabin">
+    <title>Another Software Development Blog by Christopher Diggins</title>
 
-<title>The Unreasonable Man: A Software Development Blog by Christopher Diggins</title>
+    <!-- Bootstrap core CSS -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
 
-<!-- Bootstrap core CSS -->
-<link rel="stylesheet" href="bootstrap.css">
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
-<!-- Font Awesome -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- Custom styles for this template -->
+    <link href="css/jumbotron-narrow.css" rel="stylesheet">
+  </head>
 
-<style>
-	.hero {
-		background-image: url('glacier.jpg');
-		background-size: cover;
-		background-position-y: center;
-		color: white;
-		outline-width: 1;
-		font-weight: bold;
-		text-shadow: 3px 3px 1px black; 
-	}
-	.container {
-			background-color: rgba(0,0,0,0.3);
-	}
-</style>
-		
-</head>
+  <body>
 
-<body>
-<div class="jumbotron hero">
     <div class="container">
-			<h1>Another Software Development Blog by Christopher Diggins</h1>		
-      <h3><span id='slogan'>out of the box thinking</span> since 1974</h3>
-    </div>
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills float-right">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+          </ul>
+        </nav>
+        <h4 class="text-muted"></h4>
+      </div>
+
+      <div class="jumbotron">
+        <h1 class="display-3">Another Software Development Blog</h1>
+        <p class="lead">by Christopher Diggins<br/>
+		<span id="slogan">Forgetting the semicolon</span> since 1974</p>
 	</div>
 
-	
-	<!--
-<div class="container">
-  <div id="main" class="jumbotron" >
-    <h1>cdiggins.github.io</h1> 
-    <p>
-		A software development blog by an open-source developer Christopher Diggins.
-	</p> 
-  </div>
-  <p>This is some text.</p> 
-  <p>This is another text.</p> 
-</div>
-  -->
-</div>
-</body>
+      <div class="row marketing">
+        <div class="col-lg-6">
+          <h4>Subheading</h4>
+          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
 
-<script>
-		let slogans = `a troubled mind
+          <h4>Subheading</h4>
+          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+
+          <h4>Subheading</h4>
+          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+        </div>
+
+        <div class="col-lg-6">
+          <h4>Subheading</h4>
+          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+
+          <h4>Subheading</h4>
+          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+
+          <h4>Subheading</h4>
+          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+        </div>
+      </div>
+
+	  <div class="row marketing">
+		<h4>About Christopher Diggins</h4>
+		<p>
+			I am a software developer with over 20 years of professional software development 
+			experience in various domains and programming languages. I have a few publications
+			listed on <a href="https://scholar.google.com/citations?user=z5J10EcAAAAJ">Google scholar</a>.  
+		</p>
+		<p>
+			This blog is dedicated to various topics in software development and computer science
+			with a focus on programming language design and implementation. 
+		</p>
+		<p>
+			You can reach me at <a href="mailto:cdiggins@gmail.com">cdiggins @ gmail.com</a>, or via <a href="https://www.linkedin.com/in/cdiggins/">LinkedIn.com</a>.			
+		</p>
+	  </div>
+
+      <footer class="footer">
+        <p>&copy; Christopher Diggins 2017</p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+
+
+	<script>
+		/*
+		out of the box thinking
+		not playing well with others 
+		excited about computer programming 
+		successfully reinventing things 
+		horribly misunderstood 
+		filled with angst 
+		trying to be better 
+		taking things to the extreme
+		struggling with work-life balance
+		raised by wolves
+		simplifying hard problems		
+		*/
+		let slogans = $`a troubled mind
 		raging against the machine
 		being unreasonable
 		paddling upstream
-		out of the box thinking
 		difficulty interfacing with normals
-		adapting his surroundings to himself
-		not playing well with others 
+		trying to adapt his surroundings to himself
 		programming computers 
 		being confused by people
 		screaming in his head
 		imagining data structures		
 		half-heartedly trying to fit in
 		pretending he gets it
-		excited about computer programming 
 		doing things the hard-way 
-		successfully reinventing things 
 		playing with legos 
-		try to grok technology
+		trying to grok technology
 		lacking focus
 		looking for patterns 
-		horriby misunderstood 
-		filled with angst 
-		trying to be better 
-		taking things to the extreme
-		struggling with work-life balance
 		rehashing old material
 		making grammatical mistakes
 		procrastinating
 		trying to figure it out
 		getting high on coffee
-		making 1-off mistakes in his code
+		making one-off mistakes in his code
 		debugging floating point errors
 		designing odd programming languages 
 		plugging into the matrix
@@ -106,7 +154,6 @@
 		setting a bad example
 		not reading between the lines
 		being impulsive
-		raised by wolves
 		worrying his parents
 		paddling upstream
 		coloring outside the lines
@@ -121,12 +168,24 @@
 		either manic or depressed
 		acting inappropriately
 		lacking filters
-		autodidacting
 		going with his gut
 		shooting from the hip
 		keeping it real
 		barely holding it together
-		faking it		
+		faking it
+		stacking things
+		being too literal
+		asking why
+		iconoclasting
+		obsessing over details
+		keeping the demons out
+		shaking a stick at you
+		chasing squirrels
+		seeking clarity
+		forgetting the semicolon
+		more than a little mercurial
+		undiagnosed asperger's syndrome
+		unintentionally being pretentious
 		not sticking to the script`.split(/\r?\n/);
 
 	 let slogan = slogans[Math.floor(Math.random()*slogans.length)];	
