@@ -5,23 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="{{description}}">
+    <meta name="description" content="">
     <meta name="author" content="Christopher Diggins">
 				
-    <title>{{title}}</title>
+    <title>The Myna Static Blog Generator</title>
     <!-- Bootstrap core CSS -->
-    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap theme -->
-    <link href="../../dist/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="../dist/css/bootstrap-theme.min.css" rel="stylesheet">
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../../dist/css/theme.css" rel="stylesheet">
+    <link href="../dist/css/theme.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+    <!--[if lt IE 9]><script src="../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../assets/js/ie-emulation-modes-warning.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -48,8 +48,8 @@
             <li><a href="#articles">Blog</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
-            <li><a href="{{&prevurl}}">Previous</a></li>
-            <li><a href="{{&nexturl}}">Next</a></li>
+            <li><a href="">Previous</a></li>
+            <li><a href="">Next</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -57,13 +57,23 @@
 
     <div class="container theme-showcase" role="main">
         <div class="page-header">
-          <h1>{{title}}</h1>
-          <h3>{{date}}</h3>
+          <h1>The Myna Static Blog Generator</h1>
+          <h3>Wed Mar 15 2017 06:00:00 GMT-0400 (Eastern Daylight Time)</h3>
         </div>
     
         <div id='content'>
           <p>
-            {{&content}}
+            <h1>The Myna Static Blog Generator</h1>
+<p>
+In this post I am going to describe the blog generator created using Myna. 
+There are two ways that Myna is used:
+</p>
+<ol><li>To parse the mustache/ctemplate teamplate files </li>
+<li>To parse the markdown readme. </li>
+</ol>
+<p>
+</p>
+
           </p>
         </div>
 
@@ -83,11 +93,11 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-    <script src="../../assets/js/docs.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="../dist/js/bootstrap.min.js"></script>
+    <script src="../assets/js/docs.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="../assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>
 
