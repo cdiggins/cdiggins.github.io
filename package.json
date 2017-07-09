@@ -1,0 +1,22 @@
+{
+  "name": "cdiggins.github.io",
+  "version": "0.1",
+  "description": "A software development blog by Christopher Diggins and a simple blog generator",
+  "main": "src/build.js",
+  "scripts": {
+    "build": "src/build.js"
+  },
+  "homepage": "https://cdiggins.github.io",
+  "license": "MIT",
+  "author": {
+    "name": "Christopher Diggins",
+    "email": "cdiggins@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://cdiggins.github.io"
+  },
+  "devDependencies": {
+    "myna-parser": "~2.2.0"
+  }
+}
