@@ -1,25 +1,16 @@
-# First Post
+# First Post!
 
-Welcome to my new blog. My name is Christopher Diggins. I'm a software developer with an unhealthy obsession with programming languages and software engineering. 
-Previously I've had blogs in different location across the interwebz: 
+Welcome to my the first post of my new blog. Over the last 15 years I've had blogs in different location across the interwebz: 
 
-* Area.Autodesk.com
-* Artima.com
-* O'Reilly
-* MSDN
-* Doctor Dobbs Journal 
+* [Area.Autodesk.com](http://area.autodesk.com/author/christopher-diggins)
+* [Artima.com](https://www.artima.com/weblogs/index.jsp?blogger=cdiggins)
+* [Doctor Dobbs Journal](http://www.drdobbs.com/author/Christopher-Diggins)
+* [CodeProject](https://www.codeproject.com/script/Articles/MemberArticles.aspx?amid=1295110)
 
-## Programming and Software Development
+Since I have been getting back into [open-source development](https://github.com/cdiggins) with projects like
+the [Myna parsing library](https://github.com/cdiggins/myna-parser) I decided to host this blog on GitHub at [cdiggins.github.io](http://cdiggins.github.io). 
 
-Like most of my other blogs, the subject matter will be mostly related to programming and software development, and my adventures developing open-source libraries
-and programming languages. 
+The blog topics will cover a range of subjects related to the craft of programming and software development, as well 
+as 3D graphics and animation. 
 
-If you have ideas for blog topics, please [send me a note](mailto:cdiggins@gmail.com).
-
-
-
-
-
-
-
-
+If you have ideas for a particular blog post please [send me a note](mailto:cdiggins@gmail.com).

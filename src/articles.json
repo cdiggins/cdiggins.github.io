@@ -1,17 +1,20 @@
 {
     "posts": [{
-        "title":"Welcome to my new blog!",
+        "title":"First post!",
         "src":"first.md",
-        "date":"2017-03-12T10:00"
+        "date":"2017-07-10T07:00",
+        "description":"This first post of my new blog on software developer"
     },
     {
-        "title":"Introducing the Myna parser",
-        "src":"introducing-myna.md",
-        "date":"2017-03-14T10:00"
+        "title":"The Myna parsing library for JavaScript",
+        "src":"myna-parsing-library.md",
+        "date":"2017-07-11T07:00",
+        "description":"About the Myna recursive descent parsing library for JavaScript"
     },
     {
-        "title":"The Myna Static Blog Generator",
+        "title":"A Static Blog Generator in Myna",
         "src":"myna-blog-maker.md",
-        "date":"2017-03-15T10:00"
+        "date":"2017-07-11T10:00",
+        "description":"A static blog web-site generator created using Myna."
     }]
 }

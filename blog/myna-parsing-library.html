@@ -5,10 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="A static blog web-site generator created using Myna.">
+    <meta name="description" content="About the Myna recursive descent parsing library for JavaScript">
     <meta name="author" content="Christopher Diggins">
 				
-    <title>A Static Blog Generator in Myna</title>
+    <title>The Myna parsing library for JavaScript</title>
     <!-- Bootstrap core CSS -->
     <link href="../dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap theme -->
@@ -48,8 +48,8 @@
             <li><a href="../index.html">Home</a></li>
             <li><a href="../blog.html">Blog</a></li>
             <li><a href="../about.html">About</a></li>
-            <li><a href="myna-parsing-library.html">Previous</a></li>
-            <li><a href="">Next</a></li>
+            <li><a href="first.html">Previous</a></li>
+            <li><a href="myna-blog-maker.html">Next</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -58,21 +58,36 @@
     <div class="container theme-showcase" role="main">
         <p>
           <h4>Tuesday, July 11, 2017</h4>
-          <h5><a href='myna-parsing-library.html'><< The Myna parsing library for JavaScript</a></h5>
+          <h5><a href='first.html'><< First post!</a> | <a href='myna-blog-maker.html'>A Static Blog Generator in Myna >></a></h5>
         </p>
     
         <div id='content'>
           <p>
-            <h1>The Myna Static Blog Generator</h1>
+            <h1>Introducing the Myna Parsing Library</h1>
 <p>
-Static HTML page generation is an interesting alternative to traditional dynamic content management systems (CMS).
-The idea is quite simple, the content is stored offline, and HTML pages are generated/regenerated as needed using an offline tool and posted online. The advantage is that you don't need any kind of server side database or dynamic page generation technology like PHP or ASP. 
-I used this approach in the early 2000's in an <a href = "https://web.archive.org/web/20050210003619/http://print-and-poster.com">online print and poster store</a> and found it made website much more more responsive and easier to manage. 
-When I started looking for a new content manage to host my blog, I considered a static website generation tool called <a href = "https://jekyllrb.com/">Jekyll</a>, but then I realized that if I had a Markdown parserand a Mustache parser I could probably implement my own blog generation program quite easily using Node.JS. This was an excellent opportunity for me to test the <a href = "https://github.com/cdiggins/myna-parser">Myna parsing library</a> in a real-world context. 
+<a href = "https://cdiggins.github.io/myna-parser/">Myna</a> is an <a href = "https://github.com/cdiggins/myna-parser">open-source</a> recursive descent parsing library written in a combination of JavaScript / TypeScript. 
 </p>
-<h1>Source Code or It Didn't Happen</h1>
+<h2>Why another parsing library </h2>
 <p>
-The source code to the site can be <a href = "https://github.com/cdiggins/cdiggins.github.io">found on this GitHub repository</a>. The Myna <a href = "https://github.com/cdiggins/myna-parser/tree/master/grammars">grammars for Mustache template and Markdown parsing can be found here</a>.</p>
+I wrote Myna because I believed that: 
+</p>
+<ul><li>Code-generators (e.g. <a href = "http://jison.org/">Jison</a>, <a href = "https://pegjs.org/">PEG.js</a>, <a href = "http://nearley.js.org/">nearley</a>, and <a href = "http://www.antlr.org/">ANTLR</a>) are harder to work with than libraries or embedded DSLs (Domain Specific Languages)</li>
+<li>Existing parsing libraries for JavaScript (e.g. <a href = "https://github.com/jneen/parsimmon">Parsimmon</a> and <a href = "https://github.com/SAP/chevrotain">Chevrotain</a>) could be made easier to use and learn</li>
+</ul>
+<p>
+</p>
+<h2>Recursive Descent Parsers and Parsing Expression Grammars </h2>
+<p>
+A recursive descent parser is a parser that recognizes phrases in a grammar by trying to match the input to different grammar productions alternatives recursively until it succeeds, backtracking if a grammar production fails. 
+A Parsing Expression Grammar (PEG) is a formal way of expressing the grammar of a language that is based on string matching rather than string generation. Compared with other grammar forms like EBNF It allows grammars to have zero-length rules (assertions) and the order is strictly specified forcing it to be unambiguous.
+As a result every PEG grammar can be easily apped to a recursive-descent parser. 
+</p>
+<h2>History </h2>
+<p>
+This is my third open-source recursive-descent parsing library. My first was written in C++ and was called <a href = "https://www.codeproject.com/Articles/9121/Parsing-XML-in-C-using-the-YARD-Parser">YARD</a>. It was based on the idea of using templates to combine parsing rules defined as low-level types. It was inspired by the <a href = "http://boost-spirit.com/home/">Boost.Spirit</a> parser by Joel de Guzman and in turn inspired the <a href = "https://github.com/taocpp/PEGTL">PegTL</a> by Colin Hirsch and Daniel Frey.
+My second recursive-descent parsing library was the <a href = "https://www.codeproject.com/Articles/272494/Implementing-Programming-Languages-using-Csharp">Jigsaw library</a> written in C#. 
+
+</p>
 
           </p>
         </div>
