@@ -45,21 +45,21 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="#articles">Blog</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="{{&prevurl}}">Previous</a></li>
-            <li><a href="{{&nexturl}}">Next</a></li>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../blog.html">Blog</a></li>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="{{&urlPrev}}">Previous</a></li>
+            <li><a href="{{&urlNext}}">Next</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
 
     <div class="container theme-showcase" role="main">
-        <div class="page-header">
-          <h1>{{title}}</h1>
-          <h3>{{date}}</h3>
-        </div>
+        <p>
+          <h4>{{date}}</h4>
+          <h5>{{&prevNextNav}}</h5>
+        </p>
     
         <div id='content'>
           <p>

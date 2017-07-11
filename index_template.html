@@ -55,9 +55,18 @@
 
     <div class="container theme-showcase" role="main">
       <div class="jumbotron">
-        <h1 class="display-3">Another Software Development Blog</h1>
-        <p class="lead">by Christopher Diggins<br/>
+        <h1 class="display-3">Christopher Diggins</h1>
 		    <span id="slogan">Forgetting the semicolon</span> since 1974</p>
+				<p>
+					This is the personal web-site and blog of Christopher Diggins
+					a software developer and programming language designer 
+					living in Montreal, Canada.
+				</p>
+				<p>
+					My blog covers various topics related to the craft of software 
+					development and in particular my adventures designing and implementing open-source
+					libraries and programming languages. 
+				</p>
     </div>
     
     <!-- Google analytics -->
@@ -163,9 +172,11 @@
 		forgetting the semicolon
 		more than a little mercurial
 		undiagnosed asperger's syndrome
-		unintentionally being pretentious
+		unintentionally pretentious
 		saying what is on his mind
-		not sticking to the script`.split(/\r?\n/);
+		not sticking to the script
+		wearing his heart on his sleeve
+		obsessing and compulsing`.split(/\r?\n/);
 
 	 let slogan = slogans[Math.floor(Math.random()*slogans.length)];	
 	 document.getElementById('slogan').innerHTML=slogan;

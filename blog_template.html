@@ -59,7 +59,11 @@
         </div>
     
         <div id='content'>
-            {{bloglist}}
+            <ul>
+            {{#articles}}
+              <li><a href="blog/{{url}}">{{title}}</a> - {{date}}</li>
+            {{/articles}}
+            </ul>
         </div>
 
     </div>
