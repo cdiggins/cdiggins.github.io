@@ -3,18 +3,29 @@
         "title":"First post!",
         "src":"first.md",
         "date":"2017-07-10T07:00",
+        "category":"about",
         "description":"This first post of my new blog on software developer"
     },
     {
         "title":"The Myna parsing library for JavaScript",
         "src":"myna-parsing-library.md",
         "date":"2017-07-11T07:00",
+        "category":"parsing",
         "description":"About the Myna recursive descent parsing library for JavaScript"
     },
     {
         "title":"A Static Blog Generator in Myna",
         "src":"myna-blog-maker.md",
         "date":"2017-07-11T10:00",
+        "category":"parsing",
         "description":"A static blog web-site generator created using Myna."
-    }]
+    },
+    {
+        "title":"For Loops are Functional Too",
+        "src":"for-loops-are-functional.md",
+        "date":"2017-07-23T23:30",
+        "category":"functional programming",
+        "description":"Demonstrateing the correspondance between imperative constructs and pure functional programming with Python."
+    }    
+    ]
 }

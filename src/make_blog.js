@@ -69,6 +69,24 @@ function mdToHtml(input) {
     return mdAstToHtml(ast, []).join("");
 }
 
+function rssDate(date) {
+    var r = ""; 
+    r += date.toLocaleDateString('en-us', { weekday:'short' });
+    r += ", ";
+    r += date.toLocaleDateString('en-us', { day:'numeric' });
+    r += " ";
+    r += date.toLocaleDateString('en-us', { month:'short' });
+    r += " ";
+    r += date.toLocaleDateString('en-us', { year:'numeric' });
+    r += " ";
+    r += date.toTimeString('en-us', { timeZoneName:'short' });
+    return r;
+}
+
+function longDate(date) {
+    return date.toLocaleDateString('en-us', { weekday:'long', year:'numeric', month:'long', day:'numeric'});    
+}
+
 function generateBlogArticles(inputFolder, outputFolder, templateFile, articlesFile) {
     if (!fs.existsSync(outputFolder))
         fs.mkdirSync(outputFolder);
@@ -78,6 +96,9 @@ function generateBlogArticles(inputFolder, outputFolder, templateFile, articlesF
 
     // Read a JSON object
     let articles = readJsonFile(articlesFile);
+
+    // Set the build date
+    articles.built = rssDate(new Date());
     
     // We just want the array
     articles = articles.posts;
@@ -91,7 +112,8 @@ function generateBlogArticles(inputFolder, outputFolder, templateFile, articlesF
     // Generate the content for each page 
     for (let i=0; i < articles.length; ++i) {
         let a = articles[i];
-        a.date = a.date.toLocaleDateString('en-us', { weekday:'long', year:'numeric', month:'long', day:'numeric'});
+        a.dateString = longDate(a.date);
+        a.rssDate = rssDate(a.date);
         a.url = replaceExt(a.src, ".html");
         a.prev = articles[i+1];
         a.next = articles[i-1];
@@ -128,6 +150,10 @@ function main() {
     var index_template = fs.readFileSync('./index_template.html', 'utf-8');
     var index_html = expand(index_template, { articles:articles });
     saveToFile('./', 'index.html', index_html);
+
+    var rss_template = fs.readFileSync('./rss_template.xml', 'utf-8');
+    var rss_xml = expand(rss_template, { articles:articles });
+    saveToFile('./', 'rss.xml', rss_xml);
 }
 
 main();

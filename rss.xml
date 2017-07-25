@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+<channel>
+ <title>Christopher Diggins' Blog</title>
+ <description>Thoughts and anecdotes on software development and programming language design.</description>
+ <link>https://cdiggins.github.io</link>
+ <lastBuildDate></lastBuildDate>
+ <pubDate>Sun, 23 July 2017 11:50 EST</pubDate>
+ <webMaster>cdiggins@gmail.com</webMaster>
+ <managingEditor>cdiggins@gmail.com</managingEditor>
+ <copyright>Copyright 2017, Christopher Diggins, CC BY-SA 4.0</copyright>
+ <generator>Christopher's own Blog Generator</generator>
+ <language>en-us</language>
+ 
+ 
+ <item>
+  <title>For Loops are Functional Too</title>
+  <description>Demonstrates the correspondance between imperative looping constructs and pure functional programming with Python.</description>
+  <category>functional programming</category>
+  <link>http://cdiggins.github.io/blog/for-loops-are-functional.html</link>
+  <pubDate>Sun, 23 Jul 2017 19:30:00 GMT-0400 (Eastern Daylight Time)</pubDate>
+ </item>
+ 
+ <item>
+  <title>A Static Blog Generator in Myna</title>
+  <description>A static blog web-site generator created using Myna.</description>
+  <category>parsing</category>
+  <link>http://cdiggins.github.io/blog/myna-blog-maker.html</link>
+  <pubDate>Tue, 11 Jul 2017 06:00:00 GMT-0400 (Eastern Daylight Time)</pubDate>
+ </item>
+ 
+ <item>
+  <title>The Myna parsing library for JavaScript</title>
+  <description>About the Myna recursive descent parsing library for JavaScript</description>
+  <category>parsing</category>
+  <link>http://cdiggins.github.io/blog/myna-parsing-library.html</link>
+  <pubDate>Tue, 11 Jul 2017 03:00:00 GMT-0400 (Eastern Daylight Time)</pubDate>
+ </item>
+ 
+ <item>
+  <title>First post!</title>
+  <description>This first post of my new blog on software developer</description>
+  <category>about</category>
+  <link>http://cdiggins.github.io/blog/first.html</link>
+  <pubDate>Mon, 10 Jul 2017 03:00:00 GMT-0400 (Eastern Daylight Time)</pubDate>
+ </item>
+ 
+
+</channel>
+</rss>
