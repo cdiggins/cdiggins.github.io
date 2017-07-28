@@ -1,14 +1,16 @@
 # For Loops are Functional 
 
-It has been known for quite some time within the functional programming community, that many programming constructs widely considered to be "imperative" in nature (e.g. goto statements, for loops, and while loops) can be expressed in terms of purely functional idioms. 
+It has been known for quite some time within the functional programming community, that many programming constructs widely considered to be "imperative" in nature (e.g. goto statements, for loops, while loops, etc.) can be expressed in terms of function calls without side-effects. 
 
 I was explaining to someone the other day how programmers can write code that looks imperative, for example using a Python syntax, and that it can be transformed by a compiler into pure functional code. 
 
-In this article I will start from a simple Python example and demonstrate a series of simple transformations that can be done to convert a traditional `for` loop into a pure function call. 
+In this article I will start from a simple Python example and demonstrate a series of simple transformations that could be done by a compiler to convert a traditional `for` loop into a pure function call. 
+
+These transformations do not remove all side-effects, only assignment to variables within the current stack frame.
 
 ## Summing Numbers from the Fibonnaci Sequence
 
-This example sums five numbers in the Fibonnaci sequence using a `for` loop. 
+The working example sums five numbers in the Fibonnaci sequence using a `for` loop. 
 
 ```
     acc = 0
@@ -17,21 +19,10 @@ This example sums five numbers in the Fibonnaci sequence using a `for` loop.
     print acc
 ```
 
-## Shortcut: Using Itertools.Accumulate
-
-This example was contrived as it could be rewritten by a programmer using the [`itertools.accumulate`](https://docs.python.org/3/library/itertools.html) function.
-
-```
-    import itertools as it;
-    print it.accumulate([1,2,3,5,8])
-```
-
-This is too big of a leap to express computationally. Instead I want to show how the compiler can progressively rewrite imperative code until it gets to something that can be expressed in terms of function calls. 
-
 ## Rewriting as a For Loop with an Index
 
 In the first transformation we rewrite the `for` loop to use an explicit integer index, and 
-we assign the array to a named variable. This makes it look more like a C-style for loop.
+we assign the array to a named variable. This makes it look more like a C-style for loop. It should also make it more obvious how the transformations can be generalized to arbitrary variable assignment on the stack. 
 
 ```
     acc = 0
@@ -44,8 +35,8 @@ we assign the array to a named variable. This makes it look more like a C-style 
 
 ## Convert the For Loop into a While Loop
 
-A `for` loops can be understood as syntactic sugar (i.e. a convenient syntax) for a `while` loop. So the first 
-transformation is into a `while` loop.
+The `for` loop can be understood as syntactic sugar (i.e. a convenient syntax) for a `while` loop. So the first 
+transformation is into a `while` loop. 
 
 ```
     acc = 0
@@ -60,7 +51,7 @@ transformation is into a `while` loop.
 
 ## Stack Frame to Tuple
 
-All of the variables in the stack frame referenced from within the loop can then be merged into a single tuple. This is the key observation in making a traditionally imperative code which changes and updates variables into something that can be expressed in terms of functional calls. 
+All of the variables in the stack frame referenced from within the loop are next merged into a single tuple. This is the key observation in making local variable updates into something that can be expressed purely in terms of functional calls. 
 
 ```
     f = { 5, [1,2,3,5,8], 0, 0 }
@@ -71,7 +62,7 @@ All of the variables in the stack frame referenced from within the loop can then
 
 ## Replace While loop with a While Function
 
-If we presume the presence of a `while_fxn` we can convert the while statement into a single function call.
+Now presuming the presence of a `while_fxn` we can convert the while statement into a single function call.
 
 ```
     f = while_fxn({ 5, [1,2,3,5,8], 0, 0 }, 
@@ -80,9 +71,7 @@ If we presume the presence of a `while_fxn` we can convert the while statement i
     print f[2];
 ```
 
-## Writing a "While" Function using Imperative Constructs
-
-Here is a possible implementation of a `while` function: 
+Here is one possible implementation of the `while` function using the original `while` statement, which we can imagine being implemented by the compiler.
 
 ```
    def while_fxn(x, bodyFxn, terminationFxn):
@@ -93,18 +82,33 @@ Here is a possible implementation of a `while` function:
 
 ## A Tail-Recursive While Function
 
-A functional while function can be written without imperative constructs as follows: 
+It is also interesting to note that the compiler can omit support for a `while` function primitive construct if we implement it as follows: 
 
 ```
    def while_fxn(x, bodyFxn, conditionFxn):
        return !condition(x) ? x : body(x)
 ```
 
-The problem with this approach if literally implementing in Python (or other languages) is that the compiler/interpreter would need to support [tail-call optimization (TCO)](https://en.wikipedia.org/wiki/Tail_call) to prevent stack-overflow when executed more than a few times. 
+A problem with this approach if literally implementing it, is that the compiler/interpreter needs to support [tail-call optimization (TCO)](https://en.wikipedia.org/wiki/Tail_call) to prevent stack-overflow when executed more than a few times. 
 
 ## Summary
 
-The point of this article was to show how code with what is traditionaly considered an imperative syntax can be converted into pure functional constructs through a series of transformations which could be performed by a compiler or interpreter. The key observation is that the reference variables of the stack frame can be modeled as a "tuple".
+The point of this article was to show how code with what looked like imperative code can be converted into pure functionally called through a series of transformations which could be performed by a compiler or interpreter. The key observation is that the reference variables of the stack frame can be modeled as a "tuple".
+
+This technique can be useful when converting from imperative code to data-flow code, which is something I'll discuss in a later blog post. 
+
+## Postscript: Using Itertools.Accumulate
+
+A Python expert could argue that the example could have been rewritten using the [`itertools.accumulate`](https://docs.python.org/3/library/itertools.html) function.
+
+```
+    import itertools as it;
+    print it.accumulate([1,2,3,5,8])
+```
+
+This is true for a programmer, since they can easily identify that the loop in this case is effectively only varying a single value using the binary operation of addition. However, IMO this is not easily expressed as a single transform for a compiler, and does not generalize to arbitrary sets of variable assignments. I wanted to show how the compiler can progressively rewrite imperative code until it gets to something that can be expressed in terms of function calls. 
+
+Consider a more complex example like [Ridged multi-fractal noise](https://github.com/ricardojmendez/LibNoise.Unity/blob/master/Generator/RidgedMultifractal.cs#L132), for which the same techniques shown in the article can be applied. 
 
 ## References 
 

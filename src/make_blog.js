@@ -2,24 +2,17 @@
 
 var fs = require("fs");
 var path = require('path');
-var myna = require('myna-parser');
-var mdAstToHtml = require('../src/markdown_to_html');
-var mdGrammar = require('myna-parser/grammars/grammar_markdown')(myna);
+var globalData = require('./global_data.js');
+var mdToHtml = require('myna-parser/tools/myna_markdown_to_html');
 var expand = require('myna-parser/tools/myna_mustache_expander');
 
 /*
     TODO: 
-    * create the index page
-    * create the blog list 
-    * make the dates shorter 
-    * fix the prev/next links 
-    * make the prev/next links of the article conditional 
-    * don't repeat the first line of the article twice. 
     * extract a short description from the article ? 
     * add some hover text for the different links (particular blog articles)
-
-    LOWPRI:
     * favicon
+    * sidebar
+    * footer     
 */
 
 function replaceExt(fileName, newExt) {
@@ -63,11 +56,6 @@ function readJsonFile(file) {
 }
 
 // Outputs HTML from markdown given a string 
-function mdToHtml(input) {
-    let rule = myna.allRules['markdown.document'];
-    let ast = myna.parse(rule, input);
-    return mdAstToHtml(ast, []).join("");
-}
 
 function rssDate(date) {
     var r = ""; 
@@ -87,21 +75,23 @@ function longDate(date) {
     return date.toLocaleDateString('en-us', { weekday:'long', year:'numeric', month:'long', day:'numeric'});    
 }
 
-function generateBlogArticles(inputFolder, outputFolder, templateFile, articlesFile) {
+function generateBlogArticles(data, inputFolder, outputFolder, templateFile, articlesFile) {
+    data.built = rssDate(new Date());
+
     if (!fs.existsSync(outputFolder))
         fs.mkdirSync(outputFolder);
     
     // Read the template
-    let template = fs.readFileSync(templateFile, 'utf-8');
+    var template = fs.readFileSync(templateFile, 'utf-8');
 
     // Read a JSON object
-    let articles = readJsonFile(articlesFile);
-
-    // Set the build date
-    articles.built = rssDate(new Date());
+    var articlesJson = readJsonFile(articlesFile);
     
     // We just want the array
-    articles = articles.posts;
+    var articles = articlesJson.posts;
+    
+    // Skip all of the draft articles 
+    articles = articles.filter(function(a) { return !a.draft});
 
     // Convert dates strings into date objects (makes sorting and displaying easier)
     articles.forEach(function(a) { a.date = new Date(a.date); });
@@ -109,27 +99,41 @@ function generateBlogArticles(inputFolder, outputFolder, templateFile, articlesF
     // Sort articles by date    
     articles.sort(function (a,b) { return b.date - a.date; });
 
-    // Generate the content for each page 
+    // Generate the previous and next links, and the URLs 
     for (let i=0; i < articles.length; ++i) {
-        let a = articles[i];
-        a.dateString = longDate(a.date);
-        a.rssDate = rssDate(a.date);
+        var a = articles[i];
         a.url = replaceExt(a.src, ".html");
         a.prev = articles[i+1];
         a.next = articles[i-1];
     }
 
     for (var a of articles) {
+        // Set all of the other variables (requires URLs) to be set 
+        a.dateString = longDate(a.date);
+        a.rssDate = rssDate(a.date);
         a.urlPrev = articleUrl(a.prev);
         a.urlNext = articleUrl(a.next);
         a.linkPrev = articleLink(a.prev);
         a.linkNext = articleLink(a.next);
         a.prevNextNav = prevNextNav(a);
-        a.sideBar = '';
+
+        // Get the markdown source file 
         a.srcFile = inputFolder + '/' + a.src;
+
+        // Get the markdown for the article
         a.markDown = fs.readFileSync(a.srcFile, 'utf-8');
+
+        // Convert the markdown to HTML 
         a.content = mdToHtml(a.markDown);
+
+        // Copy the global properties into the article object 
+        for (var k in data)
+            a[k] = data[k];
+
+        // Expand the template to get the HTML
         a.html = expand(template, a);
+
+        // Save the article
         saveToFile(outputFolder, a.url, a.html);
     }
 
@@ -138,22 +142,30 @@ function generateBlogArticles(inputFolder, outputFolder, templateFile, articlesF
 
 function main() {
     var articles = generateBlogArticles(
+        globalData,
         './src/articles', 
         './blog/', 
         './src/article_template.html', 
         './src/articles.json');
         
+    var data = globalData;
+    data.articles = articles;
+    
     var blog_template = fs.readFileSync('./blog_template.html', 'utf-8');
-    var blog_html = expand(blog_template, { articles:articles });
+    var blog_html = expand(blog_template, data);
     saveToFile('./', 'blog.html', blog_html);
 
     var index_template = fs.readFileSync('./index_template.html', 'utf-8');
-    var index_html = expand(index_template, { articles:articles });
+    var index_html = expand(index_template, data);
     saveToFile('./', 'index.html', index_html);
 
     var rss_template = fs.readFileSync('./rss_template.xml', 'utf-8');
-    var rss_xml = expand(rss_template, { articles:articles });
+    var rss_xml = expand(rss_template, data);
     saveToFile('./', 'rss.xml', rss_xml);
+
+    var rss_template = fs.readFileSync('./about_template.html', 'utf-8');
+    var rss_xml = expand(rss_template, data);
+    saveToFile('./', 'about.html', rss_xml);
 }
 
 main();

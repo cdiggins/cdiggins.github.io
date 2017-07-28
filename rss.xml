@@ -4,7 +4,7 @@
  <title>Christopher Diggins' Blog</title>
  <description>Thoughts and anecdotes on software development and programming language design.</description>
  <link>https://cdiggins.github.io</link>
- <lastBuildDate></lastBuildDate>
+ <lastBuildDate>Fri, 28 Jul 2017 09:14:42 GMT-0400 (Eastern Daylight Time)</lastBuildDate>
  <pubDate>Sun, 23 July 2017 11:50 EST</pubDate>
  <webMaster>cdiggins@gmail.com</webMaster>
  <managingEditor>cdiggins@gmail.com</managingEditor>
@@ -15,9 +15,10 @@
  
  <item>
   <title>For Loops are Functional Too</title>
-  <description>Demonstrates the correspondance between imperative looping constructs and pure functional programming with Python.</description>
+  <description>Demonstrateing the correspondance between imperative constructs and pure functional programming with Python.</description>
   <category>functional programming</category>
   <link>http://cdiggins.github.io/blog/for-loops-are-functional.html</link>
+  <source>http://cdiggins.github.io/rss.xml</source>
   <pubDate>Sun, 23 Jul 2017 19:30:00 GMT-0400 (Eastern Daylight Time)</pubDate>
  </item>
  
@@ -26,6 +27,7 @@
   <description>A static blog web-site generator created using Myna.</description>
   <category>parsing</category>
   <link>http://cdiggins.github.io/blog/myna-blog-maker.html</link>
+  <source>http://cdiggins.github.io/rss.xml</source>
   <pubDate>Tue, 11 Jul 2017 06:00:00 GMT-0400 (Eastern Daylight Time)</pubDate>
  </item>
  
@@ -34,6 +36,7 @@
   <description>About the Myna recursive descent parsing library for JavaScript</description>
   <category>parsing</category>
   <link>http://cdiggins.github.io/blog/myna-parsing-library.html</link>
+  <source>http://cdiggins.github.io/rss.xml</source>
   <pubDate>Tue, 11 Jul 2017 03:00:00 GMT-0400 (Eastern Daylight Time)</pubDate>
  </item>
  
@@ -42,6 +45,7 @@
   <description>This first post of my new blog on software developer</description>
   <category>about</category>
   <link>http://cdiggins.github.io/blog/first.html</link>
+  <source>http://cdiggins.github.io/rss.xml</source>
   <pubDate>Mon, 10 Jul 2017 03:00:00 GMT-0400 (Eastern Daylight Time)</pubDate>
  </item>
  

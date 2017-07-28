@@ -26,6 +26,14 @@
         "date":"2017-07-23T23:30",
         "category":"functional programming",
         "description":"Demonstrateing the correspondance between imperative constructs and pure functional programming with Python."
-    }    
+    },
+    {
+        "title":"Markdown Parsers in JavaScript",
+        "src":"markdown-parsers.md",
+        "date":"2017-07-26T23:30",
+        "category":"parsing",
+        "description":"A list of JavaScript markdown parsers",
+        "draft":true
+    }   
     ]
 }
