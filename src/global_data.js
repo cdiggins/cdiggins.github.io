@@ -1,9 +1,9 @@
 var globalData = 
   { 
-    stylesheets : `    <link rel="stylesheet" href="http://cdiggins.github.io/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="http://cdiggins.github.io/dist/css/bootstrap-theme.min.css" />
-    <link rel="stylesheet" href="http://cdiggins.github.io/assets/css/ie10-viewport-bug-workaround.css" />
-    <link rel="stylesheet" href="http://cdiggins.github.io/dist/css/theme.css" />
+    stylesheets : `    <link rel="stylesheet" href="https://cdiggins.github.io/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdiggins.github.io/dist/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="https://cdiggins.github.io/assets/css/ie10-viewport-bug-workaround.css" />
+    <link rel="stylesheet" href="https://cdiggins.github.io/dist/css/theme.css" />
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />`,
     analytics : `    <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

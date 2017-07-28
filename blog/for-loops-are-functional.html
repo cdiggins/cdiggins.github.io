@@ -9,10 +9,10 @@
     <meta name="author" content="Christopher Diggins">
 				
     <title>For Loops are Functional Too</title>
-		    <link rel="stylesheet" href="http://cdiggins.github.io/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="http://cdiggins.github.io/dist/css/bootstrap-theme.min.css" />
-    <link rel="stylesheet" href="http://cdiggins.github.io/assets/css/ie10-viewport-bug-workaround.css" />
-    <link rel="stylesheet" href="http://cdiggins.github.io/dist/css/theme.css" />
+		    <link rel="stylesheet" href="https://cdiggins.github.io/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdiggins.github.io/dist/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="https://cdiggins.github.io/assets/css/ie10-viewport-bug-workaround.css" />
+    <link rel="stylesheet" href="https://cdiggins.github.io/dist/css/theme.css" />
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
   </head>
 
@@ -137,8 +137,6 @@
 
 <p>The point of this article was to show how code with what looked like imperative code can be converted into pure functionally called through a series of transformations which could be performed by a compiler or interpreter. The key observation is that the reference variables of the stack frame can be modeled as a "tuple".</p>
 
-<p>While the example was very simplistic, consider a more complex example like <a href = "https://github.com/ricardojmendez/LibNoise.Unity/blob/master/Generator/RidgedMultifractal.cs#L132">Ridged multi-fractal noise</a>, for which the same technique can be applied. </p>
-
 <p>This technique can be useful when converting from imperative code to data-flow code, which is something I'll discuss in a later blog post. </p>
 
 <h2>Postscript: Using Itertools.Accumulate</h2>
@@ -150,6 +148,8 @@
 </pre>
 
 <p>This is true for a programmer, since they can easily identify that the loop in this case is effectively only varying a single value using the binary operation of addition. However, IMO this is not easily expressed as a single transform for a compiler, and does not generalize to arbitrary sets of variable assignments. I wanted to show how the compiler can progressively rewrite imperative code until it gets to something that can be expressed in terms of function calls. </p>
+
+<p>Consider a more complex example like <a href = "https://github.com/ricardojmendez/LibNoise.Unity/blob/master/Generator/RidgedMultifractal.cs#L132">Ridged multi-fractal noise</a>, for which the same techniques shown in the article can be applied. </p>
 
 <h2>References </h2>
 
