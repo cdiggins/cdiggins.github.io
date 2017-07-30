@@ -75,6 +75,29 @@ function longDate(date) {
     return date.toLocaleDateString('en-us', { weekday:'long', year:'numeric', month:'long', day:'numeric'});    
 }
 
+function generateShareLinks(url, title) {
+    url = encodeURIComponent(url);
+    title = encodeURIComponent(title);
+    return {
+        twitter: "https://twitter.com/intent/tweet?url=" + url,
+        google : "https://plus.google.com/share?url=" + url,
+        facebook : "https://www.facebook.com/sharer/sharer.php?u=" + url,
+        linkedIn : "http://www.linkedin.com/shareArticle?mini=true&url=" + url + "&title=" + title,
+        reddit : "https://www.reddit.com/r/test/submit?title=" + title + "&url=" + url,
+    }
+}
+
+function generateShareHtmlList(url, title) {
+    var links = generateShareLinks(url, title);
+    return "<ul>" 
+        + "<li><a href='" + links.facebook + "'><i class='fa fa-facebook'/>Facebook</a></li>\n"
+        + "<li><a href='" + links.twitter + "'><i class='fa fa-twitter'/>Twitter</a></li>\n"
+        + "<li><a href='" + links.reddit + "'><i class='fa fa-reddit'/>Reddit</a></li>\n"
+        + "<li><a href='" + links.google + "'><i class='fa fa-google-plus'/>Google+</a></li>\n"
+        + "<li><a href='" + links.linkedIn + "'><i class='fa fa-linkedin'/>LinkedIn</a></li>\n"
+        + "</ul>";
+}
+
 function generateBlogArticles(data, inputFolder, outputFolder, templateFile, articlesFile) {
     data.built = rssDate(new Date());
 
