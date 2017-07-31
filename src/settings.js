@@ -1,7 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-        
+// TODO: 
+// Credits 
+// Hugo / GitHub / Markdown / HTML / CSS / Creative Commons / RSS / StackOverflow / Mustache / JavaScript / Bootstrap / Font-awesome / Google-fonts 
+// This file is used with Myna-Blog-Generator 
+module.exports = 
+{ 
+  author :        'Christopher Diggins',
+  year :          '2017',
+  source :        'https://github.com/cdiggins/cdiggins.github.io',
+  license :       'Attribution-ShareAlike 4.0 International',
+  licenseUrl :    'https://creativecommons.org/licenses/by-sa/4.0/',
+  social : 
+  [
+    { title: "email", icon: "fa-envelope", url: 'mailto:cdiggins@gmail.com' },
+    { title: "Twitter", icon: "fa-twitter", url: 'https://twitter.com/cdiggins' },
+    { title: "LinkedIn", icon: "fa-linkedin", url: 'https://www.linkedin.com/in/cdiggins/' },
+    { title: "FaceBook", icon: "fa-facebook", url: 'https://www.facebook.com/diggins.software' },
+    { title: "GitHub", icon: "fa-github", url: 'https://github.com/cdiggins' },
+    { title: "StackOverflow", icon: "fa-stackoverflow", url: 'https://stackoverflow.com/users/184528/cdiggins' },
+    { title: "RSS", icon: "fa-rss", url: 'http://cdiggins.github.io/rss.xml' },
+    { title: "YouTube", icon: "fa-youtube", url: "https://www.youtube.com/user/cdiggins" }
+  ],
+  siteurl :       'https://cdiggins.github.io',
+  email :         'cdiggins@gmail.com',
+  generator :     'The-Blog-Machine',
+  template :      'Diggins-Template-1',
+  
+  about : 
+  { 
+    title :       'About Christopher Diggins and his Stupendous Software Blog', 
+    description : 'About Christopher Diggins and his software development blog', 
+    url:          'http://cdiggins.github.com/about.html' 
+  },    
+
+  index : 
+  { 
+    title       : 'Christopher Diggins\' home on the internet',      
+    description : 'Christopher Diggins is a software developer with an unhealthy obsession with programming languages. On this web site, hosted by GitHub, contains his blog, contact information, and other trivia.',
+    url:          'http://cdiggins.github.io' 
+  },
+
+  blog : { 
+    title :       'Another Software Development Blog by Christopher Diggins', 
+    description : 'A blog on topics related to software development and 3D graphics with an emphasis on programming languages and open-source development.',
+    url:          'http://cdiggins.github.com/blog.html' 
+  },
+
+  // This the contents of the HTML head tag
+  header : `    
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -37,11 +82,10 @@
     <!-- TODO: move this into a CSS -->
     body { font-family: 'Source Sans Pro', sans-serif; }
     h1, h2, h3, h4, h5, h6 { font-family: 'Roboto', sans-serif; } 
-  </style>
-  </head>
+  </style>`,
 
-  <body>
-    
+  // This is the nav tag and appears at the top of the page/ 
+  nav : `
   <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
@@ -65,36 +109,10 @@
         </ul>
       </div>
     </div>
-  </nav>
+  </nav>`,
 
-    <div class="container theme-showcase" role="main">
-        <p>
-          <h4>Monday, July 10, 2017</h4>
-          <h5><a href='myna-parsing-library.html'>The Myna parsing library for JavaScript >></a></h5>
-        </p>
-    
-        <div class="theme-showcase col-sm-8" id='content'>
-          <p>
-            <h1>First Post!</h1>
-
-<p>Welcome to my the first post of my new blog. Over the last 15 years I've had blogs in different location across the interwebz: </p>
-
-<ul><li><a href = "http://area.autodesk.com/author/christopher-diggins">Area.Autodesk.com</a></li>
-<li><a href = "https://www.artima.com/weblogs/index.jsp?blogger=cdiggins">Artima.com</a></li>
-<li><a href = "http://www.drdobbs.com/author/Christopher-Diggins">Doctor Dobbs Journal</a></li>
-<li><a href = "https://www.codeproject.com/script/Articles/MemberArticles.aspx?amid=1295110">CodeProject</a></li>
-</ul>
-
-<p>Since I have been getting back into <a href = "https://github.com/cdiggins">open-source development</a> with projects likethe <a href = "https://github.com/cdiggins/myna-parser">Myna parsing library</a> I decided to host this blog on GitHub at <a href = "http://cdiggins.github.io">cdiggins.github.io</a>. </p>
-
-<p>The blog topics will cover a range of subjects related to the craft of programming and software development, as well as 3D graphics and animation. </p>
-
-<p>If you have ideas for a particular blog post please <a href = "mailto:cdiggins@gmail.com">send me a note</a>.</p>
-
-          </p>
-        </div>
-
-        
+  // This div tag floats to the right of the main content, if enough spaces is present, otherwise it appears at the bottoms
+  sidebar : `
   <div class="col-sm-4 sidebar-module sidebar-module-inset">
     <h3>About Me</h3>
       <p>
@@ -116,10 +134,10 @@
         <li><i class="fa fa-linkedin    fa-fw" aria-hidden="true"></i>&nbsp;<a href="{{{linkedInShareUrl}}}"  >LinkedIn</a></li>
       </ul>
     </p>
-  </div>
-    </div>
-    
-		    
+  </div>`,
+      
+  // This is added at the end of the body tag.
+  footer : `    
 <hr>
 <footer style='text-align:center'>
   <div class="container">
@@ -158,7 +176,5 @@
   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
   ga('create', 'UA-93495883-1', 'auto');
   ga('send', 'pageview');
-  </script>
-  </body>
-</html>
-
+  </script>`, 
+};

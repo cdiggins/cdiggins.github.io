@@ -12,3 +12,15 @@ The entire tool chain (and contents) are licensed under the MIT license.
 
 In order to build the web-site you will need to have [node.js](https://nodejs.org/en/) and [npm](https://www.npmjs.com) installed. Once these are installed the other dependency will be the [myna-parser](https://www.npmjs.com/package/myna-parser)
 which can be installed by using `npm install` command.
+
+## Cloning this Site:
+
+### Dependencies:
+
+1. [node.js](https://nodejs.org/en/) 
+1. [npm](https://www.npmjs.com) 
+
+### Steps 
+
+1. Create a [Github pages site](https://pages.github.com/) by creating new repository named *username*.github.io, where username is your username (or organization name) on GitHub.
+1. 

@@ -1,8 +1,14 @@
+// Myna Site Generator
+// Blogging for the common programmer 
+
+// https://pages.github.com/
+// 1. Create a new repository named username.github.io, where username is your username (or organization name) on GitHub.
+
 'use strict';
 
 var fs = require("fs");
 var path = require('path');
-var globalData = require('./global_data.js');
+var globalData = require('../src/settings.js');
 var mdToHtml = require('myna-parser/tools/myna_markdown_to_html');
 var expand = require('myna-parser/tools/myna_mustache_expander');
 
@@ -78,12 +84,14 @@ function longDate(date) {
 function generateShareLinks(url, title) {
     url = encodeURIComponent(url);
     title = encodeURIComponent(title);
-    return {
+    return 
+    {
         twitter: "https://twitter.com/intent/tweet?url=" + url,
         google : "https://plus.google.com/share?url=" + url,
         facebook : "https://www.facebook.com/sharer/sharer.php?u=" + url,
         linkedIn : "http://www.linkedin.com/shareArticle?mini=true&url=" + url + "&title=" + title,
         reddit : "https://www.reddit.com/r/test/submit?title=" + title + "&url=" + url,
+        tumblr : "http://www.tumblr.com/share?v=3&t= " + title + "&u=" + url,
     }
 }
 
@@ -163,32 +171,41 @@ function generateBlogArticles(data, inputFolder, outputFolder, templateFile, art
     return articles;
 }
 
-function main() {
+function main() 
+{
+    var outputFolder = "./";
+    var blogFolder = "./blog/";
+    var srcFolder = "./src/";
+    var templatesFolder = srcFolder + "templates/";
+    var markdownFolder = srcFolder + "articles/";
+    var articleTemplate = templatesFolder + "article_template.html";
+    var articlesJson = srcFolder + 'articles.json';
+
     var articles = generateBlogArticles(
         globalData,
-        './src/articles', 
-        './blog/', 
-        './src/article_template.html', 
-        './src/articles.json');
+        markdownFolder, 
+        blogFolder, 
+        articleTemplate, 
+        articlesJson);
         
     var data = globalData;
     data.articles = articles;
     
-    var blog_template = fs.readFileSync('./blog_template.html', 'utf-8');
+    var blog_template = fs.readFileSync(templatesFolder + 'blog_template.html', 'utf-8');
     var blog_html = expand(blog_template, data);
-    saveToFile('./', 'blog.html', blog_html);
+    saveToFile(outputFolder, 'blog.html', blog_html);
 
-    var index_template = fs.readFileSync('./index_template.html', 'utf-8');
+    var index_template = fs.readFileSync(templatesFolder + 'index_template.html', 'utf-8');
     var index_html = expand(index_template, data);
-    saveToFile('./', 'index.html', index_html);
+    saveToFile(outputFolder, 'index.html', index_html);
 
-    var rss_template = fs.readFileSync('./rss_template.xml', 'utf-8');
+    var rss_template = fs.readFileSync(templatesFolder + 'rss_template.xml', 'utf-8');
     var rss_xml = expand(rss_template, data);
-    saveToFile('./', 'rss.xml', rss_xml);
+    saveToFile(outputFolder, 'rss.xml', rss_xml);
 
-    var rss_template = fs.readFileSync('./about_template.html', 'utf-8');
+    var rss_template = fs.readFileSync(templatesFolder + 'about_template.html', 'utf-8');
     var rss_xml = expand(rss_template, data);
-    saveToFile('./', 'about.html', rss_xml);
+    saveToFile(outputFolder, 'about.html', rss_xml);
 }
 
 main();
