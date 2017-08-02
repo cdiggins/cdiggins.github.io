@@ -1,8 +1,3 @@
-// TODO: 
-// Credits 
-// Hugo / GitHub / Markdown / HTML / CSS / Creative Commons / RSS / StackOverflow / Mustache / JavaScript / Bootstrap / Font-awesome / Google-fonts 
-// CTemplate / XML / SGML 
-// This file is used with Myna-Blog-Generator 
 module.exports = 
 { 
   author :        'Christopher Diggins',
@@ -13,15 +8,19 @@ module.exports =
   baseUrl :       '.',
   siteUrl :       'https://cdiggins.github.io',
   pageUrl :       'https://cdiggins.github.io',
-  
+  email :         'cdiggins@gmail.com',
+  generator :     'The-Blog-Machine',
+  template :      'Diggins-Template-1',  
+  googleAnalyticsId : 'UA-93495883-1',
+    
   // Page sharing links
-  twitterShareLink :  "https://twitter.com/intent/tweet?url={{pageUrl}}",
-  googleShareLink :   "https://plus.google.com/share?url={{pageUrl}}",
-  facebookShareLink : "https://www.facebook.com/sharer/sharer.php?u={{pageUrl}}",
-  linkedInShareLink : "http://www.linkedin.com/shareArticle?mini=true&url={{pageUrl}}&title={{title}}",
-  redditShareLink :   "https://www.reddit.com/r/test/submit?title={{title}}&url={{pageUrl}}",
-  tumblrShareLink :   "http://www.tumblr.com/share?v=3&t={{title}}&u={{pageUrl}}",
-  hackerShareLink :   "http://news.ycombinator.com/submitlink?u={{pageUrl}}&t={{title}}",
+  twitterShareUrl :  "https://twitter.com/intent/tweet?url={{pageUrl}}",
+  googleShareUrl :   "https://plus.google.com/share?url={{pageUrl}}",
+  facebookShareUrl : "https://www.facebook.com/sharer/sharer.php?u={{pageUrl}}",
+  linkedInShareUrl : "http://www.linkedin.com/shareArticle?mini=true&url={{pageUrl}}&title={{title}}",
+  redditShareUrl :   "https://www.reddit.com/r/test/submit?title={{title}}&url={{pageUrl}}",
+  tumblrShareUrl :   "http://www.tumblr.com/share?v=3&t={{title}}&u={{pageUrl}}",
+  hackerShareUrl :   "http://news.ycombinator.com/submitlink?u={{pageUrl}}&t={{title}}",
 
   social : 
   [
@@ -34,9 +33,6 @@ module.exports =
     { title: "YouTube", icon: "fa-youtube", url: "https://www.youtube.com/user/cdiggins" },
     { title: "RSS", icon: "fa-rss", url: 'http://cdiggins.github.io/rss.xml' },
   ],
-  email :         'cdiggins@gmail.com',
-  generator :     'The-Blog-Machine',
-  template :      'Diggins-Template-1',
   
   about : 
   { 
@@ -84,16 +80,22 @@ module.exports =
   <!-- The site title -->
   <title>{{title}}</title>
 
-  <link rel="stylesheet" href="{{{baseUrl}}}/dist/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="{{{baseUrl}}}/dist/css/bootstrap-theme.min.css" />
-  <link rel="stylesheet" href="{{{baseUrl}}}/assets/css/ie10-viewport-bug-workaround.css" />
-  <link rel="stylesheet" href="{{{baseUrl}}}/dist/css/theme.css" />
+  <!-- Bootstrap http://getbootstrap.com/getting-started/ -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+  <!-- Font Awesome http://fontawesome.io/ --> 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+  <!-- Google Fonts https://fonts.google.com/ --> 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Source+Sans+Pro">
+
+  <link rel="stylesheet" href="{{baseUrl}}/css/theme.css">
+
+  <!-- My custom styling, non-trivial styling should be done in its own CSS file --> 
   <style>
     body { font-family: 'Source Sans Pro', sans-serif; }
     h1, h2, h3, h4, h5, h6 { font-family: 'Roboto', sans-serif; } 
-
   </style>`,
 
   // This is the nav tag and appears at the top of the page/ 
@@ -115,8 +117,8 @@ module.exports =
           <li><a href="{{{baseUrl}}}/blog.html" title="blog">Blog</a></li>
           <li><a href="{{{baseUrl}}}/about.html" title="about">About</a></li>
           {{#prevNextNav}}
-            <li><a href="{{&urlPrev}}">Previous</a></li>
-            <li><a href="{{&urlNext}}">Next</a></li>
+            <li><a href="{{{urlPrev}}}">Previous</a></li>
+            <li><a href="{{{urlNext}}}">Next</a></li>
           {{/prevNextNav}}
         </ul>
       </div>
@@ -126,14 +128,10 @@ module.exports =
   // This div tag floats to the right of the main content, if enough spaces is present, otherwise it appears at the bottoms
   sidebar : `
   <div class="col-sm-4 sidebar-module sidebar-module-inset">
-    <h3>About Me</h3>
       <p>
         I am a software developer based in Montreal, Canada with a passion for programming languages, 
         software development practices and processes, and 3D graphics. 
       </p>
-      <p>
-        Learn more <a href="http://cdiggins.github.io/about.html">about me and this blog</a>. 
-      </p>      
     <h3>Recent Posts</h3>
        <ul>
 {{#recentArticles}}
@@ -143,13 +141,13 @@ module.exports =
     <h3>Share</h3> 
     <p>
       <ul class="fa-ul">
-        <li><i class="fa fa-facebook    fa-fw" aria-hidden="true"></i>&nbsp;<a href="{{{facebookShareUrl}}}">Facebook</a></li>
-        <li><i class="fa fa-twitter     fa-fw" aria-hidden="true"></i>&nbsp;<a href="{{{twitterShareUrl}}}">Twitter</a></li>
-        <li><i class="fa fa-reddit      fa-fw" aria-hidden="true"></i>&nbsp;<a href="{{{redditShareUrl}}}">Reddit</a></li>
-        <li><i class="fa fa-google-plus fa-fw" aria-hidden="true"></i>&nbsp;<a href="{{{googlePlusShareUrl}}}">Google+</a></li>
-        <li><i class="fa fa-linkedin    fa-fw" aria-hidden="true"></i>&nbsp;<a href="{{{linkedInShareUrl}}}">LinkedIn</a></li>
-        <li><i class="fa fa-hacker-news fa-fw" aria-hidden="true"></i>&nbsp;<a href="{{{hackerNewsShareUrl}}}">Hacker News</a></li>
-        <li><i class="fa fa-tumblr      fa-fw" aria-hidden="true"></i>&nbsp;<a href="{{{tumblrShareUrl}}}">Tumblr</a></li>
+        <li><i class="fa fa-facebook    fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="{{{facebookShareUrl}}}">Facebook</a></li>
+        <li><i class="fa fa-twitter     fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="{{{twitterShareUrl}}}">Twitter</a></li>
+        <li><i class="fa fa-reddit      fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="{{{redditShareUrl}}}">Reddit</a></li>
+        <li><i class="fa fa-google-plus fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="{{{googlePlusShareUrl}}}">Google+</a></li>
+        <li><i class="fa fa-linkedin    fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="{{{linkedInShareUrl}}}">LinkedIn</a></li>
+        <li><i class="fa fa-hacker-news fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="{{{hackerNewsShareUrl}}}">Hacker News</a></li>
+        <li><i class="fa fa-tumblr      fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="{{{tumblrShareUrl}}}">Tumblr</a></li>
       </ul>
     </p>
   </div>`,
@@ -180,12 +178,9 @@ module.exports =
   </div>
 
 </footer>
-  
+
   <!-- Bootstrap scripts --> 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="{{{baseUrl}}}/dist/js/bootstrap.min.js"></script>
-  <script src="{{{baseUrl}}}/assets/js/docs.min.js"></script>
-  <script src="{{{baseUrl}}}/assets/js/ie10-viewport-bug-workaround.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
   <!-- Google analytics -->
   <script>
@@ -193,7 +188,7 @@ module.exports =
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-93495883-1', 'auto');
+  ga('create', '{{googleAnalyticsIds}}', 'auto');
   ga('send', 'pageview');
   </script>`, 
 };

@@ -25,7 +25,7 @@
         "src":"for-loops-are-functional.md",
         "date":"2017-07-23T23:30",
         "category":"functional programming",
-        "description":"Demonstrateing the correspondance between imperative constructs and pure functional programming with Python."
+        "description":"Demonstrating the correspondance between imperative constructs and pure functional programming using Python."
     },
     {
         "title":"Markdown Parsers in JavaScript",
@@ -34,6 +34,14 @@
         "category":"parsing",
         "description":"A list of JavaScript markdown parsers",
         "draft":true
-    }   
+    },
+    {
+        "title":"Standing on the Shoulders of Giants",
+        "src":"standing-on-shoulders.md",
+        "date":"2017-08-01T23:44",
+        "category":"web development",
+        "description":"Some of the technology used to make this site a reality",
+        "draft":true
+    }
     ]
 }

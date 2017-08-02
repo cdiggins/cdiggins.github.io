@@ -26,16 +26,22 @@
   <!-- The site title -->
   <title>First post!</title>
 
-  <link rel="stylesheet" href="../dist/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="../dist/css/bootstrap-theme.min.css" />
-  <link rel="stylesheet" href="../assets/css/ie10-viewport-bug-workaround.css" />
-  <link rel="stylesheet" href="../dist/css/theme.css" />
+  <!-- Bootstrap http://getbootstrap.com/getting-started/ -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+  <!-- Font Awesome http://fontawesome.io/ --> 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+  <!-- Google Fonts https://fonts.google.com/ --> 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Source+Sans+Pro">
+
+  <link rel="stylesheet" href="../css/theme.css">
+
+  <!-- My custom styling, non-trivial styling should be done in its own CSS file --> 
   <style>
     body { font-family: 'Source Sans Pro', sans-serif; }
     h1, h2, h3, h4, h5, h6 { font-family: 'Roboto', sans-serif; } 
-
   </style>
   </head>
 
@@ -68,7 +74,6 @@
     <div class="container theme-showcase" role="main">
         <p>
           <h4>Monday, July 10, 2017</h4>
-          <h5><a href='myna-parsing-library.html'>The Myna parsing library for JavaScript >></a></h5>
         </p>
     
         <div class="theme-showcase col-sm-8" id='content'>
@@ -94,14 +99,10 @@
 
         
   <div class="col-sm-4 sidebar-module sidebar-module-inset">
-    <h3>About Me</h3>
       <p>
         I am a software developer based in Montreal, Canada with a passion for programming languages, 
         software development practices and processes, and 3D graphics. 
       </p>
-      <p>
-        Learn more <a href="http://cdiggins.github.io/about.html">about me and this blog</a>. 
-      </p>      
     <h3>Recent Posts</h3>
        <ul>
    <li><a href="for-loops-are-functional.html">For Loops are Functional Too</a></li>
@@ -113,13 +114,13 @@
     <h3>Share</h3> 
     <p>
       <ul class="fa-ul">
-        <li><i class="fa fa-facebook    fa-fw" aria-hidden="true"></i>&nbsp;<a href="">Facebook</a></li>
-        <li><i class="fa fa-twitter     fa-fw" aria-hidden="true"></i>&nbsp;<a href="">Twitter</a></li>
-        <li><i class="fa fa-reddit      fa-fw" aria-hidden="true"></i>&nbsp;<a href="">Reddit</a></li>
-        <li><i class="fa fa-google-plus fa-fw" aria-hidden="true"></i>&nbsp;<a href="">Google+</a></li>
-        <li><i class="fa fa-linkedin    fa-fw" aria-hidden="true"></i>&nbsp;<a href="">LinkedIn</a></li>
-        <li><i class="fa fa-hacker-news fa-fw" aria-hidden="true"></i>&nbsp;<a href="">Hacker News</a></li>
-        <li><i class="fa fa-tumblr      fa-fw" aria-hidden="true"></i>&nbsp;<a href="">Tumblr</a></li>
+        <li><i class="fa fa-facebook    fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://www.facebook.com/sharer/sharer.php?u=https://cdiggins.github.io">Facebook</a></li>
+        <li><i class="fa fa-twitter     fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://twitter.com/intent/tweet?url=https://cdiggins.github.io">Twitter</a></li>
+        <li><i class="fa fa-reddit      fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://www.reddit.com/r/test/submit?title=First post!&url=https://cdiggins.github.io">Reddit</a></li>
+        <li><i class="fa fa-google-plus fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="">Google+</a></li>
+        <li><i class="fa fa-linkedin    fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://cdiggins.github.io&title=First post!">LinkedIn</a></li>
+        <li><i class="fa fa-hacker-news fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="">Hacker News</a></li>
+        <li><i class="fa fa-tumblr      fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="http://www.tumblr.com/share?v=3&t=First post!&u=https://cdiggins.github.io">Tumblr</a></li>
       </ul>
     </p>
   </div>
@@ -191,12 +192,9 @@
   </div>
 
 </footer>
-  
+
   <!-- Bootstrap scripts --> 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="../dist/js/bootstrap.min.js"></script>
-  <script src="../assets/js/docs.min.js"></script>
-  <script src="../assets/js/ie10-viewport-bug-workaround.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
   <!-- Google analytics -->
   <script>
@@ -204,7 +202,7 @@
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-93495883-1', 'auto');
+  ga('create', '', 'auto');
   ga('send', 'pageview');
   </script>
   </body>

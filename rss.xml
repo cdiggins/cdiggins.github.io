@@ -4,7 +4,7 @@
  <title>Another Software Development Blog by Christopher Diggins</title>
  <description>Thoughts and anecdotes on software development and programming language design.</description>
  <link>https://cdiggins.github.io</link>
- <lastBuildDate>Tue, 1 Aug 2017 23:28:03 GMT-0400 (Eastern Daylight Time)</lastBuildDate>
+ <lastBuildDate>Wed, 2 Aug 2017 09:16:17 GMT-0400 (Eastern Daylight Time)</lastBuildDate>
  <pubDate>Sun, 23 July 2017 11:50 EST</pubDate>
  <webMaster>cdiggins@gmail.com</webMaster>
  <managingEditor>cdiggins@gmail.com</managingEditor>
@@ -15,7 +15,7 @@
  
  <item>
   <title>For Loops are Functional Too</title>
-  <description>Demonstrateing the correspondance between imperative constructs and pure functional programming with Python.</description>
+  <description>Demonstrating the correspondance between imperative constructs and pure functional programming using Python.</description>
   <category>functional programming</category>
   <link>http://cdiggins.github.io/blog/https://cdiggins.github.io</link>
   <source>http://cdiggins.github.io/rss.xml</source>
