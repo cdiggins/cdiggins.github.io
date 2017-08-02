@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-        
-
+    
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -13,30 +12,30 @@
   -->
 
   <!-- Standard meta tags -->
-  <meta name="description"          content="{{description}}" />
-  <meta name="author"               content="{{author}}" />
+  <meta name="description"          content="About Christopher Diggins and his magical software development blog" />
+  <meta name="author"               content="Christopher Diggins" />
   <meta name="generator"            content="Myna Blog Generator" />
   
   <!-- Open Graph meta-properties, used by FaceBook and other social sites --> 
   <meta property="og:type"          content="website" />
-  <meta property="og:url"           content="{{url}}" />
-  <meta property="og:title"         content="{{title}}" />
-  <meta property="og:description"   content="{{description}}" />
-  <meta property="og:image"         content="{{imageurl}}" />
+  <meta property="og:url"           content="http://cdiggins.github.io/about.html" />
+  <meta property="og:title"         content="About Christopher and His Blog" />
+  <meta property="og:description"   content="About Christopher Diggins and his magical software development blog" />
+  <meta property="og:image"         content="" />
 
   <!-- The site title -->
-  <title>{{title}}</title>
+  <title>About Christopher and His Blog</title>
 
-  <link rel="stylesheet" href="{{{siteUrl}}}/dist/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="{{{siteUrl}}}/dist/css/bootstrap-theme.min.css" />
-  <link rel="stylesheet" href="{{{siteUrl}}}/assets/css/ie10-viewport-bug-workaround.css" />
-  <link rel="stylesheet" href="{{{siteUrl}}}/dist/css/theme.css" />
+  <link rel="stylesheet" href="./dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="./dist/css/bootstrap-theme.min.css" />
+  <link rel="stylesheet" href="./assets/css/ie10-viewport-bug-workaround.css" />
+  <link rel="stylesheet" href="./dist/css/theme.css" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Source+Sans+Pro">
   <style>
-    <!-- TODO: move this into a CSS -->
     body { font-family: 'Source Sans Pro', sans-serif; }
     h1, h2, h3, h4, h5, h6 { font-family: 'Roboto', sans-serif; } 
+
   </style>
   </head>
   <body>
@@ -54,54 +53,54 @@
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li><a href="{{{siteUrl}}}/index.html" title="home">Home</a></li>
-          <li><a href="{{{siteUrl}}}/blog.html" title="blog">Blog</a></li>
-          <li><a href="{{{siteUrl}}}/about.html" title="about">About</a></li>
-          {{prevNextNav}}
-            <li><a href="{{&urlPrev}}">Previous</a></li>
-            <li><a href="{{&urlNext}}">Next</a></li>
-          {{/prevNextNav}}
+          <li><a href="./index.html" title="home">Home</a></li>
+          <li><a href="./blog.html" title="blog">Blog</a></li>
+          <li><a href="./about.html" title="about">About</a></li>
+          
         </ul>
       </div>
     </div>
   </nav>
 
     <div class="container theme-showcase" role="main">
-        <div id='content'>
-          <img src="../img/me-by-david.jpg" style="float:right; border-radius:10%;max-width:50%;max-height:50%"/>          
+        <div id='content' class="col-sm-8">
           <h2>About Me</h2>
           <p>
             My name is Christopher Diggins and I have been writing software for over 20 years. 
             I currently work as a Principal Software Developer at Autodesk.
-            I am very interested in the craft of software development, and in particular the role
+            I am very interested in the craft of software development, particularly the role
             that programming languages play in enabling us to produce better quality software
-            more quickly.  
+            expediently.  
           </p>
           <h2>About the Blog</h2>
           <p>
-            My blog posts will cover various topics related to software development and with a focus on 
-            programming languages and 3D graphics and animation.  
+            My blog covers various topics related to software development, with an emphasis on 
+            programming languages and 3D graphics and animation. It is a continuation of other blogs             
           </p>
+          <h2>The Blog Generator</h3>
           <p>
-            This blog was created using a custom static blog generator program I wrote in JavaScript using 
-            the <a href="https://github.com/cdiggins/myna-parser">Myna parsing library</a>.
+            This blog was created using a node.js <a href="https://github.com/cdiggins/cdiggins.github.io">static blog generator</a> 
+            that allows users to author blog posts using Markdown and Mustache templates. It is based on 
+            the same ideas as <a href="http://gohugo.io/">Hugo</a>, <a href="https://jekyllrb.com/">Jekyll</a>, and 
+            <a href="http://octopress.org/">Octopress</a>, but it is a <b>lot</b> simpler. 
           </p>
+          <!--
           <h2>Profiles</h2>
-            <p>
-              Here are some of the different profiles I have across the internet:
-            </p>
-            <ul>
-                <li><a href="https://github.com/cdiggins">GitHub</a></li>
-                <li><a href="https://www.researchgate.net/profile/Christopher_Diggins">ResearchGate</a></li>
-                <li><a href="https://www.codeproject.com/script/Articles/MemberArticles.aspx?amid=1295110">CodeProject</a></li>
-                <li><a href="https://stackoverflow.com/users/184528/cdiggins?tab=profile">StackOverflow</a></li>
-                <li><a href="https://scholar.google.ca/citations?user=z5J10EcAAAAJ&hl=en">Google Scholar</a></li>
-                <li><a href="https://www.youtube.com/user/cdiggins">YouTube</a></li>
-            </ul>
+          <p>
+            Here are some of the different profiles I have across the internet:
+          </p>
+          <ul>
+              <li><a href="https://github.com/cdiggins">GitHub</a></li>
+              <li><a href="https://www.researchgate.net/profile/Christopher_Diggins">ResearchGate</a></li>
+              <li><a href="https://www.codeproject.com/script/Articles/MemberArticles.aspx?amid=1295110">CodeProject</a></li>
+              <li><a href="https://stackoverflow.com/users/184528/cdiggins?tab=profile">StackOverflow</a></li>
+              <li><a href="https://scholar.google.ca/citations?user=z5J10EcAAAAJ&hl=en">Google Scholar</a></li>
+          </ul>
+          -->
+        </div>
+        <div class="col-sm-4">
+          <img src="img/me-by-david.jpg" style="border-radius:50%;max-width:50%;max-height:50%"/>          
           <h2>Contact me</h2>
-            <p>
-              Here are some different ways to reach me:WW
-            </p>
             <ul>
                 <li><a href="mailto:cdiggins@gmail.com">Email</a></li>
                 <li><a href="https://www.linkedin.com/in/cdiggins">LinkedIn</a></li>
@@ -109,7 +108,6 @@
                 <li><a href="https://twitter.com/cdiggins">Twitter</a></li>
             </ul>
         </div>
-
     </div>
     
 		    
@@ -119,19 +117,61 @@
 
     <!-- Social media sharing icons -->
     <div class="row">
-      {{#social}}    
-        <a href="{{{url}}}" title="{{title}}">
+              <a href="mailto:cdiggins@gmail.com" class="btn-link" style="text-decoration: none" title="email">
           <span class="fa-stack fa-lg">
-            <i class="fa fa-circle fa-stack-2x"></i>
-            <i class="fa {{icon}} fa-stack-1x fa-inverse"></i>
+            <i class="fa fa-circle fa-stack-2x" aria-hidden="true"></i>
+            <i class="fa fa-envelope fa-stack-1x fa-inverse" aria-hidden="true"></i>
           </span>
         </a>
-      {{/social}}
+              <a href="https://twitter.com/cdiggins" class="btn-link" style="text-decoration: none" title="Twitter">
+          <span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x" aria-hidden="true"></i>
+            <i class="fa fa-twitter fa-stack-1x fa-inverse" aria-hidden="true"></i>
+          </span>
+        </a>
+              <a href="https://www.linkedin.com/in/cdiggins/" class="btn-link" style="text-decoration: none" title="LinkedIn">
+          <span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x" aria-hidden="true"></i>
+            <i class="fa fa-linkedin fa-stack-1x fa-inverse" aria-hidden="true"></i>
+          </span>
+        </a>
+              <a href="https://www.facebook.com/diggins.software" class="btn-link" style="text-decoration: none" title="FaceBook">
+          <span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x" aria-hidden="true"></i>
+            <i class="fa fa-facebook fa-stack-1x fa-inverse" aria-hidden="true"></i>
+          </span>
+        </a>
+              <a href="https://github.com/cdiggins" class="btn-link" style="text-decoration: none" title="GitHub">
+          <span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x" aria-hidden="true"></i>
+            <i class="fa fa-github fa-stack-1x fa-inverse" aria-hidden="true"></i>
+          </span>
+        </a>
+              <a href="https://stackoverflow.com/users/184528/cdiggins" class="btn-link" style="text-decoration: none" title="StackOverflow">
+          <span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x" aria-hidden="true"></i>
+            <i class="fa fa-stack-overflow fa-stack-1x fa-inverse" aria-hidden="true"></i>
+          </span>
+        </a>
+              <a href="https://www.youtube.com/user/cdiggins" class="btn-link" style="text-decoration: none" title="YouTube">
+          <span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x" aria-hidden="true"></i>
+            <i class="fa fa-youtube fa-stack-1x fa-inverse" aria-hidden="true"></i>
+          </span>
+        </a>
+              <a href="http://cdiggins.github.io/rss.xml" class="btn-link" style="text-decoration: none" title="RSS">
+          <span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x" aria-hidden="true"></i>
+            <i class="fa fa-rss fa-stack-1x fa-inverse" aria-hidden="true"></i>
+          </span>
+        </a>
+      
     </div>
   
     <!-- Copyright and Licene notice -->
-    <p class="copyright text-muted">
-      Copyright &copy; {{{year}}} {{{author}}} <a href="{{{licenseUrl}}}">{{{license}}}</a>
+    <p class="copyright text-muted small">
+      Copyright &copy; 2017 Christopher Diggins
+      <br/><a href="https://creativecommons.org/licenses/by-sa/4.0/">Attribution-ShareAlike 4.0 International</a>
     </p>
   </div>
 
@@ -139,12 +179,12 @@
   
   <!-- Bootstrap scripts --> 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="{{{siteUrl}}}/dist/js/bootstrap.min.js"></script>
-  <script src="{{{siteUrl}}}/assets/js/docs.min.js"></script>
-  <script src="{{{siteUrl}}}/assets/js/ie10-viewport-bug-workaround.js"></script>
-  <script>
+  <script src="./dist/js/bootstrap.min.js"></script>
+  <script src="./assets/js/docs.min.js"></script>
+  <script src="./assets/js/ie10-viewport-bug-workaround.js"></script>
 
   <!-- Google analytics -->
+  <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -154,4 +194,3 @@
   </script>
   </body>
 </html>
-

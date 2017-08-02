@@ -1,6 +1,7 @@
 // TODO: 
 // Credits 
 // Hugo / GitHub / Markdown / HTML / CSS / Creative Commons / RSS / StackOverflow / Mustache / JavaScript / Bootstrap / Font-awesome / Google-fonts 
+// CTemplate / XML / SGML 
 // This file is used with Myna-Blog-Generator 
 module.exports = 
 { 
@@ -9,6 +10,19 @@ module.exports =
   source :        'https://github.com/cdiggins/cdiggins.github.io',
   license :       'Attribution-ShareAlike 4.0 International',
   licenseUrl :    'https://creativecommons.org/licenses/by-sa/4.0/',
+  baseUrl :       '.',
+  siteUrl :       'https://cdiggins.github.io',
+  pageUrl :       'https://cdiggins.github.io',
+  
+  // Page sharing links
+  twitterShareLink :  "https://twitter.com/intent/tweet?url={{pageUrl}}",
+  googleShareLink :   "https://plus.google.com/share?url={{pageUrl}}",
+  facebookShareLink : "https://www.facebook.com/sharer/sharer.php?u={{pageUrl}}",
+  linkedInShareLink : "http://www.linkedin.com/shareArticle?mini=true&url={{pageUrl}}&title={{title}}",
+  redditShareLink :   "https://www.reddit.com/r/test/submit?title={{title}}&url={{pageUrl}}",
+  tumblrShareLink :   "http://www.tumblr.com/share?v=3&t={{title}}&u={{pageUrl}}",
+  hackerShareLink :   "http://news.ycombinator.com/submitlink?u={{pageUrl}}&t={{title}}",
+
   social : 
   [
     { title: "email", icon: "fa-envelope", url: 'mailto:cdiggins@gmail.com' },
@@ -16,38 +30,36 @@ module.exports =
     { title: "LinkedIn", icon: "fa-linkedin", url: 'https://www.linkedin.com/in/cdiggins/' },
     { title: "FaceBook", icon: "fa-facebook", url: 'https://www.facebook.com/diggins.software' },
     { title: "GitHub", icon: "fa-github", url: 'https://github.com/cdiggins' },
-    { title: "StackOverflow", icon: "fa-stackoverflow", url: 'https://stackoverflow.com/users/184528/cdiggins' },
+    { title: "StackOverflow", icon: "fa-stack-overflow", url: 'https://stackoverflow.com/users/184528/cdiggins' },
+    { title: "YouTube", icon: "fa-youtube", url: "https://www.youtube.com/user/cdiggins" },
     { title: "RSS", icon: "fa-rss", url: 'http://cdiggins.github.io/rss.xml' },
-    { title: "YouTube", icon: "fa-youtube", url: "https://www.youtube.com/user/cdiggins" }
   ],
-  siteurl :       'https://cdiggins.github.io',
   email :         'cdiggins@gmail.com',
   generator :     'The-Blog-Machine',
   template :      'Diggins-Template-1',
   
   about : 
   { 
-    title :       'About Christopher Diggins and his Stupendous Software Blog', 
-    description : 'About Christopher Diggins and his software development blog', 
-    url:          'http://cdiggins.github.com/about.html' 
+    title :       'About Christopher and His Blog', 
+    description : 'About Christopher Diggins and his magical software development blog', 
+    pageUrl:      'http://cdiggins.github.io/about.html' 
   },    
 
   index : 
   { 
     title       : 'Christopher Diggins\' home on the internet',      
     description : 'Christopher Diggins is a software developer with an unhealthy obsession with programming languages. On this web site, hosted by GitHub, contains his blog, contact information, and other trivia.',
-    url:          'http://cdiggins.github.io' 
+    pageUrl:      'http://cdiggins.github.io' 
   },
 
   blog : { 
     title :       'Another Software Development Blog by Christopher Diggins', 
     description : 'A blog on topics related to software development and 3D graphics with an emphasis on programming languages and open-source development.',
-    url:          'http://cdiggins.github.com/blog.html' 
+    pageUrl:      'http://cdiggins.github.io/blog.html' 
   },
 
   // This the contents of the HTML head tag
-  header : `    
-
+  header : `
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -64,24 +76,24 @@ module.exports =
   
   <!-- Open Graph meta-properties, used by FaceBook and other social sites --> 
   <meta property="og:type"          content="website" />
-  <meta property="og:url"           content="{{url}}" />
+  <meta property="og:url"           content="{{pageUrl}}" />
   <meta property="og:title"         content="{{title}}" />
   <meta property="og:description"   content="{{description}}" />
-  <meta property="og:image"         content="{{imageurl}}" />
+  <meta property="og:image"         content="{{imageUrl}}" />
 
   <!-- The site title -->
   <title>{{title}}</title>
 
-  <link rel="stylesheet" href="{{{siteUrl}}}/dist/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="{{{siteUrl}}}/dist/css/bootstrap-theme.min.css" />
-  <link rel="stylesheet" href="{{{siteUrl}}}/assets/css/ie10-viewport-bug-workaround.css" />
-  <link rel="stylesheet" href="{{{siteUrl}}}/dist/css/theme.css" />
+  <link rel="stylesheet" href="{{{baseUrl}}}/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="{{{baseUrl}}}/dist/css/bootstrap-theme.min.css" />
+  <link rel="stylesheet" href="{{{baseUrl}}}/assets/css/ie10-viewport-bug-workaround.css" />
+  <link rel="stylesheet" href="{{{baseUrl}}}/dist/css/theme.css" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Source+Sans+Pro">
   <style>
-    <!-- TODO: move this into a CSS -->
     body { font-family: 'Source Sans Pro', sans-serif; }
     h1, h2, h3, h4, h5, h6 { font-family: 'Roboto', sans-serif; } 
+
   </style>`,
 
   // This is the nav tag and appears at the top of the page/ 
@@ -99,10 +111,10 @@ module.exports =
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li><a href="{{{siteUrl}}}/index.html" title="home">Home</a></li>
-          <li><a href="{{{siteUrl}}}/blog.html" title="blog">Blog</a></li>
-          <li><a href="{{{siteUrl}}}/about.html" title="about">About</a></li>
-          {{prevNextNav}}
+          <li><a href="{{{baseUrl}}}/index.html" title="home">Home</a></li>
+          <li><a href="{{{baseUrl}}}/blog.html" title="blog">Blog</a></li>
+          <li><a href="{{{baseUrl}}}/about.html" title="about">About</a></li>
+          {{#prevNextNav}}
             <li><a href="{{&urlPrev}}">Previous</a></li>
             <li><a href="{{&urlNext}}">Next</a></li>
           {{/prevNextNav}}
@@ -123,15 +135,21 @@ module.exports =
         Learn more <a href="http://cdiggins.github.io/about.html">about me and this blog</a>. 
       </p>      
     <h3>Recent Posts</h3>
-{{{recentPostsList}}}
+       <ul>
+{{#recentArticles}}
+   <li><a href="{{{url}}}">{{title}}</a></li>
+{{/recentArticles}}
+      </ul>
     <h3>Share</h3> 
     <p>
       <ul class="fa-ul">
-        <li><i class="fa fa-facebook    fa-fw" aria-hidden="true"></i>&nbsp;<a href="{{{facebookShareUrl}}}"  >Facebook</a></li>
-        <li><i class="fa fa-twitter     fa-fw" aria-hidden="true"></i>&nbsp;<a href="{{{twitterShareUrl}}}"   >Twitter</a></li>
-        <li><i class="fa fa-reddit      fa-fw" aria-hidden="true"></i>&nbsp;<a href="{{{redditShareUrl}}}"    >Reddit</a></li>
+        <li><i class="fa fa-facebook    fa-fw" aria-hidden="true"></i>&nbsp;<a href="{{{facebookShareUrl}}}">Facebook</a></li>
+        <li><i class="fa fa-twitter     fa-fw" aria-hidden="true"></i>&nbsp;<a href="{{{twitterShareUrl}}}">Twitter</a></li>
+        <li><i class="fa fa-reddit      fa-fw" aria-hidden="true"></i>&nbsp;<a href="{{{redditShareUrl}}}">Reddit</a></li>
         <li><i class="fa fa-google-plus fa-fw" aria-hidden="true"></i>&nbsp;<a href="{{{googlePlusShareUrl}}}">Google+</a></li>
-        <li><i class="fa fa-linkedin    fa-fw" aria-hidden="true"></i>&nbsp;<a href="{{{linkedInShareUrl}}}"  >LinkedIn</a></li>
+        <li><i class="fa fa-linkedin    fa-fw" aria-hidden="true"></i>&nbsp;<a href="{{{linkedInShareUrl}}}">LinkedIn</a></li>
+        <li><i class="fa fa-hacker-news fa-fw" aria-hidden="true"></i>&nbsp;<a href="{{{hackerNewsShareUrl}}}">Hacker News</a></li>
+        <li><i class="fa fa-tumblr      fa-fw" aria-hidden="true"></i>&nbsp;<a href="{{{tumblrShareUrl}}}">Tumblr</a></li>
       </ul>
     </p>
   </div>`,
@@ -145,18 +163,19 @@ module.exports =
     <!-- Social media sharing icons -->
     <div class="row">
       {{#social}}    
-        <a href="{{{url}}}" title="{{title}}">
+        <a href="{{{url}}}" class="btn-link" style="text-decoration: none" title="{{title}}">
           <span class="fa-stack fa-lg">
-            <i class="fa fa-circle fa-stack-2x"></i>
-            <i class="fa {{icon}} fa-stack-1x fa-inverse"></i>
+            <i class="fa fa-circle fa-stack-2x" aria-hidden="true"></i>
+            <i class="fa {{icon}} fa-stack-1x fa-inverse" aria-hidden="true"></i>
           </span>
         </a>
       {{/social}}
     </div>
   
     <!-- Copyright and Licene notice -->
-    <p class="copyright text-muted">
-      Copyright &copy; {{{year}}} {{{author}}} <a href="{{{licenseUrl}}}">{{{license}}}</a>
+    <p class="copyright text-muted small">
+      Copyright &copy; {{{year}}} {{{author}}}
+      <br/><a href="{{{licenseUrl}}}">{{{license}}}</a>
     </p>
   </div>
 
@@ -164,12 +183,12 @@ module.exports =
   
   <!-- Bootstrap scripts --> 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="{{{siteUrl}}}/dist/js/bootstrap.min.js"></script>
-  <script src="{{{siteUrl}}}/assets/js/docs.min.js"></script>
-  <script src="{{{siteUrl}}}/assets/js/ie10-viewport-bug-workaround.js"></script>
-  <script>
+  <script src="{{{baseUrl}}}/dist/js/bootstrap.min.js"></script>
+  <script src="{{{baseUrl}}}/assets/js/docs.min.js"></script>
+  <script src="{{{baseUrl}}}/assets/js/ie10-viewport-bug-workaround.js"></script>
 
   <!-- Google analytics -->
+  <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)

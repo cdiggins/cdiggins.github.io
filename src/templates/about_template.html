@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{#about}}<!DOCTYPE html>
 <html lang="en">
   <head>
     {{{header}}}
@@ -7,41 +7,44 @@
     {{{nav}}}
 
     <div class="container theme-showcase" role="main">
-        <div id='content'>
-          <img src="../img/me-by-david.jpg" style="float:right; border-radius:10%;max-width:50%;max-height:50%"/>          
+        <div id='content' class="col-sm-8">
           <h2>About Me</h2>
           <p>
             My name is Christopher Diggins and I have been writing software for over 20 years. 
             I currently work as a Principal Software Developer at Autodesk.
-            I am very interested in the craft of software development, and in particular the role
+            I am very interested in the craft of software development, particularly the role
             that programming languages play in enabling us to produce better quality software
-            more quickly.  
+            expediently.  
           </p>
           <h2>About the Blog</h2>
           <p>
-            My blog posts will cover various topics related to software development and with a focus on 
-            programming languages and 3D graphics and animation.  
+            My blog covers various topics related to software development, with an emphasis on 
+            programming languages and 3D graphics and animation. It is a continuation of other blogs             
           </p>
+          <h2>The Blog Generator</h3>
           <p>
-            This blog was created using a custom static blog generator program I wrote in JavaScript using 
-            the <a href="https://github.com/cdiggins/myna-parser">Myna parsing library</a>.
+            This blog was created using a node.js <a href="https://github.com/cdiggins/cdiggins.github.io">static blog generator</a> 
+            that allows users to author blog posts using Markdown and Mustache templates. It is based on 
+            the same ideas as <a href="http://gohugo.io/">Hugo</a>, <a href="https://jekyllrb.com/">Jekyll</a>, and 
+            <a href="http://octopress.org/">Octopress</a>, but it is a <b>lot</b> simpler. 
           </p>
+          <!--
           <h2>Profiles</h2>
-            <p>
-              Here are some of the different profiles I have across the internet:
-            </p>
-            <ul>
-                <li><a href="https://github.com/cdiggins">GitHub</a></li>
-                <li><a href="https://www.researchgate.net/profile/Christopher_Diggins">ResearchGate</a></li>
-                <li><a href="https://www.codeproject.com/script/Articles/MemberArticles.aspx?amid=1295110">CodeProject</a></li>
-                <li><a href="https://stackoverflow.com/users/184528/cdiggins?tab=profile">StackOverflow</a></li>
-                <li><a href="https://scholar.google.ca/citations?user=z5J10EcAAAAJ&hl=en">Google Scholar</a></li>
-                <li><a href="https://www.youtube.com/user/cdiggins">YouTube</a></li>
-            </ul>
+          <p>
+            Here are some of the different profiles I have across the internet:
+          </p>
+          <ul>
+              <li><a href="https://github.com/cdiggins">GitHub</a></li>
+              <li><a href="https://www.researchgate.net/profile/Christopher_Diggins">ResearchGate</a></li>
+              <li><a href="https://www.codeproject.com/script/Articles/MemberArticles.aspx?amid=1295110">CodeProject</a></li>
+              <li><a href="https://stackoverflow.com/users/184528/cdiggins?tab=profile">StackOverflow</a></li>
+              <li><a href="https://scholar.google.ca/citations?user=z5J10EcAAAAJ&hl=en">Google Scholar</a></li>
+          </ul>
+          -->
+        </div>
+        <div class="col-sm-4">
+          <img src="img/me-by-david.jpg" style="border-radius:50%;max-width:50%;max-height:50%"/>          
           <h2>Contact me</h2>
-            <p>
-              Here are some different ways to reach me:WW
-            </p>
             <ul>
                 <li><a href="mailto:cdiggins@gmail.com">Email</a></li>
                 <li><a href="https://www.linkedin.com/in/cdiggins">LinkedIn</a></li>
@@ -49,10 +52,9 @@
                 <li><a href="https://twitter.com/cdiggins">Twitter</a></li>
             </ul>
         </div>
-
     </div>
     
 		{{{footer}}}
   </body>
 </html>
-
+{{/about}}
