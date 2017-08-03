@@ -12,19 +12,19 @@
   -->
 
   <!-- Standard meta tags -->
-  <meta name="description"          content="About the Myna recursive descent parsing library for JavaScript" />
+  <meta name="description"          content="A list of JavaScript markdown parsers" />
   <meta name="author"               content="Christopher Diggins" />
   <meta name="generator"            content="Myna Blog Generator" />
   
   <!-- Open Graph meta-properties, used by FaceBook and other social sites --> 
   <meta property="og:type"          content="website" />
-  <meta property="og:url"           content="https://cdiggins.github.io/blog/myna-parsing-library.html" />
-  <meta property="og:title"         content="The Myna parsing library for JavaScript" />
-  <meta property="og:description"   content="About the Myna recursive descent parsing library for JavaScript" />
+  <meta property="og:url"           content="https://cdiggins.github.io/blog/markdown-parsers.html" />
+  <meta property="og:title"         content="Markdown Parsers in JavaScript" />
+  <meta property="og:description"   content="A list of JavaScript markdown parsers" />
   <meta property="og:image"         content="" />
 
   <!-- The site title -->
-  <title>The Myna parsing library for JavaScript</title>
+  <title>Markdown Parsers in JavaScript</title>
 
   <!-- Bootstrap http://getbootstrap.com/getting-started/ -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -63,9 +63,7 @@
           <li><a href="../index.html" title="home">Home</a></li>
           <li><a href="../blog.html" title="blog">Blog</a></li>
           <li><a href="../about.html" title="about">About</a></li>
-                      <li><a href="first.html">Previous</a></li>
           
-                      <li><a href="myna-blog-maker.html">Next</a></li>
           
         </ul>
       </div>
@@ -74,37 +72,47 @@
 
     <div class="container theme-showcase" role="main">
         <p>
-          <h4>Tuesday, July 11, 2017</h4>
+          <h4>Wednesday, July 26, 2017</h4>
         </p>
     
         <div class="theme-showcase col-sm-8" id='content'>
           <p>
-            <h1>Introducing the Myna Parsing Library</h1>
+            <h1>The Myna Markdown Parser</h1>
 
-<p><a href = "https://cdiggins.github.io/myna-parser/">Myna</a> is an <a href = "https://github.com/cdiggins/myna-parser">open-source</a> recursive descent parsing library written in a combination of JavaScript / TypeScript. </p>
+<p>In order to demonstrate using Myna as for real-world tasks I created a Markdown parser with it which I used to build <a href = "http://cdiggins.github.io/blog.html">my blog</a> and the <a href = "http://cdiggins.github.io/myna-parser">Myna web-site</a> with it.  </p>
 
-<h2>Why another parsing library </h2>
+<p>The Myna parser starts with <a href = "https://github.com/cdiggins/myna-parser/blob/master/grammars/grammar_markdown.js">a simple grammar to parse the Markdown</a>. The generated abstract syntax tree (AST) is converted to HTML by the file [`myna<i>markdown</i>to<i>html.js`](https://github.com/cdiggins/myna-parser/blob/master/tools/myna</i>markdown<i>to</i>html.js).</p>
 
-<p>I wrote Myna because I believed that: </p>
+<p><a href = "https://github.com/cdiggins/myna-parser/blob/master/tests/test_markdown_to_html.js">This test file</a> shows the Markdown to HTML parser in action. You can run it using the command:</p>
 
-<ul><li>Code-generators (e.g. <a href = "http://jison.org/">Jison</a>, <a href = "https://pegjs.org/">PEG.js</a>, <a href = "http://nearley.js.org/">nearley</a>, and <a href = "http://www.antlr.org/">ANTLR</a>) are harder to work with than libraries or embedded DSLs (Domain Specific Languages)</li>
-<li>Existing parsing libraries for JavaScript (e.g. <a href = "https://github.com/jneen/parsimmon">Parsimmon</a> and <a href = "https://github.com/SAP/chevrotain">Chevrotain</a>) could be made easier to use and learn</li>
+<pre>    node tests\test_markdown_to_html
+</pre>
+
+<p>This will generate a test file <code>tests\output\readme.html</code> from the <code>readme.md</code> source file. </p>
+
+<h2>An Invitations</h2>
+
+<p>The converter is far from beging as full featured as other specialized JavaScript Markdown parsers. However, you may find the code easier to manage and extend than some of the other libraries which come in at over a thousand lines of code.  </p>
+
+<p>While Myna is under active development, I don't plan on making any significant additions to the myna Markdown parser, as it is sufficient for my needs, and it was intended as a demo of Myna. However, I'd love to hear if you fork the code or make any changes. </p>
+
+<h2>Other Markdown Parsers in JavaScript</h2>
+
+<p>In the interest of completeness here is a short list of various Markdown parsers written in JavaScript if you want to compare, or find something more specialized. </p>
+
+<ul><li><a href = "https://github.com/chjj/marked">Marked</a> - 13,470 stars</li>
+<li><a href = "https://github.com/evilstreak/markdown-js">Markdown-js</a> - 6,047 stars</li>
+<li><a href = "https://github.com/showdownjs/showdown">Showdown</a> - 5,133 stars</li>
+<li><a href = "https://github.com/markdown-it/markdown-it">Markdown-It</a> - 3,803 stars</li>
+<li><a href = "https://github.com/jonschlinkert/remarkable">Remarkable</a> - 3,362 stars</li>
+<li><a href = "https://github.com/arturadib/strapdown">Strapdown</a> - 1,696 stars </li>
+<li><a href = "https://github.com/wooorm/remark">Remark-js</a> - 998 stars</li>
+<li><a href = "https://github.com/npm/marky-markdown">Marky-markdown</a> - 303 stars</li>
+<li><a href = "https://github.com/Khan/simple-markdown/blob/master/simple-markdown.js">Simple Markdown</a> - 166 stars</li>
+<li><a href = "https://github.com/SimonWaldherr/micromarkdown.js">Micromarkdown</a> - 142 stars</li>
+<li><a href = "https://github.com/borgar/textile-js">Textile-js</a> - 135 stars</li>
+<li><a href = "https://github.com/StackExchange/pagedown">Pagedown</a> - 93 stars</li>
 </ul>
-
-<h2>Recursive Descent Parsers and Parsing Expression Grammars </h2>
-
-<p>A recursive descent parser is a parser that recognizes phrases in a grammar by trying to match the input to different grammar productions alternatives recursively until it succeeds, backtracking if a grammar production fails. </p>
-
-<p>A Parsing Expression Grammar (PEG) is a formal way of expressing the grammar of a language that is based on string matching rather than string generation. Compared with other grammar forms like EBNF It allows grammars to have zero-length rules (assertions) and the order is strictly specified forcing it to be unambiguous.</p>
-
-<p>As a result every PEG grammar can be easily apped to a recursive-descent parser. </p>
-
-<h2>History </h2>
-
-<p>This is my third open-source recursive-descent parsing library. My first was written in C++ and was called <a href = "https://www.codeproject.com/Articles/9121/Parsing-XML-in-C-using-the-YARD-Parser">YARD</a>. It was based on the idea of using templates to combine parsing rules defined as low-level types. It was inspired by the <a href = "http://boost-spirit.com/home/">Boost.Spirit</a> parser by Joel de Guzman and in turn inspired the <a href = "https://github.com/taocpp/PEGTL">PegTL</a> by Colin Hirsch and Daniel Frey.</p>
-
-<p>My second recursive-descent parsing library was the <a href = "https://www.codeproject.com/Articles/272494/Implementing-Programming-Languages-using-Csharp">Jigsaw library</a> written in C#. </p>
-
 
 
           </p>
@@ -127,13 +135,13 @@
     <h3>Share</h3> 
     <p>
       <ul class="fa-ul">
-        <li><i class="fa fa-facebook    fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://www.facebook.com/sharer/sharer.php?u=https://cdiggins.github.io/blog/myna-parsing-library.html">Facebook</a></li>
-        <li><i class="fa fa-twitter     fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://twitter.com/intent/tweet?url=https://cdiggins.github.io/blog/myna-parsing-library.html">Twitter</a></li>
-        <li><i class="fa fa-reddit      fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://www.reddit.com/r/test/submit?title=The Myna parsing library for JavaScript&url=https://cdiggins.github.io/blog/myna-parsing-library.html">Reddit</a></li>
+        <li><i class="fa fa-facebook    fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://www.facebook.com/sharer/sharer.php?u=https://cdiggins.github.io/blog/markdown-parsers.html">Facebook</a></li>
+        <li><i class="fa fa-twitter     fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://twitter.com/intent/tweet?url=https://cdiggins.github.io/blog/markdown-parsers.html">Twitter</a></li>
+        <li><i class="fa fa-reddit      fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://www.reddit.com/r/test/submit?title=Markdown Parsers in JavaScript&url=https://cdiggins.github.io/blog/markdown-parsers.html">Reddit</a></li>
         <li><i class="fa fa-google-plus fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="">Google+</a></li>
-        <li><i class="fa fa-linkedin    fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://cdiggins.github.io/blog/myna-parsing-library.html&title=The Myna parsing library for JavaScript">LinkedIn</a></li>
+        <li><i class="fa fa-linkedin    fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://cdiggins.github.io/blog/markdown-parsers.html&title=Markdown Parsers in JavaScript">LinkedIn</a></li>
         <li><i class="fa fa-hacker-news fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="">Hacker News</a></li>
-        <li><i class="fa fa-tumblr      fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="http://www.tumblr.com/share?v=3&t=The Myna parsing library for JavaScript&u=https://cdiggins.github.io/blog/myna-parsing-library.html">Tumblr</a></li>
+        <li><i class="fa fa-tumblr      fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="http://www.tumblr.com/share?v=3&t=Markdown Parsers in JavaScript&u=https://cdiggins.github.io/blog/markdown-parsers.html">Tumblr</a></li>
       </ul>
     </p>
   </div>

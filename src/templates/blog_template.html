@@ -9,20 +9,19 @@
     {{{nav}}}
 
     <div class="container theme-showcase" role="main">
-        <div class="page-header">
+        <div class="theme-showcase col-sm-8" id='content'>
           <h1>Blog Posts</h1>
-        </div>
-    
-        <div id='content'>
             <ul>
             {{#articles}}
               <li>
-                  <a href="blog/{{url}}">{{title}}</a> - {{dateString}}
+                  <a href="{{{pageUrl}}}">{{title}}</a> - {{dateString}}
                   <p>{{{description}}}</p>
               </li>
             {{/articles}}
             </ul>
         </div>
+
+        {{{sidebar}}}
     </div>
     
 		{{{footer}}}

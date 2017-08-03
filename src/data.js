@@ -1,16 +1,31 @@
 module.exports = 
 { 
-  author :        'Christopher Diggins',
-  year :          '2017',
-  source :        'https://github.com/cdiggins/cdiggins.github.io',
-  license :       'Attribution-ShareAlike 4.0 International',
-  licenseUrl :    'https://creativecommons.org/licenses/by-sa/4.0/',
-  baseUrl :       '.',
-  siteUrl :       'https://cdiggins.github.io',
-  pageUrl :       'https://cdiggins.github.io',
-  email :         'cdiggins@gmail.com',
-  generator :     'The-Blog-Machine',
-  template :      'Diggins-Template-1',  
+  // Paths 
+  outputFolder          : './',
+  blogFolder            : './blog/',
+  draftsFolder          : './drafts/',
+  srcFolder             : './src/',
+  templatesFolder       : './src/templates/',
+  articleTemplateFile   : './src/templates/article_template.html',
+  blogTemplateFile      : './src/templates/blog_template.html',
+  indexTemplateFile     : './src/templates/index_template.html',
+  aboutTemplateFile     : './src/templates/about_template.html',
+  rssTemplateFile       : './src/templates/rss_template.xml',
+  markdownFolder        : './src/articles/',
+  articlesJsonFile      : './src/articles.json',
+
+  // Main features
+  author :            'Christopher Diggins',
+  year :              '2017',
+  source :            'https://github.com/cdiggins/cdiggins.github.io',
+  license :           'Attribution-ShareAlike 4.0 International',
+  licenseUrl :        'https://creativecommons.org/licenses/by-sa/4.0/',
+  baseUrl :           '.',
+  siteUrl :           'https://cdiggins.github.io',
+  pageUrl :           'https://cdiggins.github.io',
+  email :             'cdiggins@gmail.com',
+  generator :         'The-Blog-Machine',
+  template :          'Diggins-Template-1',  
   googleAnalyticsId : 'UA-93495883-1',
     
   // Page sharing links
@@ -116,10 +131,12 @@ module.exports =
           <li><a href="{{{baseUrl}}}/index.html" title="home">Home</a></li>
           <li><a href="{{{baseUrl}}}/blog.html" title="blog">Blog</a></li>
           <li><a href="{{{baseUrl}}}/about.html" title="about">About</a></li>
-          {{#prevNextNav}}
+          {{#urlPrev}}
             <li><a href="{{{urlPrev}}}">Previous</a></li>
+          {{/urlPrev}}
+          {{#urlNext}}
             <li><a href="{{{urlNext}}}">Next</a></li>
-          {{/prevNextNav}}
+          {{/urlNext}}
         </ul>
       </div>
     </div>
