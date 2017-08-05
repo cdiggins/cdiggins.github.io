@@ -36,12 +36,11 @@
         "draft":true
     },
     {
-        "title":"Standing on the Shoulders of Giants",
-        "src":"standing-on-shoulders.md",
-        "date":"2017-08-01T23:44",
+        "title":"Acknowledgements",
+        "src":"acknowledgements.md",
+        "date":"2017-08-03T20:00",
         "category":"web development",
-        "description":"Some of the technology used to make this site a reality",
-        "draft":true
+        "description":"Some of the technology used to make this site a reality."
     }
     ]
 }

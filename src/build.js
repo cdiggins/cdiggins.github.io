@@ -179,4 +179,4 @@ var msec = end.getTime() - start.getTime();
 console.log('finished in ' + msec + ' msec');
 
 // Shutdown the node process 
-process.exit()
+process.exit();
