@@ -1,6 +1,6 @@
 # Acknowledgements 
 
-I've just completed a major overhaul of this web-site and it dawned on me how much free and open technologies and tools were involved in making the site. I figure it wouldn't be a bad idea to take a minute to give some credit where credit is due. 
+I've just completed a major overhaul of this web-site and it dawned on me how much free and open technologies and tools were involved in making the site and the Myna parsing library. I figure it would be worthwhile to take a minute to give some credit where credit is due. 
 
 **Static Blog Generators** - The idea for this site came from the technology used by the following static blog generateors:
 
@@ -39,6 +39,12 @@ I've just completed a major overhaul of this web-site and it dawned on me how mu
 * [TypeScript](https://www.typescriptlang.org/)
 * [Node.JS](https://nodejs.org)
 * [npm](https://www.npmjs.com/)
+
+**Testing and Continuous Integration Tools** 
+
+* [Travis CI](https://travis-ci.org/)
+* [QUnit](https://qunitjs.com/)
+* [Mocha](https://mochajs.org/)
 
 **Other Useful Stuff**
 
