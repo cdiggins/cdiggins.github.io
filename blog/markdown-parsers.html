@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+   <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="A list of JavaScript markdown parsers">
+    <meta name="author" content="Christopher Diggins">
+				
+    <title>Markdown Parsers in JavaScript</title>
+		    <link rel="stylesheet" href="http://cdiggins.github.io/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="http://cdiggins.github.io/dist/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="http://cdiggins.github.io/assets/css/ie10-viewport-bug-workaround.css" />
+    <link rel="stylesheet" href="http://cdiggins.github.io/dist/css/theme.css" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  </head>
+
+  <body>
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Christopher Diggins</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../blog.html">Blog</a></li>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="for-loops-are-functional.html">Previous</a></li>
+            <li><a href="">Next</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container theme-showcase" role="main">
+        <p>
+          <h4>Wednesday, July 26, 2017</h4>
+          <h5><a href='for-loops-are-functional.html'><< For Loops are Functional Too</a></h5>
+        </p>
+    
+        <div id='content'>
+          <p>
+            <h1>The Myna Markdown Parser</h1>
+
+<p>In order to demonstrate using Myna as for real-world tasks I created a Markdown parser with it which I used to build <a href = "http://cdiggins.github.io/blog.html">my blog</a> and the <a href = "http://cdiggins.github.io/myna-parser">Myna web-site</a> with it.  </p>
+
+<p>The Myna parser starts with <a href = "https://github.com/cdiggins/myna-parser/blob/master/grammars/grammar_markdown.js">a simple grammar to parse the Markdown</a>. The generated abstract syntax tree (AST) is converted to HTML by the file [`myna<i>markdown</i>to<i>html.js`](https://github.com/cdiggins/myna-parser/blob/master/tools/myna</i>markdown<i>to</i>html.js).</p>
+
+<p><a href = "https://github.com/cdiggins/myna-parser/blob/master/tests/test_markdown_to_html.js">This test file</a> shows the Markdown to HTML parser in action. You can run it using the command:</p>
+
+<pre>    node tests\test_markdown_to_html
+</pre>
+
+<p>This will generate a test file <code>tests\output\readme.html</code> from the <code>readme.md</code> source file. </p>
+
+<h2>An Invitations</h2>
+
+<p>The converter is far from beging as full featured as other specialized JavaScript Markdown parsers. However, you may find the code easier to manage and extend than some of the other libraries which come in at over a thousand lines of code.  </p>
+
+<p>While Myna is under active development, I don't plan on making any significant additions to the myna Markdown parser, as it is sufficient for my needs, and it was intended as a demo of Myna. However, I'd love to hear if you fork the code or make any changes. </p>
+
+<h2>Other Markdown Parsers in JavaScript</h2>
+
+<p>In the interest of completeness here is a short list of various Markdown parsers written in JavaScript if you want to compare, or find something more specialized. </p>
+
+<ul><li><a href = "https://github.com/chjj/marked">Marked</a> - 13,470 stars</li>
+<li><a href = "https://github.com/evilstreak/markdown-js">Markdown-js</a> - 6,047 stars</li>
+<li><a href = "https://github.com/showdownjs/showdown">Showdown</a> - 5,133 stars</li>
+<li><a href = "https://github.com/markdown-it/markdown-it">Markdown-It</a> - 3,803 stars</li>
+<li><a href = "https://github.com/jonschlinkert/remarkable">Remarkable</a> - 3,362 stars</li>
+<li><a href = "https://github.com/arturadib/strapdown">Strapdown</a> - 1,696 stars </li>
+<li><a href = "https://github.com/wooorm/remark">Remark-js</a> - 998 stars</li>
+<li><a href = "https://github.com/npm/marky-markdown">Marky-markdown</a> - 303 stars</li>
+<li><a href = "https://github.com/Khan/simple-markdown/blob/master/simple-markdown.js">Simple Markdown</a> - 166 stars</li>
+<li><a href = "https://github.com/SimonWaldherr/micromarkdown.js">Micromarkdown</a> - 142 stars</li>
+<li><a href = "https://github.com/borgar/textile-js">Textile-js</a> - 135 stars</li>
+<li><a href = "https://github.com/StackExchange/pagedown">Pagedown</a> - 93 stars</li>
+</ul>
+
+
+          </p>
+        </div>
+
+    </div>
+    
+		    <p align="center">
+    <a href="mailto:cdiggins@gmail.com" title="Email me">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+    <a href="https://www.facebook.com/diggins.software" title="Facebook">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+    <a href="https://github.com/cdiggins" title="GitHub">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+    <a href="https://twitter.com/cdiggins" title="Twitter">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+    <a href="https://linkedin.com/in/cdiggins" title="LinkedIn">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+    <a href="https://stackoverflow.com/users/184528/cdiggins" title="StackOverflow">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-stack-overflow fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+    <a href="https://www.youtube.com/user/cdiggins" title="Youtube">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-youtube fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>                        
+    <a href="https://cdiggins.github.io/rss.xml" title="RSS">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+    </p>
+		    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-93495883-1', 'auto');
+    ga('send', 'pageview');
+    </script>
+		    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"></script>')</script>
+    <script src="https://cdiggins.github.io/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdiggins.github.io/assets/js/docs.min.js"></script>
+    <script src="https://cdiggins.github.io/assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
+
