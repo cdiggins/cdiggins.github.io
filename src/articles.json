@@ -1,5 +1,6 @@
 {
-    "posts": [{
+    "posts": 
+    [{
         "title":"First post!",
         "src":"first.md",
         "date":"2017-07-10T07:00",
@@ -41,6 +42,13 @@
         "date":"2017-08-03T20:00",
         "category":"web development",
         "description":"Some of the technology used to make this site a reality."
+    },
+    {
+        "title":"Exaltation Blog Generator",
+        "src":"exaltation.md",
+        "date":"2017-08-19T15:30",
+        "category":"exaltation",
+        "description":"About the exaltation static blog generator created using Myna"
     }
     ]
 }

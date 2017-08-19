@@ -152,7 +152,7 @@ module.exports =
     <h3>Recent Posts</h3>
        <ul>
 {{#recentArticles}}
-   <li><a href="{{{url}}}">{{title}}</a></li>
+   <li><a href="{{{fileName}}}">{{title}}</a></li>
 {{/recentArticles}}
       </ul>
     <h3>Share</h3> 

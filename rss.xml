@@ -4,7 +4,7 @@
  <title>Another Software Development Blog by Christopher Diggins</title>
  <description>Thoughts and anecdotes on software development and programming language design.</description>
  <link>https://cdiggins.github.io</link>
- <lastBuildDate>Sat, 5 Aug 2017 10:05:48 GMT-0400 (Eastern Daylight Time)</lastBuildDate>
+ <lastBuildDate>Sat, 19 Aug 2017 15:50:52 GMT-0400 (Eastern Daylight Time)</lastBuildDate>
  <pubDate>Sun, 23 July 2017 11:50 EST</pubDate>
  <webMaster>cdiggins@gmail.com</webMaster>
  <managingEditor>cdiggins@gmail.com</managingEditor>
@@ -12,6 +12,15 @@
  <generator>Myna Blog Generator</generator>
  <language>en-us</language>
  
+ 
+ <item>
+  <title>Exaltation Blog Generator</title>
+  <description>About the exaltation static blog generator created using Myna</description>
+  <category>exaltation</category>
+  <link>http://cdiggins.github.io/blog/https://cdiggins.github.io/blog/exaltation.html</link>
+  <source>http://cdiggins.github.io/rss.xml</source>
+  <pubDate>Sat, 19 Aug 2017 11:30:00 GMT-0400 (Eastern Daylight Time)</pubDate>
+ </item>
  
  <item>
   <title>Acknowledgements</title>

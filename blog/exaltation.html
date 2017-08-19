@@ -12,19 +12,19 @@
   -->
 
   <!-- Standard meta tags -->
-  <meta name="description"          content="A list of JavaScript markdown parsers" />
+  <meta name="description"          content="About the exaltation static blog generator created using Myna" />
   <meta name="author"               content="Christopher Diggins" />
   <meta name="generator"            content="Myna Blog Generator" />
   
   <!-- Open Graph meta-properties, used by FaceBook and other social sites --> 
   <meta property="og:type"          content="website" />
-  <meta property="og:url"           content="https://cdiggins.github.io/blog/markdown-parsers.html" />
-  <meta property="og:title"         content="Markdown Parsers in JavaScript" />
-  <meta property="og:description"   content="A list of JavaScript markdown parsers" />
+  <meta property="og:url"           content="https://cdiggins.github.io/blog/exaltation.html" />
+  <meta property="og:title"         content="Exaltation Blog Generator" />
+  <meta property="og:description"   content="About the exaltation static blog generator created using Myna" />
   <meta property="og:image"         content="" />
 
   <!-- The site title -->
-  <title>Markdown Parsers in JavaScript</title>
+  <title>Exaltation Blog Generator</title>
 
   <!-- Bootstrap http://getbootstrap.com/getting-started/ -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -63,6 +63,7 @@
           <li><a href="../index.html" title="home">Home</a></li>
           <li><a href="../blog.html" title="blog">Blog</a></li>
           <li><a href="../about.html" title="about">About</a></li>
+                      <li><a href="acknowledgements.html">Previous</a></li>
           
           
         </ul>
@@ -72,48 +73,41 @@
 
     <div class="container theme-showcase" role="main">
         <p>
-          <h4>Wednesday, July 26, 2017</h4>
+          <h4>Saturday, August 19, 2017</h4>
         </p>
     
         <div class="theme-showcase col-sm-8" id='content'>
           <p>
-            <h1>The Myna Markdown Parser</h1>
+            <h1>The Exaltation Blog Generator</h1>
 
-<p>In order to demonstrate using Myna as for real-world tasks I created a Markdown parser with it which I used to build <a href = "http://cdiggins.github.io/blog.html">my blog</a> and the <a href = "http://cdiggins.github.io/myna-parser">Myna web-site</a> with it.  </p>
+<p>Using tools built with the <a href = "http://cdiggins.github.io/myna-parser">Myna parsing library</a> I have released the blog generation software I used for <a href = "https://cdiggins.github.io">my personal blog</a> in a standalone repository called <a href = "http://cdiggins.github.io/exaltation">Exaltation</a>.</p>
 
-<p>The Myna parser starts with <a href = "https://github.com/cdiggins/myna-parser/blob/master/grammars/grammar_markdown.js">a simple grammar to parse the Markdown</a>. The generated abstract syntax tree (AST) is converted to HTML by the file [`myna<i>markdown</i>to<i>html.js`](https://github.com/cdiggins/myna-parser/blob/master/tools/myna</i>markdown<i>to</i>html.js).</p>
+<p>Exaltation is designed for people with some some rudimentary programming knowledge, but who don't want to go through the effort of having to learn a bunch of web technologies and frameworks. </p>
 
-<p><a href = "https://github.com/cdiggins/myna-parser/blob/master/tests/test_markdown_to_html.js">This test file</a> shows the Markdown to HTML parser in action. You can run it using the command:</p>
+<h3>Using Myna in Practice</h3>
 
-<pre>    node tests\test_markdown_to_html
-</pre>
+<p>One of the motivations for the Exaltation project was also to demonstrate that the  <a href = "http://cdiggins.github.io/myna-parser">Myna library</a> is a mature and capable parsing library by using it in a real application. I used Myna sample tools to parse Mustache templates and markdown files.</p>
 
-<p>This will generate a test file <code>tests\output\readme.html</code> from the <code>readme.md</code> source file. </p>
+<h3>Main Features</h3>
 
-<h2>An Invitations</h2>
+<p>Here are some of the features of Exaltation: </p>
 
-<p>The converter is far from beging as full featured as other specialized JavaScript Markdown parsers. However, you may find the code easier to manage and extend than some of the other libraries which come in at over a thousand lines of code.  </p>
-
-<p>While Myna is under active development, I don't plan on making any significant additions to the myna Markdown parser, as it is sufficient for my needs, and it was intended as a demo of Myna. However, I'd love to hear if you fork the code or make any changes. </p>
-
-<h2>Other Markdown Parsers in JavaScript</h2>
-
-<p>In the interest of completeness here is a short list of various Markdown parsers written in JavaScript if you want to compare, or find something more specialized. </p>
-
-<ul><li><a href = "https://github.com/chjj/marked">Marked</a> - 13,470 stars</li>
-<li><a href = "https://github.com/evilstreak/markdown-js">Markdown-js</a> - 6,047 stars</li>
-<li><a href = "https://github.com/showdownjs/showdown">Showdown</a> - 5,133 stars</li>
-<li><a href = "https://github.com/markdown-it/markdown-it">Markdown-It</a> - 3,803 stars</li>
-<li><a href = "https://github.com/jonschlinkert/remarkable">Remarkable</a> - 3,362 stars</li>
-<li><a href = "https://github.com/arturadib/strapdown">Strapdown</a> - 1,696 stars </li>
-<li><a href = "https://github.com/wooorm/remark">Remark-js</a> - 998 stars</li>
-<li><a href = "https://github.com/npm/marky-markdown">Marky-markdown</a> - 303 stars</li>
-<li><a href = "https://github.com/Khan/simple-markdown/blob/master/simple-markdown.js">Simple Markdown</a> - 166 stars</li>
-<li><a href = "https://github.com/SimonWaldherr/micromarkdown.js">Micromarkdown</a> - 142 stars</li>
-<li><a href = "https://github.com/borgar/textile-js">Textile-js</a> - 135 stars</li>
-<li><a href = "https://github.com/StackExchange/pagedown">Pagedown</a> - 93 stars</li>
+<ul><li>Blog post authoring in markdown</li>
+<li>Simple article management with support for drafts</li>
+<li>Fast static HTML page generation for faster web page serving</li>
+<li>Google analytics support</li>
+<li>RSS feed generation </li>
+<li>Highly configurable from one JavaScript configuration file</li>
+<li>No complex system of plug-ins or templates, just edit the source</li>
+<li>Recursive Mustache style template expansion </li>
+<li>Responsive web-sites that present well on Mobile and Desktop via Bootstrap</li>
 </ul>
 
+<h3>Trying to Keep things Simple</h3>
+
+<p>I think that the biggest selling point of Exaltation is that the implementation is dead simple. It is less than 200 lines of JavaScript in a single file, and has a dependency on only the <a href = "https://www.npmjs.com/package/myna-parser">Myna parser module</a>, which in turn has no other dependencies. </p>
+
+<p>Anyway, I hope you find the blog generator useful in some manner or another. Enjoy! </p>
 
           </p>
         </div>
@@ -136,13 +130,13 @@
     <h3>Share</h3> 
     <p>
       <ul class="fa-ul">
-        <li><i class="fa fa-facebook    fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://www.facebook.com/sharer/sharer.php?u=https://cdiggins.github.io/blog/markdown-parsers.html">Facebook</a></li>
-        <li><i class="fa fa-twitter     fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://twitter.com/intent/tweet?url=https://cdiggins.github.io/blog/markdown-parsers.html">Twitter</a></li>
-        <li><i class="fa fa-reddit      fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://www.reddit.com/r/test/submit?title=Markdown Parsers in JavaScript&url=https://cdiggins.github.io/blog/markdown-parsers.html">Reddit</a></li>
+        <li><i class="fa fa-facebook    fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://www.facebook.com/sharer/sharer.php?u=https://cdiggins.github.io/blog/exaltation.html">Facebook</a></li>
+        <li><i class="fa fa-twitter     fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://twitter.com/intent/tweet?url=https://cdiggins.github.io/blog/exaltation.html">Twitter</a></li>
+        <li><i class="fa fa-reddit      fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://www.reddit.com/r/test/submit?title=Exaltation Blog Generator&url=https://cdiggins.github.io/blog/exaltation.html">Reddit</a></li>
         <li><i class="fa fa-google-plus fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="">Google+</a></li>
-        <li><i class="fa fa-linkedin    fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://cdiggins.github.io/blog/markdown-parsers.html&title=Markdown Parsers in JavaScript">LinkedIn</a></li>
+        <li><i class="fa fa-linkedin    fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://cdiggins.github.io/blog/exaltation.html&title=Exaltation Blog Generator">LinkedIn</a></li>
         <li><i class="fa fa-hacker-news fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="">Hacker News</a></li>
-        <li><i class="fa fa-tumblr      fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="http://www.tumblr.com/share?v=3&t=Markdown Parsers in JavaScript&u=https://cdiggins.github.io/blog/markdown-parsers.html">Tumblr</a></li>
+        <li><i class="fa fa-tumblr      fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="http://www.tumblr.com/share?v=3&t=Exaltation Blog Generator&u=https://cdiggins.github.io/blog/exaltation.html">Tumblr</a></li>
       </ul>
     </p>
   </div>

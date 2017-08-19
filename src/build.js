@@ -114,7 +114,7 @@ function main()
 
         var tmp = a.blogFolder.substring(a.outputFolder.length);        
         var remoteBlogFolder = a.blogFolder.substring(a.outputFolder.length);
-        a.fileName = replaceExt(a.src, ".html");        
+        a.fileName = replaceExt(a.src, ".html");
         a.pageUrl = a.siteUrl + '/' + remoteBlogFolder + a.fileName;
         console.log("Generating article: " + a.fileName);
 
@@ -133,10 +133,14 @@ function main()
         a.srcFile = data.markdownFolder + '/' + a.src;
 
         // Get the markdown for the article
-        var markDown = fs.readFileSync(a.srcFile, 'utf-8');
-
+        a.markDown = fs.readFileSync(a.srcFile, 'utf-8');
+    }
+    
+    // Now that all of the data is created create the recent articles list s
+    for (var a of allArticles) 
+    {
         // Convert the markdown to HTML 
-        a.content = mdToHtml(markDown);
+        a.content = mdToHtml(a.markDown);
 
         // Expand the template to get the HTML
         var html = expand(template, a);
