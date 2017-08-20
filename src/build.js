@@ -112,7 +112,7 @@ function main()
         if (a.blogFolder.indexOf(a.outputFolder))
             throw new Error("The blog folder is required to be a direct sub-folder of the output folder");
 
-        var tmp = a.blogFolder.substring(a.outputFolder.length);        
+        var tmp = a.blogFolder.substring(a.outputFolder.length);
         var remoteBlogFolder = a.blogFolder.substring(a.outputFolder.length);
         a.fileName = replaceExt(a.src, ".html");
         a.pageUrl = a.siteUrl + '/' + remoteBlogFolder + a.fileName;
