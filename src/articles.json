@@ -49,6 +49,13 @@
         "date":"2017-08-19T15:30",
         "category":"exaltation",
         "description":"About the exaltation static blog generator created using Myna"
+    },
+    {
+        "title":"10 Tips for writing better code",
+        "src":"programming-tips.md",
+        "date":"2017-08-22T09:30",
+        "category":"programming",
+        "description":"30+ years experience trying to write better software distilled down into 10 best practices."
     }
     ]
 }

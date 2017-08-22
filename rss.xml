@@ -4,7 +4,7 @@
  <title>Another Software Development Blog by Christopher Diggins</title>
  <description>Thoughts and anecdotes on software development and programming language design.</description>
  <link>https://cdiggins.github.io</link>
- <lastBuildDate>Sun, 20 Aug 2017 12:43:39 GMT-0400 (Eastern Daylight Time)</lastBuildDate>
+ <lastBuildDate>Tue, 22 Aug 2017 19:55:33 GMT-0400 (Eastern Daylight Time)</lastBuildDate>
  <pubDate>Sun, 23 July 2017 11:50 EST</pubDate>
  <webMaster>cdiggins@gmail.com</webMaster>
  <managingEditor>cdiggins@gmail.com</managingEditor>
@@ -12,6 +12,15 @@
  <generator>Exaltation</generator>
  <language>en-us</language>
  
+ 
+ <item>
+  <title>10 Tips for writing better code</title>
+  <description>30+ years experience trying to write better software distilled down into 10 best practices.</description>
+  <category>programming</category>
+  <link>https://cdiggins.github.io/blog/programming-tips.html</link>
+  <source>http://cdiggins.github.io/rss.xml</source>
+  <pubDate>Tue, 22 Aug 2017 05:30:00 GMT-0400 (Eastern Daylight Time)</pubDate>
+ </item>
  
  <item>
   <title>Exaltation Blog Generator</title>

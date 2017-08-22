@@ -1,63 +1,66 @@
-# Tips for Writing Better and more Reusable Code
+# 10 Tips for Writing Better Code
 
->>> My 30+ years experience trying to write better and better software distilled down into 10 best practices.  
+> 30+ years experience trying to write better software distilled down into 10 best practices.
 
-Good code is code that easy to debug, change, understand, and reuse, and has low number of defects. Obviously it takes a bit more time to write good code, but it also has more value in the long term, because it costs less to maintain and is more reusable.
+So what makes code *good*? 
 
-I spent a few years trying to learn how to write better code and I came up with a set of ten tips that I've found work surprisingly well.
+Good code can be identified as code that is easy to read, understand, debug, and modify, and most importantly has very few defects. Obviously it takes a bit more time to write good code, but it also has more value in the long term, because it costs less to maintain and is more reusable.
+
+In fact we could define good code as code that is reused. Code might accomplish your short term goals as a programmer working on a specific feature, but if no one else wants to reuse it (including your future self) it must be lacking in some way. Either it is too complex, too specific, too likely to break under different circumstances, or maybe other programmers don't trust it. 
+
+I have found that consistently trying to apply the following best practices to all code you write (including your experiments and prototypes) can lead to better code regardless of your level of experience. 
 
 ## 1. Use Lots of Small Functions
 
-Functions are the single most important form of abstraction in a programmer's arsenal. Small functions that follow the [Single responsibility principle](https://en.wikipedia.org/wiki/Single_responsibility_principle) are more likely to be reused. Bigger functions should be composed of a small set of calls to smaller functions.
+Functions are the single most important form of abstraction in a programmer's arsenal. Small functions that follow the [Single responsibility principle](https://en.wikipedia.org/wiki/Single_responsibility_principle) are more likely to be reused. Bigger functions that do multiple things should be composed of a sequence calls to appropriately named smaller functions.
 
-## 2. Explicitly pass any required values as function arguments 
+## 2. Explicitly Pass Values as Function Arguments 
 
-You should minimize shared state between functions, whether it is a file scoped variable or object's member fields. A function that always returns the same value based on its argument is much easier to reuse and maintain. This implies that you should prefer static functions over member functions. 
+You should minimize implicit shared state between functions, whether it is a file scoped variable or object's member fields. It makes code a lot easier to understand and reuse when it explicit what that function requires to produce consistent results.
+
+A corrollary to this is that you should prefer static stateless variables to member variables on an object. 
 
 ## 3. Localize Side Effects 
 
-Side-effects (e.g. printing to console, logging, changing global state, file-system manipulations) should be placed in separate modules, and not scattered throughout the code. Often side-effects in functions are violating the single responsibility principle. 
+Ideally side-effects (e.g. printing to console, logging, changing global state, file-system manipulations) should be placed in separate modules, and not scattered throughout the code. Often side-effects in functions are violating the single responsibility principle. 
 
 ## 4. Prefer Immutable Objects 
 
-If an object's state is set once in its constructor and never changed again it become far easier to debug and validate that the object does what it is supposed to since there is no chance of it changing during it's lifetime. This is one of the easiest ways to reduce complexity in a software project.
+If an object's state is set once in its constructor and never changed again it become much easier to debug since it remains valid once it is constructed correctly. This is one of the easiest ways to reduce complexity in a software project.
 
-## 5. Interfaces over classes
+## 5. Interfaces over Classes
 
-Functions that accept an interface are easier to reuse than functions that operates on a class, which is a specific implementation of an interface (explicit or implicit).
+Functions that accept an interface (or a template argument or concept in the case of C++) are more reusable than functions that operate on a class.
 
-## 6. Apply good coding principles to sub-modules
+## 6. Apply Good Principles to Modules
 
-Programmers sometimes don't take the time to break up a software project into smaller modules that make up their software (e.g. libraries and applications). The key principles to follow for modules are:
+Look for opportunties to break up a software project into smaller modules (e.g. libraries and applications) to encourage module level reuse. The key principles to follow for modules are:
 
 1. Minmize dependencies 
-2. Single point of responsibility
+2. Each project should have a single well defined responsibility
 3. Don't repeat yourself 
 
-So this implies keeping your project small and well-defined. 
+You should strive to keep your project small and well-defined.
 
 ## 7. Avoid Inheritance
 
-In object-oriented programming, inheritance, especially with virtual functions is a dead-end in terms of reusability. I have had very little success working with libraries that encourage overriding classes. I believe that this is why the MFC (Microsoft Foundation Classes) was so hard to use compared to the .NET System Libraries. 
+In object-oriented programming, inheritance, especially with virtual functions tends to be a dead-end in terms of reusability. I have had very little success writing or working with libraries that encourage overriding classes. 
 
 ## 8. Test as you Design and Develop
 
-I am not a hard-core advocate of test-driven development asproscribed by its acolytes, but writing tests as you go encourages your code to naturally follow these guidelines, and it helps to assure that you catch design error earlies. Avoid writing stupid tests though. Good coding practices mean that higher level tests (e.g. integration tests or feature tests over unit tests) are much more effective at revealing defects. 
+I am not a hard-core advocate of test-driven development but writing tests as you go leads to code that naturally follows many of the guidelines. It also helps reveal n error earlier. Avoid writing useless tests though, good coding practices mean that higher level tests (e.g. integration tests or feature tests over unit tests) are much more effective at revealing defects. 
 
 ## 9. Prefer Standard Libraries to Hand-Rolled Ones 
 
-It is sometimes tempting to write a better version of `std::vector` or `std::string`, but it almost invariably a waste of time and effort. Apart from the obvious fact that you are introducing a new place for having bugs, other programmers are far less likely to reuse your code as opposed to something well known, supported, and proven. 
+I can't tell you how often I have seen a *better* version of `std::vector` or `std::string`, but it almost invariably a waste of time and effort. Apart from the obvious fact that you are introducing a new place for bugs (see *Tip #10*), other programmers are far less likely to reuse your code as opposed to something that is widely understood, supported, and tested. 
 
-## 10. Avoid Code Where Possible
+## 10. Avoid Writing New Code
 
-This is the most important tip that every programmer should follow. 
+This is the most important tip that every programmer should follow: **the best code is the code that isn't written**.
 
-The best code is the code that is never written. Before writing code ask yourself, is there a tool or library that does what you need? Do you really need that function as opposed to calling another one that already exists? 
+Before writing code ask yourself, is there a tool or library that does what you need? Do you really need that function as opposed to calling another one that already exists? 
 
-## Enjoy Coding
+## Final Words
 
-Enjoy yourself! 
-
-
-
+I have found that programming is a skill very similar to learning an art form or a sport, you get better at it through mindful practice, and by learning from others. Continuously working to improve the quality of the code you produce will help you become a more effective programmer. Have fun! 
 

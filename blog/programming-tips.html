@@ -12,19 +12,19 @@
   -->
 
   <!-- Standard meta tags -->
-  <meta name="description"          content="A static blog web-site generator created using Myna." />
+  <meta name="description"          content="30+ years experience trying to write better software distilled down into 10 best practices." />
   <meta name="author"               content="Christopher Diggins" />
   <meta name="generator"            content="Myna Blog Generator" />
   
   <!-- Open Graph meta-properties, used by FaceBook and other social sites --> 
   <meta property="og:type"          content="website" />
-  <meta property="og:url"           content="https://cdiggins.github.io/blog/myna-blog-maker.html" />
-  <meta property="og:title"         content="A Static Blog Generator in Myna" />
-  <meta property="og:description"   content="A static blog web-site generator created using Myna." />
+  <meta property="og:url"           content="https://cdiggins.github.io/blog/programming-tips.html" />
+  <meta property="og:title"         content="10 Tips for writing better code" />
+  <meta property="og:description"   content="30+ years experience trying to write better software distilled down into 10 best practices." />
   <meta property="og:image"         content="" />
 
   <!-- The site title -->
-  <title>A Static Blog Generator in Myna</title>
+  <title>10 Tips for writing better code</title>
 
   <!-- Bootstrap http://getbootstrap.com/getting-started/ -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -63,9 +63,8 @@
           <li><a href="../index.html" title="home">Home</a></li>
           <li><a href="../blog.html" title="blog">Blog</a></li>
           <li><a href="../about.html" title="about">About</a></li>
-                      <li><a href="myna-parsing-library.html">Previous</a></li>
+                      <li><a href="exaltation.html">Previous</a></li>
           
-                      <li><a href="for-loops-are-functional.html">Next</a></li>
           
         </ul>
       </div>
@@ -74,24 +73,78 @@
 
     <div class="container theme-showcase" role="main">
         <p>
-          <h4>Tuesday, July 11, 2017</h4>
+          <h4>Tuesday, August 22, 2017</h4>
         </p>
     
         <div class="theme-showcase col-sm-8" id='content'>
           <p>
-            <h1>The Myna Static Blog Generator</h1>
+            <h1>10 Tips for Writing Better Code</h1>
 
-<p>Static HTML page generation is an interesting alternative to traditional dynamic content management systems (CMS).</p>
+<blockquote>30+ years experience trying to write better software distilled down into 10 best practices.</blockquote>
 
-<p>The idea is quite simple, the content is stored offline, and HTML pages are generated/regenerated as needed using an offline tool and posted online. The advantage is that you don't need any kind of server side database or dynamic page generation technology like PHP or ASP. </p>
+<p>So what makes code <i>good</i>? </p>
 
-<p>I used this approach in the early 2000's in an <a href = "https://web.archive.org/web/20050210003619/http://print-and-poster.com">online print and poster store</a> and found it made website much more more responsive and easier to manage. </p>
+<p>Good code can be identified as code that is easy to read, understand, debug, and modify, and most importantly has very few defects. Obviously it takes a bit more time to write good code, but it also has more value in the long term, because it costs less to maintain and is more reusable.</p>
 
-<p>When I started looking for a new content manage to host my blog, I considered a static website generation tool called <a href = "https://jekyllrb.com/">Jekyll</a>, but then I realized that if I had a Markdown parserand a Mustache parser I could probably implement my own blog generation program quite easily using Node.JS. This was an excellent opportunity for me to test the <a href = "https://github.com/cdiggins/myna-parser">Myna parsing library</a> in a real-world context. </p>
+<p>In fact we could define good code as code that is reused. Code might accomplish your short term goals as a programmer working on a specific feature, but if no one else wants to reuse it (including your future self) it must be lacking in some way. Either it is too complex, too specific, too likely to break under different circumstances, or maybe other programmers don't trust it. </p>
 
-<h1>Source Code or It Didn't Happen</h1>
+<p>I have found that consistently trying to apply the following best practices to all code you write (including your experiments and prototypes) can lead to better code regardless of your level of experience. </p>
 
-<p>The source code to the site can be <a href = "https://github.com/cdiggins/cdiggins.github.io">found on this GitHub repository</a>. The Myna <a href = "https://github.com/cdiggins/myna-parser/tree/master/grammars">grammars for Mustache template and Markdown parsing can be found here</a>.</p>
+<h2>1. Use Lots of Small Functions</h2>
+
+<p>Functions are the single most important form of abstraction in a programmer's arsenal. Small functions that follow the <a href = "https://en.wikipedia.org/wiki/Single_responsibility_principle">Single responsibility principle</a> are more likely to be reused. Bigger functions that do multiple things should be composed of a sequence calls to appropriately named smaller functions.</p>
+
+<h2>2. Explicitly Pass Values as Function Arguments </h2>
+
+<p>You should minimize implicit shared state between functions, whether it is a file scoped variable or object's member fields. It makes code a lot easier to understand and reuse when it explicit what that function requires to produce consistent results.</p>
+
+<p>A corrollary to this is that you should prefer static stateless variables to member variables on an object. </p>
+
+<h2>3. Localize Side Effects </h2>
+
+<p>Ideally side-effects (e.g. printing to console, logging, changing global state, file-system manipulations) should be placed in separate modules, and not scattered throughout the code. Often side-effects in functions are violating the single responsibility principle. </p>
+
+<h2>4. Prefer Immutable Objects </h2>
+
+<p>If an object's state is set once in its constructor and never changed again it become much easier to debug since it remains valid once it is constructed correctly. This is one of the easiest ways to reduce complexity in a software project.</p>
+
+<h2>5. Interfaces over Classes</h2>
+
+<p>Functions that accept an interface (or a template argument or concept in the case of C++) are more reusable than functions that operate on a class.</p>
+
+<h2>6. Apply Good Principles to Modules</h2>
+
+<p>Look for opportunties to break up a software project into smaller modules (e.g. libraries and applications) to encourage module level reuse. The key principles to follow for modules are:</p>
+
+<ol><li>Minmize dependencies </li>
+<li>Each project should have a single well defined responsibility</li>
+<li>Don't repeat yourself </li>
+</ol>
+
+<p>You should strive to keep your project small and well-defined.</p>
+
+<h2>7. Avoid Inheritance</h2>
+
+<p>In object-oriented programming, inheritance, especially with virtual functions tends to be a dead-end in terms of reusability. I have had very little success writing or working with libraries that encourage overriding classes. </p>
+
+<h2>8. Test as you Design and Develop</h2>
+
+<p>I am not a hard-core advocate of test-driven development but writing tests as you go leads to code that naturally follows many of the guidelines. It also helps reveal n error earlier. Avoid writing useless tests though, good coding practices mean that higher level tests (e.g. integration tests or feature tests over unit tests) are much more effective at revealing defects. </p>
+
+<h2>9. Prefer Standard Libraries to Hand-Rolled Ones </h2>
+
+<p>I can't tell you how often I have seen a <i>better</i> version of <code>std::vector</code> or <code>std::string</code>, but it almost invariably a waste of time and effort. Apart from the obvious fact that you are introducing a new place for bugs (see <i>Tip #10</i>), other programmers are far less likely to reuse your code as opposed to something that is widely understood, supported, and tested. </p>
+
+<h2>10. Avoid Writing New Code</h2>
+
+<p>This is the most important tip that every programmer should follow: <b>the best code is the code that isn't written</b>.</p>
+
+<p>Before writing code ask yourself, is there a tool or library that does what you need? Do you really need that function as opposed to calling another one that already exists? </p>
+
+<h2>Final Words</h2>
+
+<p>I have found that programming is a skill very similar to learning an art form or a sport, you get better at it through mindful practice, and by learning from others. Continuously working to improve the quality of the code you produce will help you become a more effective programmer. Have fun! </p>
+
 
           </p>
         </div>
@@ -114,13 +167,13 @@
     <h3>Share</h3> 
     <p>
       <ul class="fa-ul">
-        <li><i class="fa fa-facebook    fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://www.facebook.com/sharer/sharer.php?u=https://cdiggins.github.io/blog/myna-blog-maker.html">Facebook</a></li>
-        <li><i class="fa fa-twitter     fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://twitter.com/intent/tweet?url=https://cdiggins.github.io/blog/myna-blog-maker.html">Twitter</a></li>
-        <li><i class="fa fa-reddit      fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://www.reddit.com/r/test/submit?title=A Static Blog Generator in Myna&url=https://cdiggins.github.io/blog/myna-blog-maker.html">Reddit</a></li>
+        <li><i class="fa fa-facebook    fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://www.facebook.com/sharer/sharer.php?u=https://cdiggins.github.io/blog/programming-tips.html">Facebook</a></li>
+        <li><i class="fa fa-twitter     fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://twitter.com/intent/tweet?url=https://cdiggins.github.io/blog/programming-tips.html">Twitter</a></li>
+        <li><i class="fa fa-reddit      fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://www.reddit.com/r/test/submit?title=10 Tips for writing better code&url=https://cdiggins.github.io/blog/programming-tips.html">Reddit</a></li>
         <li><i class="fa fa-google-plus fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="">Google+</a></li>
-        <li><i class="fa fa-linkedin    fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://cdiggins.github.io/blog/myna-blog-maker.html&title=A Static Blog Generator in Myna">LinkedIn</a></li>
+        <li><i class="fa fa-linkedin    fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://cdiggins.github.io/blog/programming-tips.html&title=10 Tips for writing better code">LinkedIn</a></li>
         <li><i class="fa fa-hacker-news fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="">Hacker News</a></li>
-        <li><i class="fa fa-tumblr      fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="http://www.tumblr.com/share?v=3&t=A Static Blog Generator in Myna&u=https://cdiggins.github.io/blog/myna-blog-maker.html">Tumblr</a></li>
+        <li><i class="fa fa-tumblr      fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="http://www.tumblr.com/share?v=3&t=10 Tips for writing better code&u=https://cdiggins.github.io/blog/programming-tips.html">Tumblr</a></li>
       </ul>
     </p>
   </div>

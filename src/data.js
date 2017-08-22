@@ -191,6 +191,7 @@ module.exports =
     <p class="copyright text-muted small">
       Copyright &copy; {{{year}}} {{{author}}}
       <br/><a href="{{{licenseUrl}}}">{{{license}}}</a>
+      <br/>built with <a href='https://cdiggins.github.io/exaltation/'>Exaltation</a>
     </p>
   </div>
 

@@ -2,6 +2,16 @@
 
 When I first started the adventure of writing Myna, I was completely unfamiliar with typical workflows for building JavaScript libraries and applications and managing modules. It was a difficult start since the ecosystem is a jungle and is constantly changing.  
 
+* https://medium.freecodecamp.org/why-i-left-gulp-and-grunt-for-npm-scripts-3d6853dd22b8
+* "Task Runner"
+* Buildforge
+* DOS batch shells
+* Powershell - wtf is that?
+* Python? 
+* BASH I guess
+* Shells: csh, ksh, zsh, sh, etc. 
+
+
 Here is what I learned and what has worked very well for me.
 
 ## What is Grunt/Gulp/NPM/Node
