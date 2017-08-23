@@ -32,10 +32,10 @@ module.exports =
   twitterShareUrl :  "https://twitter.com/intent/tweet?url={{pageUrl}}",
   googleShareUrl :   "https://plus.google.com/share?url={{pageUrl}}",
   facebookShareUrl : "https://www.facebook.com/sharer/sharer.php?u={{pageUrl}}",
-  linkedInShareUrl : "http://www.linkedin.com/shareArticle?mini=true&url={{pageUrl}}&title={{title}}",
+  linkedInShareUrl : "https://www.linkedin.com/shareArticle?mini=true&url={{pageUrl}}&title={{title}}",
   redditShareUrl :   "https://www.reddit.com/r/test/submit?title={{title}}&url={{pageUrl}}",
-  tumblrShareUrl :   "http://www.tumblr.com/share?v=3&t={{title}}&u={{pageUrl}}",
-  hackerShareUrl :   "http://news.ycombinator.com/submitlink?u={{pageUrl}}&t={{title}}",
+  tumblrShareUrl :   "https://www.tumblr.com/share?v=3&t={{title}}&u={{pageUrl}}",
+  hackerShareUrl :   "https://news.ycombinator.com/submitlink?u={{pageUrl}}&t={{title}}",
 
   social : 
   [
@@ -161,9 +161,9 @@ module.exports =
         <li><i class="fa fa-facebook    fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="{{{facebookShareUrl}}}">Facebook</a></li>
         <li><i class="fa fa-twitter     fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="{{{twitterShareUrl}}}">Twitter</a></li>
         <li><i class="fa fa-reddit      fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="{{{redditShareUrl}}}">Reddit</a></li>
-        <li><i class="fa fa-google-plus fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="{{{googlePlusShareUrl}}}">Google+</a></li>
+        <li><i class="fa fa-google-plus fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="{{{googleShareUrl}}}">Google+</a></li>
         <li><i class="fa fa-linkedin    fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="{{{linkedInShareUrl}}}">LinkedIn</a></li>
-        <li><i class="fa fa-hacker-news fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="{{{hackerNewsShareUrl}}}">Hacker News</a></li>
+        <li><i class="fa fa-hacker-news fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="{{{hackerShareUrl}}}">Hacker News</a></li>
         <li><i class="fa fa-tumblr      fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="{{{tumblrShareUrl}}}">Tumblr</a></li>
       </ul>
     </p>

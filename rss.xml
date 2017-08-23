@@ -4,7 +4,7 @@
  <title>Another Software Development Blog by Christopher Diggins</title>
  <description>Thoughts and anecdotes on software development and programming language design.</description>
  <link>https://cdiggins.github.io</link>
- <lastBuildDate>Tue, 22 Aug 2017 20:10:35 GMT-0400 (Eastern Daylight Time)</lastBuildDate>
+ <lastBuildDate>Tue, 22 Aug 2017 20:18:55 GMT-0400 (Eastern Daylight Time)</lastBuildDate>
  <pubDate>Sun, 23 July 2017 11:50 EST</pubDate>
  <webMaster>cdiggins@gmail.com</webMaster>
  <managingEditor>cdiggins@gmail.com</managingEditor>
@@ -14,7 +14,7 @@
  
  
  <item>
-  <title>10 Tips for writing better code</title>
+  <title>10 Tips for Writing Better Code</title>
   <description>30+ years experience trying to write better software distilled down into 10 best practices.</description>
   <category>programming</category>
   <link>https://cdiggins.github.io/blog/programming-tips.html</link>
