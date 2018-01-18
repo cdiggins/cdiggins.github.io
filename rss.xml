@@ -4,7 +4,7 @@
  <title>Another Software Development Blog by Christopher Diggins</title>
  <description>Thoughts and anecdotes on software development and programming language design.</description>
  <link>https://cdiggins.github.io</link>
- <lastBuildDate>Wed, 23 Aug 2017 08:27:40 GMT-0400 (Eastern Daylight Time)</lastBuildDate>
+ <lastBuildDate>Thu, 18 Jan 2018 09:01:26 GMT-0500 (Eastern Standard Time)</lastBuildDate>
  <pubDate>Sun, 23 July 2017 11:50 EST</pubDate>
  <webMaster>cdiggins@gmail.com</webMaster>
  <managingEditor>cdiggins@gmail.com</managingEditor>
@@ -12,6 +12,15 @@
  <generator>Exaltation</generator>
  <language>en-us</language>
  
+ 
+ <item>
+  <title>Linear Logic, Linear Lisp, Linear Types and Concatenative Languages</title>
+  <description>Thoughts on the intersection of linear logic and concatenative languages</description>
+  <category>theory</category>
+  <link>https://cdiggins.github.io/blog/linear-logic-and-linear-lisp.html</link>
+  <source>http://cdiggins.github.io/rss.xml</source>
+  <pubDate>Thu, 18 Jan 2018 04:00:00 GMT-0500 (Eastern Standard Time)</pubDate>
+ </item>
  
  <item>
   <title>10 Tips for Writing Better Code</title>

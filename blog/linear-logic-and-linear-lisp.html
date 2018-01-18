@@ -12,19 +12,19 @@
   -->
 
   <!-- Standard meta tags -->
-  <meta name="description"          content="A list of JavaScript markdown parsers" />
+  <meta name="description"          content="Thoughts on the intersection of linear logic and concatenative languages" />
   <meta name="author"               content="Christopher Diggins" />
   <meta name="generator"            content="Myna Blog Generator" />
   
   <!-- Open Graph meta-properties, used by FaceBook and other social sites --> 
   <meta property="og:type"          content="website" />
-  <meta property="og:url"           content="https://cdiggins.github.io/blog/markdown-parsers.html" />
-  <meta property="og:title"         content="Markdown Parsers in JavaScript" />
-  <meta property="og:description"   content="A list of JavaScript markdown parsers" />
+  <meta property="og:url"           content="https://cdiggins.github.io/blog/linear-logic-and-linear-lisp.html" />
+  <meta property="og:title"         content="Linear Logic, Linear Lisp, Linear Types and Concatenative Languages" />
+  <meta property="og:description"   content="Thoughts on the intersection of linear logic and concatenative languages" />
   <meta property="og:image"         content="" />
 
   <!-- The site title -->
-  <title>Markdown Parsers in JavaScript</title>
+  <title>Linear Logic, Linear Lisp, Linear Types and Concatenative Languages</title>
 
   <!-- Bootstrap http://getbootstrap.com/getting-started/ -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -63,6 +63,7 @@
           <li><a href="../index.html" title="home">Home</a></li>
           <li><a href="../blog.html" title="blog">Blog</a></li>
           <li><a href="../about.html" title="about">About</a></li>
+                      <li><a href="programming-tips.html">Previous</a></li>
           
           
         </ul>
@@ -72,46 +73,36 @@
 
     <div class="container theme-showcase" role="main">
         <p>
-          <h4>Wednesday, July 26, 2017</h4>
+          <h4>Thursday, January 18, 2018</h4>
         </p>
     
         <div class="theme-showcase col-sm-8" id='content'>
           <p>
-            <h1>The Myna Markdown Parser</h1>
+            <h1>Linear Logic, Linear Lisp, Linear Types and Concatenative Languages</h1>
 
-<p>In order to demonstrate using Myna as for real-world tasks I created a Markdown parser with it which I used to build <a href = "http://cdiggins.github.io/blog.html">my blog</a> and the <a href = "http://cdiggins.github.io/myna-parser">Myna web-site</a> with it.  </p>
+<p>I have been revisiting an old gem of a paper by Henry Baker, dating back to 1991, called <a href = "http://home.pipeline.com/~hbaker1/LinearLisp.html">Lively Linear Lisp -- 'Look Ma, No Garbage!'</a>. This paper came back up on my radar when I realized that the converting from the <a href = "https://en.wikipedia.org/wiki/Lambda_calculus">Lambda Calculus</a> to <a href = "https://github.com/cdiggins/cat-language">Cat</a> was closely related to converting to a linear Lambda calculus. </p>
 
-<p>The Myna parser starts with <a href = "https://github.com/cdiggins/myna-parser/blob/master/grammars/grammar_markdown.js">a simple grammar to parse the Markdown</a>. The generated abstract syntax tree (AST) is converted to HTML by the file [`myna<i>markdown</i>to<i>html.js`](https://github.com/cdiggins/myna-parser/blob/master/tools/myna</i>markdown<i>to</i>html.js).</p>
+<p>Linear lisp is effectively a version of lisp where each variable is used exactly once. There is a correspondence between the Linear Lisp described by Baker, and Linear Lambda Calculus, and Linear Logic. </p>
 
-<p><a href = "https://github.com/cdiggins/myna-parser/blob/master/tests/test_markdown_to_html.js">This test file</a> shows the Markdown to HTML parser in action. You can run it using the command:</p>
+<p>My recent realization is that a stack language seems to be effectively a <i>linear language</i> which maps more closely to linear Lambda Calculus that vanilla Lambda Calculus. After reading Baker's paper, take a look at an informal (but still rigorous) article by Brent Kerby called the <a href = "http://tunes.org/~iepos/joy.html">Theory of Concatenative Combinators</a>. In it he describes an encoding of the Lambda Calculus in a concatenative language and an algorithm for converting from this encoding to an actual point-free concatenative language. </p>
 
-<pre>    node tests\test_markdown_to_html
-</pre>
+<p><a href = "https://en.wikipedia.org/wiki/Substructural_type_system#Linear_type_systems">Linear types</a> are more well known in the area of programming languages. They are a way of enforcing linear properties of certain values in a programming language. Basically a subset of the language is partially linear.</p>
 
-<p>This will generate a test file <code>tests\output\readme.html</code> from the <code>readme.md</code> source file. </p>
+<p>What I am investigating now, is whether the type system of Cat is a linear type system, and if so does it explain why I have been able to devise a <a href = "https://github.com/cdiggins/type-inference">higher-order polymorphic type inference algorithm</a> for it, while doing so for the Lambda Calculus remains hard. </p>
 
-<h2>An Invitations</h2>
+<h3>Footnote</h3>
 
-<p>The converter is far from beging as full featured as other specialized JavaScript Markdown parsers. However, you may find the code easier to manage and extend than some of the other libraries which come in at over a thousand lines of code.  </p>
+<p>If you are unfamiliar with Concatenative languages and want a formal introduction I suggest <a href = "https://www2.ccs.neu.edu/racket/pubs/dissertation-kleffner.pdf">A Foundation for Typed Concatenative Languages</a>, a Master's Thesis by Robert Kleffner</p>
 
-<p>While Myna is under active development, I don't plan on making any significant additions to the myna Markdown parser, as it is sufficient for my needs, and it was intended as a demo of Myna. However, I'd love to hear if you fork the code or make any changes. </p>
+<h2>Additional Reading</h2>
 
-<h2>Other Markdown Parsers in JavaScript</h2>
-
-<p>In the interest of completeness here is a short list of various Markdown parsers written in JavaScript if you want to compare, or find something more specialized. </p>
-
-<ul><li><a href = "https://github.com/chjj/marked">Marked</a> - 13,470 stars</li>
-<li><a href = "https://github.com/evilstreak/markdown-js">Markdown-js</a> - 6,047 stars</li>
-<li><a href = "https://github.com/showdownjs/showdown">Showdown</a> - 5,133 stars</li>
-<li><a href = "https://github.com/markdown-it/markdown-it">Markdown-It</a> - 3,803 stars</li>
-<li><a href = "https://github.com/jonschlinkert/remarkable">Remarkable</a> - 3,362 stars</li>
-<li><a href = "https://github.com/arturadib/strapdown">Strapdown</a> - 1,696 stars </li>
-<li><a href = "https://github.com/wooorm/remark">Remark-js</a> - 998 stars</li>
-<li><a href = "https://github.com/npm/marky-markdown">Marky-markdown</a> - 303 stars</li>
-<li><a href = "https://github.com/Khan/simple-markdown/blob/master/simple-markdown.js">Simple Markdown</a> - 166 stars</li>
-<li><a href = "https://github.com/SimonWaldherr/micromarkdown.js">Micromarkdown</a> - 142 stars</li>
-<li><a href = "https://github.com/borgar/textile-js">Textile-js</a> - 135 stars</li>
-<li><a href = "https://github.com/StackExchange/pagedown">Pagedown</a> - 93 stars</li>
+<ul><li><a href = "http://home.pipeline.com/~hbaker1/">Henry Baker's home page</a></li>
+<li><a href = "https://www.cs.cmu.edu/~./fp/courses/15816-f01/handouts/linlam.pdf">Chapter 6 - Linear Lambda Calculus</a> - handouts from Frank Pfennig's course on Linear Logic</li>
+<li><a href = "http://okmij.org/ftp/tagless-final/course/LinearLC.hs">Interpreter of Linear Lambda Calculus in Haskell</a> - by Oleg Kiselyov</li>
+<li>    <a href = "https://www.schoolofhaskell.com/user/mutjida/typed-tagless-final-linear-lambda-calculus/1-debruijn-typed-tagless-final-interpreter">School of Haskell Implementation of Oleg's LLC Interpreter</a></li>
+<li><a href = "https://pdfs.semanticscholar.org/2fcc/9b18731f8f96eca9a3bc6855cb66a7f0d66f.pdf">A type system for bounded space and functional in-place update</a></li>
+<li><a href = "https://www.cs.cmu.edu/~fp/courses/15816-s12/misc/hofmann03ic.pdf">Linear types and non-size-increasing polynomial time computation</a> </li>
+<li><a href = "https://ghc.haskell.org/trac/ghc/wiki/LinearTypes">Linear Type Proposal for Haskell</a></li>
 </ul>
 
 
@@ -136,13 +127,13 @@
     <h3>Share</h3> 
     <p>
       <ul class="fa-ul">
-        <li><i class="fa fa-facebook    fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://www.facebook.com/sharer/sharer.php?u=https://cdiggins.github.io/blog/markdown-parsers.html">Facebook</a></li>
-        <li><i class="fa fa-twitter     fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://twitter.com/intent/tweet?url=https://cdiggins.github.io/blog/markdown-parsers.html">Twitter</a></li>
-        <li><i class="fa fa-reddit      fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://www.reddit.com/r/test/submit?title=Markdown Parsers in JavaScript&url=https://cdiggins.github.io/blog/markdown-parsers.html">Reddit</a></li>
-        <li><i class="fa fa-google-plus fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://plus.google.com/share?url=https://cdiggins.github.io/blog/markdown-parsers.html">Google+</a></li>
-        <li><i class="fa fa-linkedin    fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://www.linkedin.com/shareArticle?mini=true&url=https://cdiggins.github.io/blog/markdown-parsers.html&title=Markdown Parsers in JavaScript">LinkedIn</a></li>
-        <li><i class="fa fa-hacker-news fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://news.ycombinator.com/submitlink?u=https://cdiggins.github.io/blog/markdown-parsers.html&t=Markdown Parsers in JavaScript">Hacker News</a></li>
-        <li><i class="fa fa-tumblr      fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://www.tumblr.com/share?v=3&t=Markdown Parsers in JavaScript&u=https://cdiggins.github.io/blog/markdown-parsers.html">Tumblr</a></li>
+        <li><i class="fa fa-facebook    fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://www.facebook.com/sharer/sharer.php?u=https://cdiggins.github.io/blog/linear-logic-and-linear-lisp.html">Facebook</a></li>
+        <li><i class="fa fa-twitter     fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://twitter.com/intent/tweet?url=https://cdiggins.github.io/blog/linear-logic-and-linear-lisp.html">Twitter</a></li>
+        <li><i class="fa fa-reddit      fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://www.reddit.com/r/test/submit?title=Linear Logic, Linear Lisp, Linear Types and Concatenative Languages&url=https://cdiggins.github.io/blog/linear-logic-and-linear-lisp.html">Reddit</a></li>
+        <li><i class="fa fa-google-plus fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://plus.google.com/share?url=https://cdiggins.github.io/blog/linear-logic-and-linear-lisp.html">Google+</a></li>
+        <li><i class="fa fa-linkedin    fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://www.linkedin.com/shareArticle?mini=true&url=https://cdiggins.github.io/blog/linear-logic-and-linear-lisp.html&title=Linear Logic, Linear Lisp, Linear Types and Concatenative Languages">LinkedIn</a></li>
+        <li><i class="fa fa-hacker-news fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://news.ycombinator.com/submitlink?u=https://cdiggins.github.io/blog/linear-logic-and-linear-lisp.html&t=Linear Logic, Linear Lisp, Linear Types and Concatenative Languages">Hacker News</a></li>
+        <li><i class="fa fa-tumblr      fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://www.tumblr.com/share?v=3&t=Linear Logic, Linear Lisp, Linear Types and Concatenative Languages&u=https://cdiggins.github.io/blog/linear-logic-and-linear-lisp.html">Tumblr</a></li>
       </ul>
     </p>
   </div>

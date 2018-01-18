@@ -6,7 +6,7 @@ So what makes code *good*?
 
 Good code can be identified as code that is easy to read, understand, debug, and modify, and most importantly has very few defects. Obviously it takes a bit more time to write good code, but it also has more value in the long term, because it costs less to maintain and is more reusable. 
 
-In fact we could probablye equate good code with code which is **reusable**, which is the driving principle behind many of the tips listed here. Code might accomplish your short term goals as a programmer working on a specific feature, but if no one else wants to reuse it (including your future self) it must be lacking in some way. Either it is too complex, too specific, too likely to break under different circumstances, or maybe other programmers don't trust it. 
+In fact we could probably equate good code with code which is **reusable**, which is the driving principle behind many of the tips listed here. Code might accomplish your short term goals as a programmer working on a specific feature, but if no one else wants to reuse it (including your future self) it must be lacking in some way. Either it is too complex, too specific, too likely to break under different circumstances, or maybe other programmers don't trust it. 
 
 I have found that consistently trying to apply the following best practices to all code you write (including your experiments and prototypes) can lead to better code regardless of your level of experience. 
 

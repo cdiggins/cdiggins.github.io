@@ -56,6 +56,21 @@
         "date":"2017-08-22T09:30",
         "category":"programming",
         "description":"30+ years experience trying to write better software distilled down into 10 best practices."
+    },
+    {
+        "title":"How to Write JavaScript Modules that can Run in Node.JS and the Browser",
+        "src":"javascript-run-in-node-js-and-the-browser.md",
+        "date":"2017-08-25T09:30",
+        "category":"javascript",
+        "description":"Different approaches to writing JavaScript modules that can run easily in both Node.JS and the browser.",
+        "draft":true
+    },
+    {
+        "title":"Linear Logic, Linear Lisp, Linear Types and Concatenative Languages",
+        "src":"linear-logic-and-linear-lisp.md",
+        "date":"2018-01-18T09:00",
+        "category":"theory",
+        "description":"Thoughts on the intersection of linear logic and concatenative languages"
     }
     ]
 }

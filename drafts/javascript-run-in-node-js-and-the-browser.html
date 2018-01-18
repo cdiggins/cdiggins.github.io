@@ -12,19 +12,19 @@
   -->
 
   <!-- Standard meta tags -->
-  <meta name="description"          content="A list of JavaScript markdown parsers" />
+  <meta name="description"          content="Different approaches to writing JavaScript modules that can run easily in both Node.JS and the browser." />
   <meta name="author"               content="Christopher Diggins" />
   <meta name="generator"            content="Myna Blog Generator" />
   
   <!-- Open Graph meta-properties, used by FaceBook and other social sites --> 
   <meta property="og:type"          content="website" />
-  <meta property="og:url"           content="https://cdiggins.github.io/blog/markdown-parsers.html" />
-  <meta property="og:title"         content="Markdown Parsers in JavaScript" />
-  <meta property="og:description"   content="A list of JavaScript markdown parsers" />
+  <meta property="og:url"           content="https://cdiggins.github.io/blog/javascript-run-in-node-js-and-the-browser.html" />
+  <meta property="og:title"         content="How to Write JavaScript Modules that can Run in Node.JS and the Browser" />
+  <meta property="og:description"   content="Different approaches to writing JavaScript modules that can run easily in both Node.JS and the browser." />
   <meta property="og:image"         content="" />
 
   <!-- The site title -->
-  <title>Markdown Parsers in JavaScript</title>
+  <title>How to Write JavaScript Modules that can Run in Node.JS and the Browser</title>
 
   <!-- Bootstrap http://getbootstrap.com/getting-started/ -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -72,48 +72,125 @@
 
     <div class="container theme-showcase" role="main">
         <p>
-          <h4>Wednesday, July 26, 2017</h4>
+          <h4>Friday, August 25, 2017</h4>
         </p>
     
         <div class="theme-showcase col-sm-8" id='content'>
           <p>
-            <h1>The Myna Markdown Parser</h1>
+            <h1>Making a JavaScript Module Run in both Node.JS and the Browser </h1>
 
-<p>In order to demonstrate using Myna as for real-world tasks I created a Markdown parser with it which I used to build <a href = "http://cdiggins.github.io/blog.html">my blog</a> and the <a href = "http://cdiggins.github.io/myna-parser">Myna web-site</a> with it.  </p>
+<blockquote>This blog post attempts to provide a complete answer to the question: https://stackoverflow.com/questions/3225251/how-can-i-share-code-between-node-js-and-the-browser. </blockquote>
 
-<p>The Myna parser starts with <a href = "https://github.com/cdiggins/myna-parser/blob/master/grammars/grammar_markdown.js">a simple grammar to parse the Markdown</a>. The generated abstract syntax tree (AST) is converted to HTML by the file [`myna<i>markdown</i>to<i>html.js`](https://github.com/cdiggins/myna-parser/blob/master/tools/myna</i>markdown<i>to</i>html.js).</p>
+<p>Trying to create a library of JavaScript code in a single file that can be run in both the Node.JS environemnt and in a browser requires some programming calisthenics. In a browser each individual JavaScript file is executed in the global namespace while Node.JS treats each file as a module with its own private namespace. This article describes the commonly accepted solution, and a proposed alternative.</p>
 
-<p><a href = "https://github.com/cdiggins/myna-parser/blob/master/tests/test_markdown_to_html.js">This test file</a> shows the Markdown to HTML parser in action. You can run it using the command:</p>
+<h3>In the Browser </h3>
 
-<pre>    node tests\test_markdown_to_html
+<p>Consider the following example of how one might write code in two different files for the browser </p>
+
+<p><code>MyModule.js</code></p>
+
+<pre>  function test() {
+    return 'hello world';
+  }
 </pre>
 
-<p>This will generate a test file <code>tests\output\readme.html</code> from the <code>readme.md</code> source file. </p>
+<p><code>MyFile.html</code></p>
 
-<h2>An Invitations</h2>
+<pre>  <script href='MyModule`/>
+  <script>
+    console.log(test());
+  </script>
+</pre>
 
-<p>The converter is far from beging as full featured as other specialized JavaScript Markdown parsers. However, you may find the code easier to manage and extend than some of the other libraries which come in at over a thousand lines of code.  </p>
+<h3>Why Executing in the Global Namespace is a "Bad Thing"</h3>
 
-<p>While Myna is under active development, I don't plan on making any significant additions to the myna Markdown parser, as it is sufficient for my needs, and it was intended as a demo of Myna. However, I'd love to hear if you fork the code or make any changes. </p>
+<p>The problem with the browser based approach is that including scripts files can cause name collisions. A variable or function name can get reused in one file to mean a different thing, losing the original value. </p>
 
-<h2>Other Markdown Parsers in JavaScript</h2>
+<h3>What Node.JS Does</h3>
 
-<p>In the interest of completeness here is a short list of various Markdown parsers written in JavaScript if you want to compare, or find something more specialized. </p>
+<p>Node.JS solves this problem by requiring that you explicitly export any functions or values in your file:</p>
 
-<ul><li><a href = "https://github.com/chjj/marked">Marked</a> - 13,470 stars</li>
-<li><a href = "https://github.com/evilstreak/markdown-js">Markdown-js</a> - 6,047 stars</li>
-<li><a href = "https://github.com/showdownjs/showdown">Showdown</a> - 5,133 stars</li>
-<li><a href = "https://github.com/markdown-it/markdown-it">Markdown-It</a> - 3,803 stars</li>
-<li><a href = "https://github.com/jonschlinkert/remarkable">Remarkable</a> - 3,362 stars</li>
-<li><a href = "https://github.com/arturadib/strapdown">Strapdown</a> - 1,696 stars </li>
-<li><a href = "https://github.com/wooorm/remark">Remark-js</a> - 998 stars</li>
-<li><a href = "https://github.com/npm/marky-markdown">Marky-markdown</a> - 303 stars</li>
-<li><a href = "https://github.com/Khan/simple-markdown/blob/master/simple-markdown.js">Simple Markdown</a> - 166 stars</li>
-<li><a href = "https://github.com/SimonWaldherr/micromarkdown.js">Micromarkdown</a> - 142 stars</li>
-<li><a href = "https://github.com/borgar/textile-js">Textile-js</a> - 135 stars</li>
-<li><a href = "https://github.com/StackExchange/pagedown">Pagedown</a> - 93 stars</li>
+<pre>  function test() {   
+    return 'hello world';
+  }
+  module.exports = test;
+</pre>
+
+<p>In effect every node.JS file is converted into a module..</p>
+
+<h3>Under the Hood </h3>
+
+<p>The Node.JS module uses a <a href = "https://stackoverflow.com/questions/35211056/how-to-change-the-node-js-module-wrapper">special function called <code>Module.wrap</code></a> to convert your JavaScript files into a module by adding a simple prefix and suffix. So your file effectively is rewritten as:  </p>
+
+<pre>  (function (exports, require, module, __filename, __dirname, process, global) {
+    function test() {   
+      return 'hello world';
+    }
+    module.exports = test;
+  });
+</pre>
+
+<h3>Making your code  work in Both Node.JS and the Browser</h3>
+
+<p>One <a href = "https://stackoverflow.com/questions/3225251/how-can-i-share-code-between-node-js-and-the-browser">widely accepted solution presented on StackOverflow</a> to preventing namespace collisions is the following:</p>
+
+<pre>  (function(exports){
+    exports.test = function(){
+      return 'hello world'
+    };
+  })(typeof exports === 'undefined'? this['mymodule']={}: exports);
+</pre>
+
+<p>I am not a fan of this approach because it requires me to read the code from the bottom up to understand what is happening, and it takes a bit of mental effort to grok it the first time you encounter it. </p>
+
+<h3>An Alternative </h3>
+
+<p>When developing Myna I opted for an alteratnive approach which uses involves exporting modules as functions. </p>
+
+<pre>  function myModule() 
+  {
+    return new function() { 
+      this.test = function() {
+        return 'hello world';
+      }
+    }
+  }
+      
+  // Export the module as a Node.JS module
+  if (typeof module === "object" && module.exports) 
+    module.exports = myModule;
+</pre>
+
+<p>Usage in browser:</p>
+
+<pre>  <script href='myModule.js'/>
+  <script>
+    var mod = myModule();
+    mod.test();
+  </script>
+</pre>
+
+<p>Usage in Node.JS</p>
+
+<pre>  var mod = require('myModule')();
+  mod.test();
+</pre>
+
+<h2>Dependency Injection </h2>
+
+<p>One advantage of exporting modules as function (not as objects) is that I can easily pass any required modules (dependencies) as arguments. This is a techniqueu known as dependency injection, and it gives me programmatic control over the module instantiation. </p>
+
+<p>In Myna I use this technique to pass the Myna module to the grammars, which enables me to control the number of instances of the Myna module (e.g. 1 myna module with multiple grammars, or 1 myna module per grammar). </p>
+
+<p>For More information:</p>
+
+<ul><li>https://caolan.org/posts/writing<i>for</i>node<i>and</i>the_browser.html</li>
+<li>https://stackoverflow.com/questions/4944863/how-to-use-node-js-module-system-on-the-clientside </li>
+<li>https://stackoverflow.com/questions/16383795/difference-between-module-exports-and-exports-in-the-commonjs-module-system</li>
+<li>https://stackoverflow.com/questions/3225251/how-can-i-share-code-between-node-js-and-the-browser</li>
+<li>https://spring.io/understanding/javascript-modules</li>
+<li>https://medium.freecodecamp.org/javascript-modules-a-beginner-s-guide-783f7d7a5fcc</li>
 </ul>
-
 
           </p>
         </div>
@@ -136,13 +213,13 @@
     <h3>Share</h3> 
     <p>
       <ul class="fa-ul">
-        <li><i class="fa fa-facebook    fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://www.facebook.com/sharer/sharer.php?u=https://cdiggins.github.io/blog/markdown-parsers.html">Facebook</a></li>
-        <li><i class="fa fa-twitter     fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://twitter.com/intent/tweet?url=https://cdiggins.github.io/blog/markdown-parsers.html">Twitter</a></li>
-        <li><i class="fa fa-reddit      fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://www.reddit.com/r/test/submit?title=Markdown Parsers in JavaScript&url=https://cdiggins.github.io/blog/markdown-parsers.html">Reddit</a></li>
-        <li><i class="fa fa-google-plus fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://plus.google.com/share?url=https://cdiggins.github.io/blog/markdown-parsers.html">Google+</a></li>
-        <li><i class="fa fa-linkedin    fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://www.linkedin.com/shareArticle?mini=true&url=https://cdiggins.github.io/blog/markdown-parsers.html&title=Markdown Parsers in JavaScript">LinkedIn</a></li>
-        <li><i class="fa fa-hacker-news fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://news.ycombinator.com/submitlink?u=https://cdiggins.github.io/blog/markdown-parsers.html&t=Markdown Parsers in JavaScript">Hacker News</a></li>
-        <li><i class="fa fa-tumblr      fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://www.tumblr.com/share?v=3&t=Markdown Parsers in JavaScript&u=https://cdiggins.github.io/blog/markdown-parsers.html">Tumblr</a></li>
+        <li><i class="fa fa-facebook    fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://www.facebook.com/sharer/sharer.php?u=https://cdiggins.github.io/blog/javascript-run-in-node-js-and-the-browser.html">Facebook</a></li>
+        <li><i class="fa fa-twitter     fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://twitter.com/intent/tweet?url=https://cdiggins.github.io/blog/javascript-run-in-node-js-and-the-browser.html">Twitter</a></li>
+        <li><i class="fa fa-reddit      fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://www.reddit.com/r/test/submit?title=How to Write JavaScript Modules that can Run in Node.JS and the Browser&url=https://cdiggins.github.io/blog/javascript-run-in-node-js-and-the-browser.html">Reddit</a></li>
+        <li><i class="fa fa-google-plus fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://plus.google.com/share?url=https://cdiggins.github.io/blog/javascript-run-in-node-js-and-the-browser.html">Google+</a></li>
+        <li><i class="fa fa-linkedin    fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://www.linkedin.com/shareArticle?mini=true&url=https://cdiggins.github.io/blog/javascript-run-in-node-js-and-the-browser.html&title=How to Write JavaScript Modules that can Run in Node.JS and the Browser">LinkedIn</a></li>
+        <li><i class="fa fa-hacker-news fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://news.ycombinator.com/submitlink?u=https://cdiggins.github.io/blog/javascript-run-in-node-js-and-the-browser.html&t=How to Write JavaScript Modules that can Run in Node.JS and the Browser">Hacker News</a></li>
+        <li><i class="fa fa-tumblr      fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://www.tumblr.com/share?v=3&t=How to Write JavaScript Modules that can Run in Node.JS and the Browser&u=https://cdiggins.github.io/blog/javascript-run-in-node-js-and-the-browser.html">Tumblr</a></li>
       </ul>
     </p>
   </div>

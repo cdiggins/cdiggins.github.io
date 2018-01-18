@@ -6,7 +6,7 @@ The blog is built from Git-flavored markdown sourced and Mustache (CTemplate) st
 
 ## License 
 
-The tool chain is licensed under the MIT license, and the content is the Common Creative Sharealike Attribution license.
+The tool chain is licensed under the MIT license, and the content is licended under the Common Creative Sharealike Attribution license.
 
 ## Depdendencies
 
