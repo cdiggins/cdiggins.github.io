@@ -71,6 +71,20 @@
         "date":"2018-01-18T09:00",
         "category":"theory",
         "description":"Thoughts on the intersection of linear logic and concatenative languages"
+    },
+    {
+        "title":"React Best Practices",
+        "src":"react-best-practices.md",
+        "date":"2018-01-24T15:40",
+        "category":"javascript",
+        "description":"A referenced aggregated list of best practices for using the React.JS library"
+    },
+    {
+        "title":"Using URNs for a Module System",
+        "src":"using-urn-for-modules.md",
+        "date":"2018-03-09T15:40",
+        "category":"pl-design",
+        "description":"A proposal for using URNs in code to identify modules"
     }
     ]
 }

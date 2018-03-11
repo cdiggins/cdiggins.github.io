@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <!-- 
+    "The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags"
+    Or at least so decreed Bootsrap. I'm not sure why. 
+  -->
+
+  <!-- Standard meta tags -->
+  <meta name="description"          content="A referenced aggregated list of best practices for using the React.JS library" />
+  <meta name="author"               content="Christopher Diggins" />
+  <meta name="generator"            content="Myna Blog Generator" />
+  
+  <!-- Open Graph meta-properties, used by FaceBook and other social sites --> 
+  <meta property="og:type"          content="website" />
+  <meta property="og:url"           content="https://cdiggins.github.io/blog/react-best-practices.html" />
+  <meta property="og:title"         content="React Best Practices" />
+  <meta property="og:description"   content="A referenced aggregated list of best practices for using the React.JS library" />
+  <meta property="og:image"         content="" />
+
+  <!-- The site title -->
+  <title>React Best Practices</title>
+
+  <!-- Bootstrap http://getbootstrap.com/getting-started/ -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+  <!-- Font Awesome http://fontawesome.io/ --> 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+  <!-- Google Fonts https://fonts.google.com/ --> 
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Source+Sans+Pro">
+
+  <link rel="stylesheet" href="../css/theme.css">
+
+  <!-- My custom styling, non-trivial styling should be done in its own CSS file --> 
+  <style>
+    body { font-family: 'Source Sans Pro', sans-serif; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Roboto', sans-serif; } 
+  </style>
+  </head>
+
+  <body>
+    
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#" title="top">Christopher Diggins</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="../index.html" title="home">Home</a></li>
+          <li><a href="../blog.html" title="blog">Blog</a></li>
+          <li><a href="../about.html" title="about">About</a></li>
+                      <li><a href="linear-logic-and-linear-lisp.html">Previous</a></li>
+          
+                      <li><a href="using-urn-for-modules.html">Next</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+    <div class="container theme-showcase" role="main">
+        <p>
+          <h4>Wednesday, January 24, 2018</h4>
+        </p>
+    
+        <div class="theme-showcase col-sm-8" id='content'>
+          <p>
+            <h1>React Best practices</h1>
+
+<p>I have summarized and compiled a list of <a href = "https://reactjs.org/">React.JS</a> best practices from various sources across the internet.</p>
+
+<h2>From the React docs </h2>
+
+<ul><li>https://reactjs.org/docs/components-and-props.html </li>
+<li>    props must be readonly</li>
+</ul>
+
+<ul><li>https://reactjs.org/docs/state-and-lifecycle.html</li>
+<li>    free up resources taken by resource when they are destroyed.</li>
+<li>    do not modify state directly - use a function</li>
+<li>    neither parent nor child components should know if a certain component is stateful or stateless, and whether  a function or a class.</li>
+</ul>
+
+<ul><li>https://reactjs.org/docs/handling-events.html</li>
+<li>    bind in the constructor to avoid performance problems of re-rendering</li>
+</ul>
+
+<ul><li>https://reactjs.org/docs/conditional-rendering.html</li>
+<li>    for a component to hide itself return null from render</li>
+</ul>
+
+<ul><li>https://reactjs.org/docs/lists-and-keys.html</li>
+<li>    <code>key</code> is a required string attribute when creating lists of elements</li>
+<li>    elements generated inside a <code>map()</code> call need key</li>
+<li>    keys within arrays should be unique among their siblings</li>
+</ul>
+
+<ul><li>https://reactjs.org/docs/lifting-state-up.html </li>
+<li>    when several components reflect the same changing data lift shared state up to a common ancestor</li>
+</ul>
+
+<ul><li>https://reactjs.org/docs/optimizing-performance.html</li>
+<li>    instead of writing <code>shouldComponentUpdate()</code> inherit from <code>React.PureComponent</code> where possible</li>
+<li>    avoid in-place mutation by using <code>Object.assign</code>, spread operator (<code>...</code>), and non-mutating operations</li>
+<li>    you can use <code>Immutable.js</code>, <code>seamless-immutable</code>, or <code>immutability-helper</code>.</li>
+</ul>
+
+<ul><li>https://reactjs.org/docs/reconciliation.html </li>
+<li>    keys should be stable, predictable, and unique. </li>
+</ul>
+
+<ul><li>https://reactjs.org/docs/context.html</li>
+<li>    majority of applications do not need to use context.</li>
+<li>    if you want your application to be stable, don’t use context.</li>
+<li>    if you aren’t familiar with state management libraries like Redux or MobX, don’t use context. </li>
+</ul>
+
+<ul><li>https://reactjs.org/docs/refs-and-the-dom.html</li>
+<li>    typical React dataflow, props are the only way that parent components interact with their children. </li>
+<li>    Refs are for a few cases to imperatively modify a child outside of the typical dataflow</li>
+<li>    when to use refs:</li>
+<li>        managing focus, text selection, or media playback.</li>
+<li>        triggering imperative animations.</li>
+<li>        integrating with third-party DOM libraries.    </li>
+</ul>
+
+<ul><li>https://reactjs.org/docs/higher-order-components.html </li>
+<li>    use HOCs for cross-cutting concerns</li>
+<li>    a HOC composes the original component by wrapping it in a container component. </li>
+<li>    don’t mutate the original component. use composition.</li>
+<li>    pass unrelated props through to the wrapped component</li>
+<li>    wrap the display name for easy debugging</li>
+<li>    don't use HOCs inside the render method, create as variables outside</li>
+<li>    apply HOCs outside the component definition so that the resulting component is created only once. </li>
+<li>    be aware that refs aren't passed through</li>
+</ul>
+
+<ul><li>https://reactjs.org/docs/render-props.html</li>
+<li>    render props are an alternative to HOC for cross-cutting concerns</li>
+<li>    render props enabling shared state or behavior between components </li>
+<li>    higher-order components can be implemented with a render prop</li>
+<li>    prefer instance methods to avoid triggering extra redraws</li>
+</ul>
+
+<ul><li>https://reactjs.org/docs/faq-functions.html</li>
+<li>    you can limit the rate at which callback is executed via throttling and debouncing</li>
+</ul>
+
+<h1>Presentational and Container Components</h1>
+
+<p>Separate components into <a href = "https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0">presentational or container components</a></p>
+
+<ul><li>Presentation components</li>
+<li>    concerned with how things look</li>
+<li>    allow containment via this.props.children</li>
+<li>    often have styles</li>
+<li>    have no dependencies on rest of approach</li>
+<li>    don't specify how data is loaded or mutated</li>
+<li>    Receive data and callbacks exclusively via props.</li>
+<li>    Rarely have their own state (when they do, it’s UI state rather than data).</li>
+</ul>
+
+<ul><li>Container components </li>
+<li>    concerned with how things work</li>
+<li>    usually don’t have any DOM markup of their own except for maybe some wrapping divs</li>
+<li>    provide data and behavior to presentational or other container components.</li>
+<li>    are often stateful </li>
+</ul>
+
+<ul><li>Because functional components are easier to understand, use them unless you need state, lifecycle hooks, or performance optimizations   </li>
+</ul>
+        
+<h1>Best Practices From Other Sources </h1>
+
+<ul><li>https://engineering.musefind.com/our-best-practices-for-writing-react-components-dec3eb5c3fc8</li>
+<li>    prefer functional components over class based</li>
+<li>    prefer state initialization in class member variable declaration over constructor</li>
+<li>    pass functions to <code>setState()</code></li>
+<li>    avoid passing closures to sub-components</li>
+<li>    use named functions to facilitate debugging</li>
+<li>    use short circuit evaluation when rendering on only one side of a condition</li>
+<li>    minimize nested ternary conditional expressions</li>
+</ul>
+
+<ul><li>https://medium.com/prdxn/react-best-practices-and-checklist-13eaf3317d6877</li>
+<li>    breaking components up into containers and presentation.</li>
+<li>    always define a defaultProps</li>
+<li>    omit value when it is explicitly true</li>
+</ul>
+
+<ul><li>https://mobx.js.org/best/react-performance.html</li>
+<li>    use many small components</li>
+<li>    render lists in dedicated components</li>
+<li>    don't use array indexes as keys</li>
+<li>    bind functions early</li>
+</ul>
+
+<ul><li>https://getstream.io/blog/react-redux-best-practices-gotchas/</li>
+<li>    normalize relationships in entity tree</li>
+<li>    log errors with Raven</li>
+</ul>
+
+<ul><li><a href = "http://nalwaya.com/javascript/2016/05/02/react-js-best-practices.html
+">http://nalwaya.com/javascript/2016/05/02/react-js-best-practices.html
+</a>    * avoid nested state </li>
+<li>    keep things immutable</li>
+<li>    centralize state</li>
+<li>    thinner reducers </li>
+<li>    put logic in action creators</li>
+<li>    consider using Saga</li>
+<li>    use stateless components as much as possible</li>
+<li>    import the functions you need, not entire modules</li>
+<li>    bind functions in constructor</li>
+<li>    avoid using [] or {} as property, as shallow compare fails</li>
+</ul>
+
+<ul><li><a href = "http://reactkungfu.com/2015/09/common-react-dot-js-mistakes-unneeded-state/
+">http://reactkungfu.com/2015/09/common-react-dot-js-mistakes-unneeded-state/
+</a>    * keep state as minimal as possible</li>
+<li>    respect the single source of truth when managing state</li>
+</ul>
+
+<ul><li>https://codeburst.io/when-to-use-component-or-purecomponent-a60cfad01a81</li>
+<li>    prefer PureComponent over Component, but never mutate your object</li>
+<li>    don’t derive data in the render method, instead cache it in the state</li>
+<li>    if you’re using Redux, consider using reselect to create “selectors” to compose and cache derived data.</li>
+</ul>
+
+<ul><li>https://medium.com/robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318</li>
+<li>    Don't use index as a key</li>
+<li>    recommend 'shortid'</li>
+</ul>
+
+          </p>
+        </div>
+
+        
+  <div class="col-sm-4 sidebar-module sidebar-module-inset">
+      <p>
+        I am a software developer based in Montreal, Canada with a passion for programming languages, 
+        software development practices and processes, and 3D graphics. 
+      </p>
+    <h3>Recent Posts</h3>
+       <ul>
+   <li><a href="https://cdiggins.github.io/blog/using-urn-for-modules.html">Using URNs for a Module System</a></li>
+   <li><a href="https://cdiggins.github.io/blog/react-best-practices.html">React Best Practices</a></li>
+   <li><a href="https://cdiggins.github.io/blog/linear-logic-and-linear-lisp.html">Linear Logic, Linear Lisp, Linear Types and Concatenative Languages</a></li>
+   <li><a href="https://cdiggins.github.io/blog/programming-tips.html">10 Tips for Writing Better Code</a></li>
+   <li><a href="https://cdiggins.github.io/blog/exaltation.html">Exaltation Blog Generator</a></li>
+
+      </ul>
+    <h3>Share</h3> 
+    <p>
+      <ul class="fa-ul">
+        <li><i class="fa fa-facebook    fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://www.facebook.com/sharer/sharer.php?u=https://cdiggins.github.io/blog/react-best-practices.html">Facebook</a></li>
+        <li><i class="fa fa-twitter     fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://twitter.com/intent/tweet?url=https://cdiggins.github.io/blog/react-best-practices.html">Twitter</a></li>
+        <li><i class="fa fa-reddit      fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://www.reddit.com/r/test/submit?title=React Best Practices&url=https://cdiggins.github.io/blog/react-best-practices.html">Reddit</a></li>
+        <li><i class="fa fa-google-plus fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://plus.google.com/share?url=https://cdiggins.github.io/blog/react-best-practices.html">Google+</a></li>
+        <li><i class="fa fa-linkedin    fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://www.linkedin.com/shareArticle?mini=true&url=https://cdiggins.github.io/blog/react-best-practices.html&title=React Best Practices">LinkedIn</a></li>
+        <li><i class="fa fa-hacker-news fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://news.ycombinator.com/submitlink?u=https://cdiggins.github.io/blog/react-best-practices.html&t=React Best Practices">Hacker News</a></li>
+        <li><i class="fa fa-tumblr      fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://www.tumblr.com/share?v=3&t=React Best Practices&u=https://cdiggins.github.io/blog/react-best-practices.html">Tumblr</a></li>
+      </ul>
+    </p>
+  </div>
+    </div>
+    
+		    
+<hr>
+<footer style='text-align:center'>
+  <div class="container">
+
+    <!-- Social media sharing icons -->
+    <div class="row">
+              <a href="mailto:cdiggins@gmail.com" class="btn-link" style="text-decoration: none" title="email">
+          <span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x" aria-hidden="true"></i>
+            <i class="fa fa-envelope fa-stack-1x fa-inverse" aria-hidden="true"></i>
+          </span>
+        </a>
+              <a href="https://twitter.com/cdiggins" class="btn-link" style="text-decoration: none" title="Twitter">
+          <span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x" aria-hidden="true"></i>
+            <i class="fa fa-twitter fa-stack-1x fa-inverse" aria-hidden="true"></i>
+          </span>
+        </a>
+              <a href="https://www.linkedin.com/in/cdiggins/" class="btn-link" style="text-decoration: none" title="LinkedIn">
+          <span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x" aria-hidden="true"></i>
+            <i class="fa fa-linkedin fa-stack-1x fa-inverse" aria-hidden="true"></i>
+          </span>
+        </a>
+              <a href="https://www.facebook.com/diggins.software" class="btn-link" style="text-decoration: none" title="FaceBook">
+          <span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x" aria-hidden="true"></i>
+            <i class="fa fa-facebook fa-stack-1x fa-inverse" aria-hidden="true"></i>
+          </span>
+        </a>
+              <a href="https://github.com/cdiggins" class="btn-link" style="text-decoration: none" title="GitHub">
+          <span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x" aria-hidden="true"></i>
+            <i class="fa fa-github fa-stack-1x fa-inverse" aria-hidden="true"></i>
+          </span>
+        </a>
+              <a href="https://stackoverflow.com/users/184528/cdiggins" class="btn-link" style="text-decoration: none" title="StackOverflow">
+          <span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x" aria-hidden="true"></i>
+            <i class="fa fa-stack-overflow fa-stack-1x fa-inverse" aria-hidden="true"></i>
+          </span>
+        </a>
+              <a href="https://www.youtube.com/user/cdiggins" class="btn-link" style="text-decoration: none" title="YouTube">
+          <span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x" aria-hidden="true"></i>
+            <i class="fa fa-youtube fa-stack-1x fa-inverse" aria-hidden="true"></i>
+          </span>
+        </a>
+              <a href="http://cdiggins.github.io/rss.xml" class="btn-link" style="text-decoration: none" title="RSS">
+          <span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x" aria-hidden="true"></i>
+            <i class="fa fa-rss fa-stack-1x fa-inverse" aria-hidden="true"></i>
+          </span>
+        </a>
+      
+    </div>
+  
+    <!-- Copyright and Licene notice -->
+    <p class="copyright text-muted small">
+      Copyright &copy; 2017 Christopher Diggins
+      <br/><a href="https://creativecommons.org/licenses/by-sa/4.0/">Attribution-ShareAlike 4.0 International</a>
+      <br/>built with <a href='https://cdiggins.github.io/exaltation/'>Exaltation</a>
+    </p>
+  </div>
+
+</footer>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+  <!-- Bootstrap scripts --> 
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  <!-- Google analytics -->
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-93495883-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+  </body>
+</html>

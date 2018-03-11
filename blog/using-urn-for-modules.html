@@ -12,19 +12,19 @@
   -->
 
   <!-- Standard meta tags -->
-  <meta name="description"          content="Different approaches to writing JavaScript modules that can run easily in both Node.JS and the browser." />
+  <meta name="description"          content="A proposal for using URNs in code to identify modules" />
   <meta name="author"               content="Christopher Diggins" />
   <meta name="generator"            content="Myna Blog Generator" />
   
   <!-- Open Graph meta-properties, used by FaceBook and other social sites --> 
   <meta property="og:type"          content="website" />
-  <meta property="og:url"           content="https://cdiggins.github.io/blog/javascript-run-in-node-js-and-the-browser.html" />
-  <meta property="og:title"         content="How to Write JavaScript Modules that can Run in Node.JS and the Browser" />
-  <meta property="og:description"   content="Different approaches to writing JavaScript modules that can run easily in both Node.JS and the browser." />
+  <meta property="og:url"           content="https://cdiggins.github.io/blog/using-urn-for-modules.html" />
+  <meta property="og:title"         content="Using URNs for a Module System" />
+  <meta property="og:description"   content="A proposal for using URNs in code to identify modules" />
   <meta property="og:image"         content="" />
 
   <!-- The site title -->
-  <title>How to Write JavaScript Modules that can Run in Node.JS and the Browser</title>
+  <title>Using URNs for a Module System</title>
 
   <!-- Bootstrap http://getbootstrap.com/getting-started/ -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -63,6 +63,7 @@
           <li><a href="../index.html" title="home">Home</a></li>
           <li><a href="../blog.html" title="blog">Blog</a></li>
           <li><a href="../about.html" title="about">About</a></li>
+                      <li><a href="react-best-practices.html">Previous</a></li>
           
           
         </ul>
@@ -72,125 +73,47 @@
 
     <div class="container theme-showcase" role="main">
         <p>
-          <h4>Friday, August 25, 2017</h4>
+          <h4>Friday, March 9, 2018</h4>
         </p>
     
         <div class="theme-showcase col-sm-8" id='content'>
           <p>
-            <h1>Making a JavaScript Module Run in both Node.JS and the Browser </h1>
+            <h1>Using URNs in Source Code for Identifying Modules</h1>
 
-<blockquote>This blog post attempts to provide a complete answer to the question: https://stackoverflow.com/questions/3225251/how-can-i-share-code-between-node-js-and-the-browser. </blockquote>
+<p>Many languages, frameworks, and libraries, have a module resolution system based on using simple identifiers, potentially with namespaces, for module identification. The build environment then needs to be provided additional information to resolve the module names, such as configuration files, project files, and environment variables, and can be affected by the local set-up. </p>
 
-<p>Trying to create a library of JavaScript code in a single file that can be run in both the Node.JS environemnt and in a browser requires some programming calisthenics. In a browser each individual JavaScript file is executed in the global namespace while Node.JS treats each file as a module with its own private namespace. This article describes the commonly accepted solution, and a proposed alternative.</p>
-
-<h3>In the Browser </h3>
-
-<p>Consider the following example of how one might write code in two different files for the browser </p>
-
-<p><code>MyModule.js</code></p>
-
-<pre>  function test() {
-    return 'hello world';
-  }
-</pre>
-
-<p><code>MyFile.html</code></p>
-
-<pre>  <script href='MyModule`/>
-  <script>
-    console.log(test());
-  </script>
-</pre>
-
-<h3>Why Executing in the Global Namespace is a "Bad Thing"</h3>
-
-<p>The problem with the browser based approach is that including scripts files can cause name collisions. A variable or function name can get reused in one file to mean a different thing, losing the original value. </p>
-
-<h3>What Node.JS Does</h3>
-
-<p>Node.JS solves this problem by requiring that you explicitly export any functions or values in your file:</p>
-
-<pre>  function test() {   
-    return 'hello world';
-  }
-  module.exports = test;
-</pre>
-
-<p>In effect every node.JS file is converted into a module..</p>
-
-<h3>Under the Hood </h3>
-
-<p>The Node.JS module uses a <a href = "https://stackoverflow.com/questions/35211056/how-to-change-the-node-js-module-wrapper">special function called <code>Module.wrap</code></a> to convert your JavaScript files into a module by adding a simple prefix and suffix. So your file effectively is rewritten as:  </p>
-
-<pre>  (function (exports, require, module, __filename, __dirname, process, global) {
-    function test() {   
-      return 'hello world';
-    }
-    module.exports = test;
-  });
-</pre>
-
-<h3>Making your code  work in Both Node.JS and the Browser</h3>
-
-<p>One <a href = "https://stackoverflow.com/questions/3225251/how-can-i-share-code-between-node-js-and-the-browser">widely accepted solution presented on StackOverflow</a> to preventing namespace collisions is the following:</p>
-
-<pre>  (function(exports){
-    exports.test = function(){
-      return 'hello world'
-    };
-  })(typeof exports === 'undefined'? this['mymodule']={}: exports);
-</pre>
-
-<p>I am not a fan of this approach because it requires me to read the code from the bottom up to understand what is happening, and it takes a bit of mental effort to grok it the first time you encounter it. </p>
-
-<h3>An Alternative </h3>
-
-<p>When developing Myna I opted for an alteratnive approach which uses involves exporting modules as functions. </p>
-
-<pre>  function myModule() 
-  {
-    return new function() { 
-      this.test = function() {
-        return 'hello world';
-      }
-    }
-  }
-      
-  // Export the module as a Node.JS module
-  if (typeof module === "object" && module.exports) 
-    module.exports = myModule;
-</pre>
-
-<p>Usage in browser:</p>
-
-<pre>  <script href='myModule.js'/>
-  <script>
-    var mod = myModule();
-    mod.test();
-  </script>
-</pre>
-
-<p>Usage in Node.JS</p>
-
-<pre>  var mod = require('myModule')();
-  mod.test();
-</pre>
-
-<h2>Dependency Injection </h2>
-
-<p>One advantage of exporting modules as function (not as objects) is that I can easily pass any required modules (dependencies) as arguments. This is a techniqueu known as dependency injection, and it gives me programmatic control over the module instantiation. </p>
-
-<p>In Myna I use this technique to pass the Myna module to the grammars, which enables me to control the number of instances of the Myna module (e.g. 1 myna module with multiple grammars, or 1 myna module per grammar). </p>
-
-<p>For More information:</p>
-
-<ul><li>https://caolan.org/posts/writing<i>for</i>node<i>and</i>the_browser.html</li>
-<li>https://stackoverflow.com/questions/4944863/how-to-use-node-js-module-system-on-the-clientside </li>
-<li>https://stackoverflow.com/questions/16383795/difference-between-module-exports-and-exports-in-the-commonjs-module-system</li>
-<li>https://stackoverflow.com/questions/3225251/how-can-i-share-code-between-node-js-and-the-browser</li>
-<li>https://spring.io/understanding/javascript-modules</li>
-<li>https://medium.freecodecamp.org/javascript-modules-a-beginner-s-guide-783f7d7a5fcc</li>
+<ul><li><a href = "https://docs.python.org/2.0/ref/import.html">Python import statement</a></li>
+<li><a href = "https://nodejs.org/api/modules.html">Node.JS Require</a></li>
+<li><a href = "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/using-directive">C# Using Directive</a></li>
+<li><a href = "https://doc.rust-lang.org/book/second-edition/ch07-01-mod-and-the-filesystem.html">Rust Modules</a></li>
+<li><a href = "https://www.golang-book.com/books/intro/11">Go Packages</a></li>
 </ul>
+
+<p>These module systems usually require additional set of configuration information that needs to be passed to the compiler/run-time (e.g. via config files, or environment variables) and are impacted by the local file system. </p>
+
+<p>The downside to this approach is that given only the source code of a module, it is not possible for another user or system to compile it (e.g. a continuous integration system) and to be assured to get the same end resultunless their system is configured in the same way with the correct dependencies in the correct. </p>
+
+<p>Ad-hoc module systems such as these leads to various problems in production environments:</p>
+
+<ul><li>The community can invent different incompatible module systems with different resolution strategies. For example:</li>
+<li>    JavaScript has CommonJS, AMD, etc. </li>
+<li>        Even popular JavaScript module systems can get fractured: consider NPM versus Yarn.</li>
+<li>    Python has Pip, Easy Install, Wheels, Eggs</li>
+<li>    Scheme implementations prior to R6RS each had their own module system (see http://www.phyast.pitt.edu/~micheles/scheme/scheme19.html)</li>
+<li>Developers have extra work to properly set up a continuous integration system </li>
+<li>Developers on the same project can have subtle bugs or difference in the environment due to incorrect configurations, which </li>
+<li>Various tools, such as static analyzers, online coding tools (e.g. CodePen / JSFiddle) require complicated configurations.</li>
+</ul>
+
+<h2>An Alternative </h2>
+
+<p>I have been considering an alternative module system for my programming language that instead of using simple module names uses URNs directly in source code to uniquely identify the used modules and the versions of those modules. </p>
+
+<p>For example: <code>import urn:<OrganizationName>:<ProjectName>:<LibraryName>:<major>.<minor>.<path>;</code></p>
+
+<p>URNs have the potential to be unique (except for the rare case of a name collision between: Organization/Project/Library. This could be managed by a centralized community package database that resolves URNs to URIs. Considering that GitHub uses Organization/RepositoryName to assure uniqueness among millions of open-source projects, this should be reasonable. </p>
+
+<p>The big advantage I think is that this would allow source code can now be compiled, without a configuration file, and without users having to manually manage the module system. </p>
 
           </p>
         </div>
@@ -213,13 +136,13 @@
     <h3>Share</h3> 
     <p>
       <ul class="fa-ul">
-        <li><i class="fa fa-facebook    fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://www.facebook.com/sharer/sharer.php?u=https://cdiggins.github.io/blog/javascript-run-in-node-js-and-the-browser.html">Facebook</a></li>
-        <li><i class="fa fa-twitter     fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://twitter.com/intent/tweet?url=https://cdiggins.github.io/blog/javascript-run-in-node-js-and-the-browser.html">Twitter</a></li>
-        <li><i class="fa fa-reddit      fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://www.reddit.com/r/test/submit?title=How to Write JavaScript Modules that can Run in Node.JS and the Browser&url=https://cdiggins.github.io/blog/javascript-run-in-node-js-and-the-browser.html">Reddit</a></li>
-        <li><i class="fa fa-google-plus fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://plus.google.com/share?url=https://cdiggins.github.io/blog/javascript-run-in-node-js-and-the-browser.html">Google+</a></li>
-        <li><i class="fa fa-linkedin    fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://www.linkedin.com/shareArticle?mini=true&url=https://cdiggins.github.io/blog/javascript-run-in-node-js-and-the-browser.html&title=How to Write JavaScript Modules that can Run in Node.JS and the Browser">LinkedIn</a></li>
-        <li><i class="fa fa-hacker-news fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://news.ycombinator.com/submitlink?u=https://cdiggins.github.io/blog/javascript-run-in-node-js-and-the-browser.html&t=How to Write JavaScript Modules that can Run in Node.JS and the Browser">Hacker News</a></li>
-        <li><i class="fa fa-tumblr      fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://www.tumblr.com/share?v=3&t=How to Write JavaScript Modules that can Run in Node.JS and the Browser&u=https://cdiggins.github.io/blog/javascript-run-in-node-js-and-the-browser.html">Tumblr</a></li>
+        <li><i class="fa fa-facebook    fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://www.facebook.com/sharer/sharer.php?u=https://cdiggins.github.io/blog/using-urn-for-modules.html">Facebook</a></li>
+        <li><i class="fa fa-twitter     fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://twitter.com/intent/tweet?url=https://cdiggins.github.io/blog/using-urn-for-modules.html">Twitter</a></li>
+        <li><i class="fa fa-reddit      fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://www.reddit.com/r/test/submit?title=Using URNs for a Module System&url=https://cdiggins.github.io/blog/using-urn-for-modules.html">Reddit</a></li>
+        <li><i class="fa fa-google-plus fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://plus.google.com/share?url=https://cdiggins.github.io/blog/using-urn-for-modules.html">Google+</a></li>
+        <li><i class="fa fa-linkedin    fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://www.linkedin.com/shareArticle?mini=true&url=https://cdiggins.github.io/blog/using-urn-for-modules.html&title=Using URNs for a Module System">LinkedIn</a></li>
+        <li><i class="fa fa-hacker-news fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://news.ycombinator.com/submitlink?u=https://cdiggins.github.io/blog/using-urn-for-modules.html&t=Using URNs for a Module System">Hacker News</a></li>
+        <li><i class="fa fa-tumblr      fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://www.tumblr.com/share?v=3&t=Using URNs for a Module System&u=https://cdiggins.github.io/blog/using-urn-for-modules.html">Tumblr</a></li>
       </ul>
     </p>
   </div>

@@ -4,7 +4,11 @@ I have been revisiting an old gem of a paper by Henry Baker, dating back to 1991
 
 Linear lisp is effectively a version of lisp where each variable is used exactly once. There is a correspondence between the Linear Lisp described by Baker, and Linear Lambda Calculus, and Linear Logic. 
 
-My recent realization is that a stack language seems to be effectively a *linear language* which maps more closely to linear Lambda Calculus that vanilla Lambda Calculus. After reading Baker's paper, take a look at an informal (but still rigorous) article by Brent Kerby called the [Theory of Concatenative Combinators](http://tunes.org/~iepos/joy.html). In it he describes an encoding of the Lambda Calculus in a concatenative language and an algorithm for converting from this encoding to an actual point-free concatenative language. 
+My recent realization is that a stack language seems to be effectively a *linear language* which maps more closely to linear Lambda Calculus that vanilla Lambda Calculus. 
+
+Baker points this out in another paper [Linear Logic and Permutation Stacks--The Forth Shall Be First](http://home.pipeline.com/~hbaker1/ForthStack.html). He shows a natural equivalence between a "linear" programming language and a stack machine in which the top items can undergo arbitrary permutations. 
+
+After reading Baker's papers, take a look at an informal (but still rigorous) article by Brent Kerby called the [Theory of Concatenative Combinators](http://tunes.org/~iepos/joy.html). In it he describes an encoding of the Lambda Calculus in a concatenative language and an algorithm for converting from this encoding to an actual point-free concatenative language. 
 
 [Linear types](https://en.wikipedia.org/wiki/Substructural_type_system#Linear_type_systems) are more well known in the area of programming languages. They are a way of enforcing linear properties of certain values in a programming language. Basically a subset of the language is partially linear.
 
@@ -23,4 +27,5 @@ If you are unfamiliar with Concatenative languages and want a formal introductio
 * [A type system for bounded space and functional in-place update](https://pdfs.semanticscholar.org/2fcc/9b18731f8f96eca9a3bc6855cb66a7f0d66f.pdf)
 * [Linear types and non-size-increasing polynomial time computation](https://www.cs.cmu.edu/~fp/courses/15816-s12/misc/hofmann03ic.pdf) 
 * [Linear Type Proposal for Haskell](https://ghc.haskell.org/trac/ghc/wiki/LinearTypes)
+* [A Taste of Linear Logic](https://homepages.inf.ed.ac.uk/wadler/papers/lineartaste/lineartaste-revised.pdf)
 
