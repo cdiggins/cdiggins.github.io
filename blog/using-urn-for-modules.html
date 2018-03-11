@@ -109,7 +109,7 @@
 
 <p>I have been considering an alternative module system for my programming language that instead of using simple module names uses URNs directly in source code to uniquely identify the used modules and the versions of those modules. </p>
 
-<p>For example: <code>import urn:<OrganizationName>:<ProjectName>:<LibraryName>:<major>.<minor>.<path>;</code></p>
+<p>For example: <code>import urn:&lt;OrganizationName&gt;:&lt;ProjectName&gt;:&lt;LibraryName&gt;:&lt;major&gt;.&lt;minor&gt;.&lt;path&gt;;</code></p>
 
 <p>URNs have the potential to be unique (except for the rare case of a name collision between: Organization/Project/Library. This could be managed by a centralized community package database that resolves URNs to URIs. Considering that GitHub uses Organization/RepositoryName to assure uniqueness among millions of open-source projects, this should be reasonable. </p>
 

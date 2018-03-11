@@ -35,7 +35,7 @@ I have been considering an alternative module system for my programming language
 module names uses URNs directly in source code to uniquely identify the used modules and the versions of 
 those modules. 
 
-For example: `import urn:<OrganizationName>:<ProjectName>:<LibraryName>:<major>.<minor>.<path>;`
+For example: `import urn:&lt;OrganizationName&gt;:&lt;ProjectName&gt;:&lt;LibraryName&gt;:&lt;major&gt;.&lt;minor&gt;.&lt;path&gt;;`
 
 URNs have the potential to be unique (except for the rare case of a name collision between: Organization/Project/Library. 
 This could be managed by a centralized community package database that resolves URNs to URIs. Considering that GitHub 
