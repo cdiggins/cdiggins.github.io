@@ -4,7 +4,7 @@
  <title>Another Software Development Blog by Christopher Diggins</title>
  <description>Thoughts and anecdotes on software development and programming language design.</description>
  <link>https://cdiggins.github.io</link>
- <lastBuildDate>Sat, 10 Mar 2018 20:26:23 GMT-0500 (Eastern Standard Time)</lastBuildDate>
+ <lastBuildDate>Tue, 1 Jan 2019 16:24:26 GMT-0400 (Atlantic Standard Time)</lastBuildDate>
  <pubDate>Sun, 23 July 2017 11:50 EST</pubDate>
  <webMaster>cdiggins@gmail.com</webMaster>
  <managingEditor>cdiggins@gmail.com</managingEditor>
@@ -14,12 +14,21 @@
  
  
  <item>
+  <title>Undocumented 3ds Max SDK - MaxPlus and .NET Assemblies</title>
+  <description>Undocumented .NET class libraries shipped with 3ds Max 2019</description>
+  <category>3dsmax</category>
+  <link>https://cdiggins.github.io/blog/undocumented-3dsmax-dotnet-assemblies.html</link>
+  <source>http://cdiggins.github.io/rss.xml</source>
+  <pubDate>Tue, 1 Jan 2019 16:16:00 GMT-0400 (Atlantic Standard Time)</pubDate>
+ </item>
+ 
+ <item>
   <title>Using URNs for a Module System</title>
   <description>A proposal for using URNs in code to identify modules</description>
   <category>pl-design</category>
   <link>https://cdiggins.github.io/blog/using-urn-for-modules.html</link>
   <source>http://cdiggins.github.io/rss.xml</source>
-  <pubDate>Fri, 9 Mar 2018 15:40:00 GMT-0500 (Eastern Standard Time)</pubDate>
+  <pubDate>Fri, 9 Mar 2018 15:40:00 GMT-0400 (Atlantic Standard Time)</pubDate>
  </item>
  
  <item>
@@ -28,7 +37,7 @@
   <category>javascript</category>
   <link>https://cdiggins.github.io/blog/react-best-practices.html</link>
   <source>http://cdiggins.github.io/rss.xml</source>
-  <pubDate>Wed, 24 Jan 2018 15:40:00 GMT-0500 (Eastern Standard Time)</pubDate>
+  <pubDate>Wed, 24 Jan 2018 15:40:00 GMT-0400 (Atlantic Standard Time)</pubDate>
  </item>
  
  <item>
@@ -37,7 +46,7 @@
   <category>theory</category>
   <link>https://cdiggins.github.io/blog/linear-logic-and-linear-lisp.html</link>
   <source>http://cdiggins.github.io/rss.xml</source>
-  <pubDate>Thu, 18 Jan 2018 09:00:00 GMT-0500 (Eastern Standard Time)</pubDate>
+  <pubDate>Thu, 18 Jan 2018 09:00:00 GMT-0400 (Atlantic Standard Time)</pubDate>
  </item>
  
  <item>
@@ -46,7 +55,7 @@
   <category>programming</category>
   <link>https://cdiggins.github.io/blog/programming-tips.html</link>
   <source>http://cdiggins.github.io/rss.xml</source>
-  <pubDate>Tue, 22 Aug 2017 09:30:00 GMT-0400 (Eastern Daylight Time)</pubDate>
+  <pubDate>Tue, 22 Aug 2017 09:30:00 GMT-0300 (Atlantic Daylight Time)</pubDate>
  </item>
  
  <item>
@@ -55,7 +64,7 @@
   <category>exaltation</category>
   <link>https://cdiggins.github.io/blog/exaltation.html</link>
   <source>http://cdiggins.github.io/rss.xml</source>
-  <pubDate>Sat, 19 Aug 2017 15:30:00 GMT-0400 (Eastern Daylight Time)</pubDate>
+  <pubDate>Sat, 19 Aug 2017 15:30:00 GMT-0300 (Atlantic Daylight Time)</pubDate>
  </item>
  
  <item>
@@ -64,7 +73,7 @@
   <category>web development</category>
   <link>https://cdiggins.github.io/blog/acknowledgements.html</link>
   <source>http://cdiggins.github.io/rss.xml</source>
-  <pubDate>Thu, 3 Aug 2017 20:00:00 GMT-0400 (Eastern Daylight Time)</pubDate>
+  <pubDate>Thu, 3 Aug 2017 20:00:00 GMT-0300 (Atlantic Daylight Time)</pubDate>
  </item>
  
  <item>
@@ -73,7 +82,7 @@
   <category>functional programming</category>
   <link>https://cdiggins.github.io/blog/for-loops-are-functional.html</link>
   <source>http://cdiggins.github.io/rss.xml</source>
-  <pubDate>Sun, 23 Jul 2017 23:30:00 GMT-0400 (Eastern Daylight Time)</pubDate>
+  <pubDate>Sun, 23 Jul 2017 23:30:00 GMT-0300 (Atlantic Daylight Time)</pubDate>
  </item>
  
  <item>
@@ -82,7 +91,7 @@
   <category>parsing</category>
   <link>https://cdiggins.github.io/blog/myna-blog-maker.html</link>
   <source>http://cdiggins.github.io/rss.xml</source>
-  <pubDate>Tue, 11 Jul 2017 10:00:00 GMT-0400 (Eastern Daylight Time)</pubDate>
+  <pubDate>Tue, 11 Jul 2017 10:00:00 GMT-0300 (Atlantic Daylight Time)</pubDate>
  </item>
  
  <item>
@@ -91,7 +100,7 @@
   <category>parsing</category>
   <link>https://cdiggins.github.io/blog/myna-parsing-library.html</link>
   <source>http://cdiggins.github.io/rss.xml</source>
-  <pubDate>Tue, 11 Jul 2017 07:00:00 GMT-0400 (Eastern Daylight Time)</pubDate>
+  <pubDate>Tue, 11 Jul 2017 07:00:00 GMT-0300 (Atlantic Daylight Time)</pubDate>
  </item>
  
  <item>
@@ -100,7 +109,7 @@
   <category>about</category>
   <link>https://cdiggins.github.io/blog/first.html</link>
   <source>http://cdiggins.github.io/rss.xml</source>
-  <pubDate>Mon, 10 Jul 2017 07:00:00 GMT-0400 (Eastern Daylight Time)</pubDate>
+  <pubDate>Mon, 10 Jul 2017 07:00:00 GMT-0300 (Atlantic Daylight Time)</pubDate>
  </item>
  
 

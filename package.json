@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A software development blog by Christopher Diggins and a static blog generator created using Myna",
   "scripts": {
-    "build": "node src/make_blog.js"
+    "build": "node src/build.js"
   },
   "homepage": "https://cdiggins.github.io",
   "license": "MIT",

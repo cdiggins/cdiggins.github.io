@@ -85,6 +85,13 @@
         "date":"2018-03-09T15:40",
         "category":"pl-design",
         "description":"A proposal for using URNs in code to identify modules"
+    },
+    {
+        "title":"Undocumented 3ds Max SDK - MaxPlus and .NET Assemblies",
+        "src":"undocumented-3dsmax-dotnet-assemblies.md",
+        "date":"2019-01-01T16:16",
+        "category":"3dsmax",
+        "description":"Undocumented .NET class libraries shipped with 3ds Max 2019"
     }
     ]
 }

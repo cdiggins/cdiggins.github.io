@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <!-- 
+    "The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags"
+    Or at least so decreed Bootsrap. I'm not sure why. 
+  -->
+
+  <!-- Standard meta tags -->
+  <meta name="description"          content="Undocumented .NET class libraries shipped with 3ds Max 2019" />
+  <meta name="author"               content="Christopher Diggins" />
+  <meta name="generator"            content="Myna Blog Generator" />
+  
+  <!-- Open Graph meta-properties, used by FaceBook and other social sites --> 
+  <meta property="og:type"          content="website" />
+  <meta property="og:url"           content="https://cdiggins.github.io/blog/undocumented-3dsmax-dotnet-assemblies.html" />
+  <meta property="og:title"         content="Undocumented 3ds Max SDK - MaxPlus and .NET Assemblies" />
+  <meta property="og:description"   content="Undocumented .NET class libraries shipped with 3ds Max 2019" />
+  <meta property="og:image"         content="" />
+
+  <!-- The site title -->
+  <title>Undocumented 3ds Max SDK - MaxPlus and .NET Assemblies</title>
+
+  <!-- Bootstrap http://getbootstrap.com/getting-started/ -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+  <!-- Font Awesome http://fontawesome.io/ --> 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+  <!-- Google Fonts https://fonts.google.com/ --> 
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Source+Sans+Pro">
+
+  <link rel="stylesheet" href="../css/theme.css">
+
+  <!-- My custom styling, non-trivial styling should be done in its own CSS file --> 
+  <style>
+    body { font-family: 'Source Sans Pro', sans-serif; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Roboto', sans-serif; } 
+  </style>
+  </head>
+
+  <body>
+    
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#" title="top">Christopher Diggins</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="../index.html" title="home">Home</a></li>
+          <li><a href="../blog.html" title="blog">Blog</a></li>
+          <li><a href="../about.html" title="about">About</a></li>
+                      <li><a href="using-urn-for-modules.html">Previous</a></li>
+          
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+    <div class="container theme-showcase" role="main">
+        <p>
+          <h4>Tuesday, January 1, 2019</h4>
+        </p>
+    
+        <div class="theme-showcase col-sm-8" id='content'>
+          <p>
+            <h1>Undocumented 3ds Max SDK - MaxPlus and .NET Assemblies</h1>
+
+<p>3ds Max has an <a href = "https://help.autodesk.com/view/3DSMAX/2019/ENU/?guid=__developer_3ds_max__net_sdk_html">official .NET SDK</a> which has some  documentation and examples, but it is only the tip of the iceberg. </p>
+
+<p>I happen to know that there are quite a few .NET DLLs (aka managed DLLs) that contain various APIs that can be found in the 3ds Max executable directory.</p>
+
+<blockquote><b>Hint</b>: the 3ds Max executable can be found usually in <code>%programfiles%\Autodesk\3ds Max 2019</code>, or you can use the environment variable: <code>ADSK<i>3DSMAX</i>x64<i>2019<code>. If you ever forget, like me you can find it by typing in </code>set<code> in the command line. You can also type in </code>%ADSK</i>3DSMAX<i>x64</i>2019%</code> directly in Windows explorer to navigate to the folder. </blockquote>
+
+<p> For example the Max Creation Graph (MCG) is written entirely in .NET. and uses an unsupported .NET version of the MaxPlus API ( <code>MaxPlusDotNet.dll</code>) which is a C++ wrapper around the 3ds Max API exposed to Python. </p>
+ 
+<p> So while it is undocumented and not supported, we do know the MaxPlus .NET API has being used internally extensively since 3ds Max 2016, and is probably not going away anytime soon (unless the 3ds Max team pulls the plug on MCG, or rewrites it).  </p>
+
+<p>This is not really a secret I am sharing: it is possible to load .NET assemblies programmatically using a number of tools (e.g. the C# Object Browser in Visual Studio) and even using your own code. </p>
+
+<h1>The .NET Assemblies </h1>
+
+<p>Below is a lightly edited list of all the .NET DLLs found by a simple tool I wrote. You can reference any of these DLLs in a Visual C# project, and view the contents using the Visual Studio Object Browser. </p>
+
+<ul><li>C:\Program Files\Autodesk\3ds Max 2019\acdbmgd.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\acdbmgdbrep.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\AcMPolygonMGD.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\AdApplicationFrame.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\AdWindows.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\AdWindowsWrapper.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\AssemblyLoader.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\atf_converter\qdca64.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\Autodesk.Act.Content.DLL</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\Autodesk.Act.Core.DLL</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\Autodesk.Connectivity.Explorer.Extensibility.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\Autodesk.Connectivity.Explorer.ExtensibilityTools.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\Autodesk.Connectivity.Extensibility.Framework.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\Autodesk.Connectivity.JobProcessor.Extensibility.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\Autodesk.Connectivity.WebServices.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\Autodesk.Connectivity.WebServices.Interop.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\Autodesk.Connectivity.WebServices.WCF.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\Autodesk.DataManagement.Client.Framework.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\Autodesk.DataManagement.Client.Framework.Forms.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\Autodesk.DataManagement.Client.Framework.Vault.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\Autodesk.DataManagement.Client.Framework.Vault.Forms.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\Autodesk.Max.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\Autodesk.Max.Remoting.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\Autodesk.Max.SlateSdkWrapper.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\bin\assemblies\Autodesk.Max.StateSets.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\bin\assemblies\Autodesk.Max.Wrappers.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\bin\assemblies\BooleanExplorerView.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\bin\assemblies\CreaseExplorerView.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\bin\assemblies\DaylightSimulation.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\bin\assemblies\FPMaxWpfContent.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\bin\assemblies\ManagedBootstrap.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\bin\assemblies\ManagedNetworkUtilities.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\bin\assemblies\MaterialExplorerView.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\bin\assemblies\MaxWpfContent.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\bin\assemblies\ProceduralContentActions.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\bin\assemblies\SceneExplorerView.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\bin\assemblies\Sunlight.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\BulletSharp.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\CoreManagedUiControls.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\CSharpUtilities.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\dcu2dnet67.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\ExplorerFramework.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\ExplorerManagement.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\ExternalPlugins\CS5\Windows\Adobe.AfterFX.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\ExternalPlugins\CS5\Windows\Autodesk.Plugins.Adobe.AfterFX.SceneIO.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\Geometry3D.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\ImmutableArray.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\Inventor Server\Bin\AutodeskDrive.API.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\Inventor Server\Bin\ClrAddinLoader.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\Inventor Server\Bin\dcu2dnet66.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\Lidgren.Network.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\ManagedMC3.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\ManagedOpenVDB.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\ManagedServices.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\MaxBooleanBindings.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\MaxCreaseBindings.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\MaxCreationGraphEditor.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\MaxCustomControls.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\MaxExplorerBindings.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\MaxMaterialBindings.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\MaxPlusDotNet.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\MaxSerialization.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\Microsoft.Expression.Drawing.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\Microsoft.Expression.Interactions.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\Microsoft.Web.Services3.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\MonoGame.Framework.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\Plugins\Ephere.Data.Conversion.Image.Photoshop.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\Plugins\Ephere.Gui.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\Plugins\Ephere.Utilities.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\Plugins\WeifenLuo.WinFormsUI.Docking.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\Revit_converter\RevitAssemblyResolver.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\RevitAPI.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\RevitAPIIFC.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\RevitAPIInternal.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\RevitAPIMacros.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\RevitNET.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\SceneExplorer.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\ShaderDebuggerCLI.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\ShaderDebuggerUI.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\SharpDX.Direct2D1.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\SharpDX.Direct3D11.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\SharpDX.Direct3D9.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\SharpDX.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\SharpDX.DXGI.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\SharpDX.MediaFoundation.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\SharpDX.RawInput.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\SharpDX.XAudio2.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\SharpDX.XInput.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\stdplugs\(CivilView)\bin\3am.DSim.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\stdplugs\(CivilView)\bin\3am.DVSP.Controls.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\stdplugs\(CivilView)\bin\3am.DVSP.Extensions.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\stdplugs\(CivilView)\bin\CVE.Data.12D.v1.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\stdplugs\(CivilView)\bin\CVE.Data.GenIO.v1.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\stdplugs\(CivilView)\bin\CVE.Data.LandXml.v1.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\stdplugs\(CivilView)\bin\CVE.Data.Mx.v1.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\stdplugs\(CivilView)\bin\CVE.Data.Vesper.v4.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\stdplugs\(CivilView)\bin\CVE.Import.12D.v1.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\stdplugs\(CivilView)\bin\CVE.Import.Genio.v1.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\stdplugs\(CivilView)\bin\CVE.Import.LandXml.v1.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\stdplugs\(CivilView)\bin\CVE.Import.MX.v1.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\stdplugs\(CivilView)\bin\Ignytion.Core.v1.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\stdplugs\(CivilView)\bin\Ignytion.Math.v1.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\stdplugs\assettracking\ATSVault10.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\UiViewModels.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\Viper3dsMaxBridge.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\ViperEngine.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\ViperExtension.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\ViperGeometry3D.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\WeatherData.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\WPFCustomControls.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\WPFToolkit.Design.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\WPFToolkit.dll</li>
+<li>C:\Program Files\Autodesk\3ds Max 2019\WPFToolkit.VisualStudio.Design.dll</li>
+</ul>
+
+<h2>The Tool</h2>
+
+<p>Here is the source code for the tool I wrote for iterating over all DLL files in the 3ds Max directory and outputting whether or not is it a .NET DLL. </p>
+
+<pre>using System;
+using System.IO;
+using System.Linq;
+using System.Reflection;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _3dsMaxSamples
+{
+    public class ReflectOverDlls
+    {
+        public static void OutputDllInfo(string file)
+        {
+            try
+            {
+                var asm = Assembly.ReflectionOnlyLoadFrom(file);
+                Console.WriteLine($"File {file}");
+            }
+            catch (Exception e)
+            {
+                // This happens when we know that the API is not a .NET API
+                //Console.WriteLine(e.Message); 
+            }
+        }
+
+        public static void OutputTypes(Assembly asm)
+        {
+            foreach (var t in asm.GetTypes().OrderBy(t => t.FullName))
+            {
+                var kind = t.IsInterface ? "interface" : "class";
+                Console.WriteLine($"  {kind} {t.FullName}");
+                foreach (var c in t.GetConstructors())
+                    Console.WriteLine($"    constructor {c}");
+                foreach (var m in t.GetMethods())
+                    Console.WriteLine($"    method {m}");
+                foreach (var p in t.GetProperties())
+                    Console.WriteLine($"    property {p}");
+                foreach (var f in t.GetFields())
+                    Console.WriteLine($"    field {f}");
+            }
+        }
+
+        public static void Main()
+        {
+            var maxFolder = Environment.GetEnvironmentVariable("ADSK_3DSMAX_x64_2019");
+            foreach (var f in Directory.GetFiles(maxFolder, "*.dll", SearchOption.AllDirectories)
+                .OrderBy(f => f)
+                .AsParallel())
+            {
+                OutputDllInfo(f);
+            }
+        }
+    }
+}
+</pre>
+          </p>
+        </div>
+
+        
+  <div class="col-sm-4 sidebar-module sidebar-module-inset">
+      <p>
+        I am a software developer based in Montreal, Canada with a passion for programming languages, 
+        software development practices and processes, and 3D graphics. 
+      </p>
+    <h3>Recent Posts</h3>
+       <ul>
+   <li><a href="https://cdiggins.github.io/blog/undocumented-3dsmax-dotnet-assemblies.html">Undocumented 3ds Max SDK - MaxPlus and .NET Assemblies</a></li>
+   <li><a href="https://cdiggins.github.io/blog/using-urn-for-modules.html">Using URNs for a Module System</a></li>
+   <li><a href="https://cdiggins.github.io/blog/react-best-practices.html">React Best Practices</a></li>
+   <li><a href="https://cdiggins.github.io/blog/linear-logic-and-linear-lisp.html">Linear Logic, Linear Lisp, Linear Types and Concatenative Languages</a></li>
+   <li><a href="https://cdiggins.github.io/blog/programming-tips.html">10 Tips for Writing Better Code</a></li>
+
+      </ul>
+    <h3>Share</h3> 
+    <p>
+      <ul class="fa-ul">
+        <li><i class="fa fa-facebook    fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://www.facebook.com/sharer/sharer.php?u=https://cdiggins.github.io/blog/undocumented-3dsmax-dotnet-assemblies.html">Facebook</a></li>
+        <li><i class="fa fa-twitter     fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://twitter.com/intent/tweet?url=https://cdiggins.github.io/blog/undocumented-3dsmax-dotnet-assemblies.html">Twitter</a></li>
+        <li><i class="fa fa-reddit      fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://www.reddit.com/r/test/submit?title=Undocumented 3ds Max SDK - MaxPlus and .NET Assemblies&url=https://cdiggins.github.io/blog/undocumented-3dsmax-dotnet-assemblies.html">Reddit</a></li>
+        <li><i class="fa fa-google-plus fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://plus.google.com/share?url=https://cdiggins.github.io/blog/undocumented-3dsmax-dotnet-assemblies.html">Google+</a></li>
+        <li><i class="fa fa-linkedin    fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://www.linkedin.com/shareArticle?mini=true&url=https://cdiggins.github.io/blog/undocumented-3dsmax-dotnet-assemblies.html&title=Undocumented 3ds Max SDK - MaxPlus and .NET Assemblies">LinkedIn</a></li>
+        <li><i class="fa fa-hacker-news fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://news.ycombinator.com/submitlink?u=https://cdiggins.github.io/blog/undocumented-3dsmax-dotnet-assemblies.html&t=Undocumented 3ds Max SDK - MaxPlus and .NET Assemblies">Hacker News</a></li>
+        <li><i class="fa fa-tumblr      fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;<a href="https://www.tumblr.com/share?v=3&t=Undocumented 3ds Max SDK - MaxPlus and .NET Assemblies&u=https://cdiggins.github.io/blog/undocumented-3dsmax-dotnet-assemblies.html">Tumblr</a></li>
+      </ul>
+    </p>
+  </div>
+    </div>
+    
+		    
+<hr>
+<footer style='text-align:center'>
+  <div class="container">
+
+    <!-- Social media sharing icons -->
+    <div class="row">
+              <a href="mailto:cdiggins@gmail.com" class="btn-link" style="text-decoration: none" title="email">
+          <span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x" aria-hidden="true"></i>
+            <i class="fa fa-envelope fa-stack-1x fa-inverse" aria-hidden="true"></i>
+          </span>
+        </a>
+              <a href="https://twitter.com/cdiggins" class="btn-link" style="text-decoration: none" title="Twitter">
+          <span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x" aria-hidden="true"></i>
+            <i class="fa fa-twitter fa-stack-1x fa-inverse" aria-hidden="true"></i>
+          </span>
+        </a>
+              <a href="https://www.linkedin.com/in/cdiggins/" class="btn-link" style="text-decoration: none" title="LinkedIn">
+          <span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x" aria-hidden="true"></i>
+            <i class="fa fa-linkedin fa-stack-1x fa-inverse" aria-hidden="true"></i>
+          </span>
+        </a>
+              <a href="https://www.facebook.com/diggins.software" class="btn-link" style="text-decoration: none" title="FaceBook">
+          <span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x" aria-hidden="true"></i>
+            <i class="fa fa-facebook fa-stack-1x fa-inverse" aria-hidden="true"></i>
+          </span>
+        </a>
+              <a href="https://github.com/cdiggins" class="btn-link" style="text-decoration: none" title="GitHub">
+          <span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x" aria-hidden="true"></i>
+            <i class="fa fa-github fa-stack-1x fa-inverse" aria-hidden="true"></i>
+          </span>
+        </a>
+              <a href="https://stackoverflow.com/users/184528/cdiggins" class="btn-link" style="text-decoration: none" title="StackOverflow">
+          <span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x" aria-hidden="true"></i>
+            <i class="fa fa-stack-overflow fa-stack-1x fa-inverse" aria-hidden="true"></i>
+          </span>
+        </a>
+              <a href="https://www.youtube.com/user/cdiggins" class="btn-link" style="text-decoration: none" title="YouTube">
+          <span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x" aria-hidden="true"></i>
+            <i class="fa fa-youtube fa-stack-1x fa-inverse" aria-hidden="true"></i>
+          </span>
+        </a>
+              <a href="http://cdiggins.github.io/rss.xml" class="btn-link" style="text-decoration: none" title="RSS">
+          <span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x" aria-hidden="true"></i>
+            <i class="fa fa-rss fa-stack-1x fa-inverse" aria-hidden="true"></i>
+          </span>
+        </a>
+      
+    </div>
+  
+    <!-- Copyright and Licene notice -->
+    <p class="copyright text-muted small">
+      Copyright &copy; 2017 Christopher Diggins
+      <br/><a href="https://creativecommons.org/licenses/by-sa/4.0/">Attribution-ShareAlike 4.0 International</a>
+      <br/>built with <a href='https://cdiggins.github.io/exaltation/'>Exaltation</a>
+    </p>
+  </div>
+
+</footer>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+  <!-- Bootstrap scripts --> 
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  <!-- Google analytics -->
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-93495883-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+  </body>
+</html>
